@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Our Team work planning and proof
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- All the folder structure information -->
+=> Before you start:
+   - I have already created all the folders which you will need during journey.
 
-## Available Scripts
+   - Dont use any other folder to make files if you are doing please inform the
+     team members that you have created a folder with name.
 
-In the project directory, you can run:
+   - I have already setup all the things related to `redux`,  `Chakra UI` and `react-router-dom` 
+     You guys have to just start developments.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   - You will get all the routing files in `routes` folder.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   - You can also use context-api if needed.
 
-### `npm test`
+   - Use `assets` folder for images,pdf,video..etc
+   - Use `components` folder for making components either in folder or without folder 
+     just be sure naming should not match with other folder/file to avoid collision
+   - Use `pages` folder to create all the pages
+   - Use `routes`  folder to all the routing related stuffs
+   - Use `styles` folder to keep your all css files.
+   - Use `constants` folder to create all the constants (Helps you reducing hard-coding)(Most recommended)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- Cloning related and Getting started related stuffs -->
+=> Clone the directory to start work `$git clone  https://github.com/faisalinfinity/hilarious-sort-6480.git`
 
-### `npm run build`
+=> Ok guys here are the some basic instruction before you start , If you are here you are successfully pulled the code and you are ready to type you first command in terminal.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Step-1- Navigate to proeject directory using `$cd productify`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Step-2- install node_modules using `$cd npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<!-- Git related stuffs -->
+=> Some basic requirements(Mandatory):
+       1- You have to work in daily branches manner, so you have to create
+          new branch everyday . So you have make branch using your student_code 
+          followed the day in which you working. below is the eg for my branches.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+               - branch-naming style: fw21_XXXX_day-x
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+            -for day-2 branch name should be: fw21_1003_day-2
+            -for day-3 branch name should be: fw21_1003_day-3
+            -for day-4 branch name should be: fw21_1003_day-4
+            -for day-5 branch name should be: fw21_1003_day-5
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+        2- How to create branches:
+            - $git branch <branch-name> (without angle brackets)
+        
+        3- How to switch branches:
+            -$git switch <branch-name>  (without angle brackets)
+        
+        4- How to pull:
+            -$git pull origin <branch-name>    (without angle brackets)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=> Some helpful Tools during development :<br />
+    - Chakra-UI - https://chakra-ui.com/<br />
+    - Chakra-Templets - https://chakra-templates.dev/#<br />
+    - String Builder - https://codebeautify.org/string-builder<br />
+    - Chat-gpt - https://chat.openai.com/chat<br />
