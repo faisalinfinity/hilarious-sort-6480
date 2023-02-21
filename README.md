@@ -14,8 +14,6 @@
    - You will get all the routing files in `routes` folder.
 
    - You can also use context-api if needed.
-
-   - Use `assets` folder for images,pdf,video..etc
    - Use `components` folder for making components either in folder or without folder 
      just be sure naming should not match with other folder/file to avoid collision
    - Use `pages` folder to create all the pages
