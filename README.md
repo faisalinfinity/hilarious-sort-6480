@@ -3,6 +3,8 @@
 <!-- All the folder structure information -->
 => Before you start:
    - I have already created all the folders which you will need during journey.
+   - Make sure to import BASE_URL from apiConstants for making api calls with required endpoints
+   eg: use  axios.get(`${BASE_URL}/data`) for fetching data instead of using "http://localhost:8080/data"
 
    - Dont use any other folder to make files if you are doing please inform the
      team members that you have created a folder with name.
