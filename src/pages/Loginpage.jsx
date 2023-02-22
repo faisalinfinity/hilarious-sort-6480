@@ -38,7 +38,7 @@ export default function Loginpage() {
         console.log(res.user);
         const { displayName, email } = res.user;
         console.log(displayName, email);
-        dispatch(loginAction(res.user.providerData,navigate));
+        dispatch(loginAction(res.user.providerData, navigate));
       })
       .catch((error) => {
         console.log(error.message);
@@ -66,7 +66,7 @@ export default function Loginpage() {
     if (email.includes("@productify") && password === "productify") {
       navigate("/admin");
     } else {
-      dispatch(manualSignin(navigate,email, password));
+      dispatch(manualSignin(navigate, email, password));
     }
   };
   return (
@@ -77,16 +77,16 @@ export default function Loginpage() {
         justify={"center"}
         bg={useColorModeValue("gray.50", "gray.800")}
       >
-        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-          <Stack align={"center"}>
-            <Box bg={Blue} p="10px" color={"white"}>
+        <Stack  spacing={8} mx={"auto"} maxW={"sm"}  py={1} px={6}>
+          <Stack  align={"center"}>
+            <Box bg={Blue} p="7px" color={"white"}>
               {" "}
-              To buy and sell on www.productify.com or other eBay sites
+              To buy and sell on www.productify.com or other productify sites
               internationally, existing users can login using their credentials
               or new users can register an eBay account on ebay.in. Kindly note
               you can no longer buy or sell on productify.in.
             </Box>
-            <Heading fontSize={"4xl"}>Hello</Heading>
+            <Heading fontSize={"2xl"}>Hello</Heading>
             <Text fontSize={"lg"} color={"gray.600"}>
               Sign in to Productify or{" "}
               <Link href="/signup" color={"blue.400"}>
@@ -100,7 +100,7 @@ export default function Loginpage() {
             boxShadow={"lg"}
             p={8}
           >
-            <Stack spacing={4}>
+            <Stack maxH={"sm"} spacing={4}>
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
                 <Input onChange={handleEmail} type="email" />
