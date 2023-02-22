@@ -1,0 +1,38 @@
+
+.singleProduct{
+    width:90%;
+    margin:auto;
+
+}
+.SingleProductBox{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.SingleProductBoxfirst{
+    width:32%;
+    margin:auto;
+    padding:20px;
+    
+}
+.SingleProductBoxsecond{
+    width:43%;
+    margin:auto;
+    padding:30px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    
+}
+.SingleProductBoxthird{
+    width:25%;
+    margin:auto;
+    padding:20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.SingleProductBoxthirdDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    padding:5px;
+}
