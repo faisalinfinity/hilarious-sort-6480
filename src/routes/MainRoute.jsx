@@ -5,12 +5,14 @@ import Electronics from "../pages/Electronics";
 import Homepage from "../pages/Homepage";
 import Loginpage from "../pages/Loginpage";
 import Payment from "../pages/Payment";
+import Smartphone from "../pages/Smartphone";
 
 const MainRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />}></Route>
       <Route path="/electronics" element={<Electronics/>}></Route>
+      <Route path="/electronics/smartphone" element={<Smartphone/>}></Route>
       <Route path="/cart" element={<Cartpage />}></Route>
       <Route path="/login" element={<Loginpage />}></Route>
       <Route path="/payment" element={<Payment />}></Route>

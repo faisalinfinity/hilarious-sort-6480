@@ -226,8 +226,8 @@ const Electronics = () => {
             gap: 5
           }}
         >
-          {Category.map((item) => (
-            <div
+          {Category.map((item,i) => (
+           <Link to="/electronics/smartphone" key={i} ><div
               style={{
                 display: "grid",
                 gridTemplateRows: "78% 20%",
@@ -235,6 +235,7 @@ const Electronics = () => {
                 height: "210px",
               }}
             >
+
               <div>
                 <Img src={item.image} alt={item.title} />
               </div>
@@ -242,6 +243,7 @@ const Electronics = () => {
                 <Text fontSize="sm">{item.title}</Text>
               </div>
             </div>
+            </Link>
           ))}
          
           
