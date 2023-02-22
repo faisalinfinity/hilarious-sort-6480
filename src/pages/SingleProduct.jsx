@@ -18,7 +18,7 @@ import axios from "axios"
 import { useToast } from '@chakra-ui/react'
 import Carousel from '../components/singleProductCarousel';
 
-
+//singleProduct page
 function SingleProduct(){
     const [count,setCount]=useState(1)
     const [data,setData]=useState({})
