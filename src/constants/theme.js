@@ -1,0 +1,1 @@
+export const Blue="#3665f3"
