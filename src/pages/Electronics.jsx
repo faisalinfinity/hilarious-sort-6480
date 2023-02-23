@@ -29,7 +29,7 @@ const Category = [
   },
   {
     image: "https://i.ebayimg.com/thumbs/images/g/~JwAAOSwXhRdfDLx/s-l225.webp",
-    title: "Cell Phones, Smart Watches & Accessories",
+    title: "Cell Phones & Accessories",
   },
   {
     image: "https://i.ebayimg.com/thumbs/images/g/XkkAAOSweExhcJOR/s-l225.webp",
@@ -44,8 +44,8 @@ const Category = [
     title: "Cameras & Photo",
   },
   {
-    image: "https://i.ebayimg.com/thumbs/images/g/cFEAAOSwXFhhcJOW/s-l225.webp",
-    title: "TV, Video & Home Audio Electronics",
+    image: "https://m.media-amazon.com/images/I/610OiiTm9PL._SY450_.jpg",
+    title: "Smart Watches",
   },
   {
     image: "https://i.ebayimg.com/thumbs/images/g/jx4AAOSw01tdgnC-/s-l225.webp",
@@ -142,6 +142,7 @@ const Electronics = () => {
           
         }}
       >
+         {/* ------Left Side------ */}
         <div>
           <Accordion allowToggle>
             <AccordionItem m={3}>
@@ -154,8 +155,10 @@ const Electronics = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod
+               <Link to="/electronics/cameras"> All Cameras</Link><br/>
+               <Link to="/electronics/cameras"> Digital Camera </Link> <br/>
+               <Link to="/electronics/cameras"> Camera Drones </Link><br/>
+
               </AccordionPanel>
             </AccordionItem>
 
@@ -169,8 +172,9 @@ const Electronics = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod
+              <Link to="/electronics/smartphone"> All Phones</Link><br/>
+               <Link to="/electronics/smartphone"> IPhone </Link> <br/>
+               <Link to="/electronics/smartphone"> Phone Accessories  </Link><br/>
               </AccordionPanel>
             </AccordionItem>
             <AccordionItem m={3}>
@@ -183,8 +187,9 @@ const Electronics = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod
+              <Link to="/electronics/computer"> All Computers</Link><br/>
+               <Link to="/electronics/computer">All Tablets </Link> <br/>
+               <Link to="/electronics/computer"> Computer Accessories </Link><br/>
               </AccordionPanel>
             </AccordionItem>
             <AccordionItem m={3}>
@@ -197,8 +202,8 @@ const Electronics = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod
+              <Link to="/electronics/smartwatch"> All Smart Watches</Link><br/>
+             <Link to="/electronics/smartwatch"> Smart Watches Accessories </Link><br/>
               </AccordionPanel>
             </AccordionItem>
             <AccordionItem m={3}>
@@ -211,12 +216,13 @@ const Electronics = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod
+              <Link to="/electronics/video_game_console"> All Video Games & Console</Link><br/>
+             <Link to="/electronics/video_game_console"> Console Accessories</Link><br/>
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
         </div>
+         {/* ------Rigth Side------ */}
         <div>
         <Text fontSize="3xl" fontWeight={'bold'}>Shop By Category</Text>
         <div
