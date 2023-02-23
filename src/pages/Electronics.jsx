@@ -246,7 +246,7 @@ const Electronics = () => {
                 <Img src={item.image} alt={item.title} />
               </div>
               <div>
-                <Text fontSize="sm">{item.title}</Text>
+                <Text fontSize="sm" align={"center"}>{item.title}</Text>
               </div>
             </div>
             </Link>
@@ -286,7 +286,7 @@ const Electronics = () => {
                 <Img src={item.image} alt={item.title} />
               </div>
               <div>
-                <Text fontSize="sm">{item.title}</Text>
+                <Text fontSize="sm" align={"center"}>{item.title}</Text>
               </div>
             </div>
           ))}
