@@ -6,10 +6,9 @@ import Homepage from "../pages/Homepage";
 import Loginpage from "../pages/Loginpage";
 import Payment from "../pages/Payment";
 import Smartphone from "../pages/Smartphone";
-import Payment from "../pages
-import SingleProduct from "../pages
+import SingleProduct from "../pages/SingleProduct"
 import Signup from "../pages/Signup";
-import PrivateRoute from ".
+import PrivateRoute from "./PrivateRoute"
 
 
 const MainRoute = () => {
@@ -24,7 +23,7 @@ const MainRoute = () => {
       <Route path="/product/:id" element={<SingleProduct />}></Route>
       <Route path="/payment" element={<PrivateRoute><Payment/></PrivateRoute>}></Route>
       <Route path="/signup" element={<Signup/>}></Route>
-      <Route path="*" element={<h1>404 Page not found</h1>}></Rout
+      <Route path="*" element={<h1>404 Page not found</h1>}></Route>
     </Routes>
   );
 };
