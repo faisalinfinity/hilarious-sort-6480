@@ -22,11 +22,15 @@ import {
     BellIcon
   } from '@chakra-ui/icons';
   import {AiOutlineShoppingCart} from "react-icons/ai"
-  import {Link} from "react-router-dom"
+  import {Link, useNavigate} from "react-router-dom"
   
   export default function SubNavbar() {
     const { isOpen, onToggle } = useDisclosure();
+    const navigate = useNavigate()
   
+    const handleClick = () =>{
+      navigate("/cart")
+    }
     return (
       <Box>
         <Flex
@@ -112,6 +116,8 @@ import {
               fontSize={'26px'}
               fontWeight={400}            
               variant={'link'}
+              _hover={{ bg:"green.200"}}
+              onClick={handleClick}
               >
               <AiOutlineShoppingCart /><span style={{fontSize:"15px"}} >0</span>
             </Button>
