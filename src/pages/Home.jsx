@@ -24,11 +24,7 @@ import {
     Tooltip,
   } from '@chakra-ui/react';
   import {
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionPanel,
-    AccordionIcon,
+  
    Spinner,
     Text,
   } from "@chakra-ui/react";  
@@ -48,7 +44,31 @@ const data = {
   rating: 4.2,
   numReviews: 34,
 };
-
+function Star({ rating }) {
+  return (
+    <Box display="flex" alignItems="center">
+      {Array(5)
+        .fill('')
+        .map((_, i) => {
+          const roundedRating = Math.round(rating * 2) / 2;
+          if (roundedRating - i >= 1) {
+            return (
+              <BsStarFill
+                key={i}
+                style={{ marginLeft: '1' }}
+                color={i < rating ? 'teal.500' : 'gray.300'}
+              />
+            );
+          }
+          if (roundedRating - i === 0.5) {
+            return <BsStarHalf key={i} style={{ marginLeft: '1' }} />;
+          }
+          return <BsStar key={i} style={{ marginLeft: '1' }} />;
+        })}
+      
+    </Box>
+  );
+}
 
 function Rating({ rating, numReviews }) {
   return (
@@ -144,27 +164,28 @@ const Home = () => {
 
   <Heading size={'sm'} fontWeight={'bold'} marginBottom={"5px"} marginTop={'5px'}>Rating</Heading>
      
-        <CheckboxGroup colorScheme={'green'}
-        
-       >
-        <Stack  direction={'column'}>
-  <Checkbox value={'bags'} colorScheme='green' >
-    Mobile
-  </Checkbox>
-  <Checkbox value={'electronics'} colorScheme='green' >
-    Electronics
-  </Checkbox>
-  <Checkbox value={'jewelery'} colorScheme='green' >
-   Jewelery
-  </Checkbox>
-  <Checkbox value={"men's clothing"} colorScheme='green' >
-   Mens clothing
-  </Checkbox>
-  <Checkbox value={"women's clothing"} colorScheme='green' >
-   Womens clothing
-  </Checkbox>
-  </Stack>
-  </CheckboxGroup>
+     <CheckboxGroup colorScheme={'green'}
+     
+    >
+     <Stack  direction={'column'}>
+<Checkbox value={'bags'} colorScheme='green' >
+<Star rating={5} />
+</Checkbox>
+<Checkbox value={'electronics'} colorScheme='green' >
+<Star rating={4} />
+</Checkbox>
+<Checkbox value={'jewelery'} colorScheme='green' >
+<Star rating={3} />
+</Checkbox>
+<Checkbox value={"men's clothing"} colorScheme='green' >
+<Star rating={2} />
+</Checkbox>
+<Checkbox value={"women's clothing"} colorScheme='green' >
+<Star rating={1} />
+</Checkbox>
+</Stack>
+</CheckboxGroup>
+
 
   <Heading size={'sm'} fontWeight={'bold'} marginBottom={"5px"} marginTop={'5px'}>Price</Heading>
      
