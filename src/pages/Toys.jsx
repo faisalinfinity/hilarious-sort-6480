@@ -24,7 +24,11 @@ import {
     Tooltip,
   } from '@chakra-ui/react';
   import {
-  
+    Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
    Spinner,
     Text,
   } from "@chakra-ui/react";  
@@ -32,7 +36,7 @@ import {
   import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineRight,AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
-import {  getDataElectronic } from '../redux/products/productAction';
+import { getDataToys } from '../redux/products/productAction';
 
 import { Checkbox, CheckboxGroup, Stack,Heading } from '@chakra-ui/react'
 const data = {
@@ -73,39 +77,14 @@ function Rating({ rating, numReviews }) {
     </Box>
   );
 }
-function Star({ rating }) {
-  return (
-    <Box display="flex" alignItems="center">
-      {Array(5)
-        .fill('')
-        .map((_, i) => {
-          const roundedRating = Math.round(rating * 2) / 2;
-          if (roundedRating - i >= 1) {
-            return (
-              <BsStarFill
-                key={i}
-                style={{ marginLeft: '1' }}
-                color={i < rating ? 'teal.500' : 'gray.300'}
-              />
-            );
-          }
-          if (roundedRating - i === 0.5) {
-            return <BsStarHalf key={i} style={{ marginLeft: '1' }} />;
-          }
-          return <BsStar key={i} style={{ marginLeft: '1' }} />;
-        })}
-      
-    </Box>
-  );
-}
 
-const Electronics = () => {
+const Toys = () => {
   const {products,loading}=useSelector((store)=>store.product)
  
   const [grid,setGrid]=useState(true)
   const dispatch=useDispatch()
  useEffect(()=>{
-   dispatch(getDataElectronic())
+   dispatch(getDataToys())
  },[])
   console.log(products)
   return (
@@ -120,10 +99,10 @@ const Electronics = () => {
           <Link to={"/"}>Productify</Link>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <Link to={"/all_electronics"}>All Electronics</Link>
+          <Link to={"/electronics"}>Electronics</Link>
         </BreadcrumbItem>
         <BreadcrumbItem isCurrentPage>
-          <b> Electronic </b>
+          <b>  smartphone </b>
         </BreadcrumbItem>
       </Breadcrumb>
       <div
@@ -145,19 +124,21 @@ const Electronics = () => {
         
        >
         <Stack  direction={'column'}>
-  <Checkbox value={'apple'} colorScheme='green' >
-   Iphone
+  <Checkbox value={'bags'} colorScheme='green' >
+    Mobile
   </Checkbox>
-  <Checkbox value={'laptop'} colorScheme='green' >
-    Laptop
+  <Checkbox value={'electronics'} colorScheme='green' >
+    Electronics
   </Checkbox>
-  <Checkbox value={'camera'} colorScheme='green' >
-   Camera
+  <Checkbox value={'jewelery'} colorScheme='green' >
+   Jewelery
   </Checkbox>
-  <Checkbox value={"tv"} colorScheme='green' >
-   Tv
+  <Checkbox value={"men's clothing"} colorScheme='green' >
+   Mens clothing
   </Checkbox>
-  
+  <Checkbox value={"women's clothing"} colorScheme='green' >
+   Womens clothing
+  </Checkbox>
   </Stack>
   </CheckboxGroup>
 
@@ -168,19 +149,19 @@ const Electronics = () => {
        >
         <Stack  direction={'column'}>
   <Checkbox value={'bags'} colorScheme='green' >
-  <Star rating={5} />
+    Mobile
   </Checkbox>
   <Checkbox value={'electronics'} colorScheme='green' >
-  <Star rating={4} />
+    Electronics
   </Checkbox>
   <Checkbox value={'jewelery'} colorScheme='green' >
-  <Star rating={3} />
+   Jewelery
   </Checkbox>
   <Checkbox value={"men's clothing"} colorScheme='green' >
-  <Star rating={2} />
+   Mens clothing
   </Checkbox>
   <Checkbox value={"women's clothing"} colorScheme='green' >
-  <Star rating={1} />
+   Womens clothing
   </Checkbox>
   </Stack>
   </CheckboxGroup>
@@ -290,7 +271,7 @@ const Electronics = () => {
               <Box as="span" color={'gray.600'} fontSize="2xl">
               ₹
               </Box>
-              {item.price*80}
+              {item.price.toFixed(2)}
             </Box>
         </Box>
       </Box>
@@ -313,4 +294,4 @@ const Electronics = () => {
   )
 }
 
-export default Electronics
+export default Toys

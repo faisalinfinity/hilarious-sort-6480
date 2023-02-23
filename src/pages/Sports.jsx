@@ -32,7 +32,7 @@ import {
   import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineRight,AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
-import {  getDataElectronic } from '../redux/products/productAction';
+import {  getDataSports } from '../redux/products/productAction';
 
 import { Checkbox, CheckboxGroup, Stack,Heading } from '@chakra-ui/react'
 const data = {
@@ -99,13 +99,13 @@ function Star({ rating }) {
   );
 }
 
-const Electronics = () => {
+const Sports = () => {
   const {products,loading}=useSelector((store)=>store.product)
  
   const [grid,setGrid]=useState(true)
   const dispatch=useDispatch()
  useEffect(()=>{
-   dispatch(getDataElectronic())
+   dispatch(getDataSports())
  },[])
   console.log(products)
   return (
@@ -313,4 +313,4 @@ const Electronics = () => {
   )
 }
 
-export default Electronics
+export default Sports
