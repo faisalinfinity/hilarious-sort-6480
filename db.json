@@ -294,7 +294,7 @@
     },
     {
       "title": "Real 10K Solid Yellow Gold Cuban Link Chain Necklace 2.5MM 16\" 18\" 20\" 22\" 24\"",
-      "category": "necklace",
+      "category": "neklace",
       "image": "https://i.ebayimg.com/images/g/ox0AAOSwYTxjhypX/s-l300.jpg",
       "price": 109.99,
       "rating": 5,
@@ -393,10 +393,10 @@
     },
     {
       "title": "0.66ct Diamond Blue Sapphire 14k White Gold Engagement Ring",
-      "category": "",
+      "category": "ring",
       "image": "https://i.ebayimg.com/images/g/76wAAOxykVNRsHYj/s-l300.jpg",
       "price": 1302.05,
-      "rating": "",
+      "rating": 4.1,
       "reviews": 56444,
       "id": 14
     },
@@ -420,25 +420,25 @@
     },
     {
       "title": "VE Necklace Rose Red Gold 585/14kt with CZ Pendant NEW",
-      "category": "",
+      "category": "neklace",
       "image": "https://i.ebayimg.com/images/g/vk4AAOSwTnpinw~Y/s-l300.jpg",
       "price": 242.32,
-      "rating": "",
+      "rating": 5,
       "reviews": 5667,
       "id": 17
     },
     {
       "title": "Classic Link Chain 925 Sterling Silver Women's Men's Chain",
-      "category": "",
+      "category": "chain",
       "image": "https://i.ebayimg.com/images/g/twMAAOSwGNpjZV3~/s-l300.jpg",
       "price": 26.46,
       "rating": 3.9,
-      "reviews": "",
+      "reviews": 4365,
       "id": 18
     },
     {
       "title": "Beads Chain Necklace Genuine Freshwater Breeding Beads 925 Sterling Silver Women's White",
-      "category": "",
+      "category": "chain",
       "image": "https://i.ebayimg.com/images/g/zuIAAOSwNJNj8m-F/s-l300.jpg",
       "price": 19.02,
       "rating": 4.3,
@@ -467,16 +467,16 @@
     },
     {
       "title": "1999 Pokemon Base Set: Choose Your Card! All Pokemon Available!",
-      "category": "",
+      "category": "card",
       "image": "https://i.ebayimg.com/images/g/0t8AAOSwFBhhc3f5/s-l300.png",
       "price": 1.95,
-      "rating": "",
+      "rating": 3.2,
       "reviews": 45523,
       "id": 2
     },
     {
-      "title": "",
-      "category": "",
+      "title": "Hot wheels",
+      "category": "car",
       "image": "https://i.ebayimg.com/images/g/N5EAAOSwqUpjkwcB/s-l300.jpg",
       "price": 4.9,
       "rating": 4.5,
@@ -503,7 +503,7 @@
     },
     {
       "title": "WLTK USAF C-17 Globemaster III Military Transport Aircraft 1/200 Diecast Model",
-      "category": "",
+      "category": "plane",
       "image": "https://i.ebayimg.com/images/g/oLYAAOSwkk1jjFrv/s-l300.jpg",
       "price": 35.99,
       "rating": 4.2,
@@ -512,7 +512,7 @@
     },
     {
       "title": "1:200 Gemini200 United Airlines B737-700 N21723 (flaps down)",
-      "category": "",
+      "category": "plane",
       "image": "https://i.ebayimg.com/images/g/auQAAOSwJ05iR69X/s-l300.jpg",
       "price": 83.96,
       "rating": 4.7,
@@ -530,10 +530,10 @@
     },
     {
       "title": "Super Mario Bros Game and Watch - NEW - SEALED",
-      "category": "",
+      "category": "card",
       "image": "https://i.ebayimg.com/images/g/2sUAAOSwBCligrdB/s-l300.jpg",
       "price": 62,
-      "rating": "",
+      "rating": 4.3,
       "reviews": 75753,
       "id": 9
     },
@@ -551,13 +551,13 @@
       "category": "train",
       "image": "https://i.ebayimg.com/images/g/2fsAAOSwQr1j910m/s-l300.jpg",
       "price": 106.28,
-      "rating": "",
+      "rating": 3.2,
       "reviews": 6785,
       "id": 11
     },
     {
       "title": "NEW! 6 PACK OF O GAUGE ROLLERS (2-RAIL/3-RAIL) W/WHEEL CLEANING (RR-O3-06)",
-      "category": "",
+      "category": "train",
       "image": "https://i.ebayimg.com/images/g/kqkAAOSw69thULig/s-l300.png",
       "price": 125,
       "rating": 4.3,
@@ -566,7 +566,7 @@
     },
     {
       "title": "4 X HO SCALE ROLLERS W/ WHEEL CLEANING ACCESSORIES",
-      "category": "",
+      "category": "train",
       "image": "https://i.ebayimg.com/images/g/~cEAAOSwildfynzb/s-l300.png",
       "price": 89,
       "rating": 4,
@@ -575,7 +575,7 @@
     },
     {
       "title": "9 Pack Smart Tools for HO Scale: Must Have Tools For Model Railroaders",
-      "category": "",
+      "category": "train",
       "image": "https://i.ebayimg.com/images/g/EfsAAOSw08deUbNK/s-l300.png",
       "price": 195,
       "rating": 4.1,
@@ -584,7 +584,7 @@
     },
     {
       "title": "SQUISHMALLOW ROSEANNE THE PINK SAKURA CAT 8\" HOT TOPIC AUTHENTIC EXCLUSIVE",
-      "category": "",
+      "category": "train",
       "image": "https://i.ebayimg.com/images/g/XZcAAOSwmQ9j30u0/s-l300.png",
       "price": 49.99,
       "rating": 4,
@@ -596,22 +596,22 @@
       "category": "wrestling",
       "image": "https://i.ebayimg.com/images/g/xbQAAOSw4slj3TbP/s-l300.jpg",
       "price": 34.99,
-      "rating": "",
+      "rating": 4.6,
       "reviews": 6742,
       "id": 16
     },
     {
       "title": "WWE Wrestling Figure - Elite Legends (Series 15) Kane",
-      "category": "",
+      "category": "wrestling",
       "image": "https://i.ebayimg.com/images/g/ZB4AAOSwJmVj1XIx/s-l300.jpg",
       "price": 18.95,
-      "rating": "",
+      "rating": 4.9,
       "reviews": 5433,
       "id": 17
     },
     {
-      "title": "",
-      "category": "",
+      "title": "WWE Wrestling Figure - Elite Legends (Series 14) Kane",
+      "category": "wrestling",
       "image": "https://i.ebayimg.com/images/g/TX8AAOSwSNxj78Cp/s-l300.jpg",
       "price": 19.99,
       "rating": 3.5,
@@ -619,8 +619,8 @@
       "id": 18
     },
     {
-      "title": "Click to enlarge Shop with confidence Top Rated Plus Trusted seller, fast shipping, and easy returns. Learn more- Top Rated Plus - opens in a new window or tab eBay Money Back Guarantee Get the item you ordered or get your money back. Learn more- eBay Money Back Guarantee - opens in a new window or tab Seller information kyja33 (2042) 99.9% Positive feedback  Save Seller Contact seller Visit store See other items WWE WRESTLING FIGURE Mattel 2011 Kane Elite Collection Series 22 w/ Mask & Belt",
-      "category": "",
+      "title": "WWE WRESTLING FIGURE Mattel 2011 Kane Elite Collection Series 22 w/ Mask & Belt",
+      "category": "wrestling",
       "image": "https://i.ebayimg.com/images/g/6uIAAOSwXClj7vrj/s-l300.jpg",
       "price": 21.99,
       "rating": 4.3,
@@ -629,7 +629,7 @@
     },
     {
       "title": "Lot Of 26 Broken Jakks Mattel Basic Wrestling Figures Custom Fodder For PARTS",
-      "category": "",
+      "category": "wrestling",
       "image": "https://i.ebayimg.com/images/g/9EYAAOSwr4ZjzxSv/s-l300.jpg",
       "price": 0.99,
       "rating": 3.1,
