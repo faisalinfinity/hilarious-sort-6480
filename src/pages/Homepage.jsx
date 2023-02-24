@@ -7,7 +7,6 @@ import {
   Heading,
   Text,
   Container,
-  CardFooter,
   Button,
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
@@ -15,6 +14,10 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
 import Footer from '../components/Footer';
+import CarouselDeals from '../components/CarouselDeals';
+import Carousel1 from '../components/CarouselPoster';
+import PopularDestination from '../components/PopularDestination';
+import BikeCycling from '../components/BikeCycling';
 
 // Settings for the slider
 const settings = {
@@ -145,7 +148,12 @@ export default function Homepage() {
         ))}
       </Slider>    
     </Box>
-     <Footer />
+      <CarouselDeals />
+      <Carousel1 />
+      <PopularDestination />
+      <BikeCycling />
+      <hr />
+      <Footer />
      </>
   );
 }
