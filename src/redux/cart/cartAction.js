@@ -11,9 +11,10 @@ const cartError=()=>{
         type:types.ERROR_API
     }
 }
-const cartSuccess=()=>{
+const cartSuccess=(payload)=>{
     return{
-        type:types.SUCCESS_API
+        type:types.SUCCESS_API,
+        payload
     }
 }
 

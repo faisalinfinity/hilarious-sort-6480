@@ -11,7 +11,7 @@ import {
 import style from "../Style/SingleProduct.module.css"
 import { FcApproval } from "react-icons/fc";
 import { FaHotjar } from "react-icons/fa";
-import {BsStarFill} from "react-icons/bs"
+import {BsStar, BsStarFill, BsStarHalf} from "react-icons/bs"
 import {useState,useEffect} from "react"
 import { BASE_URL } from '../constants/apiConstants';
 import axios from "axios"
@@ -20,6 +20,9 @@ import Carousel from '../components/singleProductCarousel';
 import WithSubnavigation from "../components/Navbar"
 import Footer from '../components/Footer';
 import { useNavigate} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { cartError, cartLoading, cartSuccess } from '../redux/cart/cartAction';
 
 //singleProduct page
 function SingleProduct(){
@@ -29,22 +32,97 @@ function SingleProduct(){
     const toast = useToast()
 
     const navigate=useNavigate()
+    const location=useLocation();
+    console.log("location",location)
 
-    const handleClick=()=>{
-        // setBag([...bag,sdata])
-        toast({
-            title: 'Add to Cart',
-            description: "Your Product Added in Cart!.",
-            status: 'success',
-            duration: 2000,
-            isClosable: true,
-          })
-        //   localStorage.setItem(("bag"),JSON.stringify(bag))
+    const dispatch=useDispatch()
+
+    const {user}=useSelector((store)=>store.auth)
+    const {product}=useSelector((store)=>store.cart)
+      console.log(user[0].email)
+    //   const obj={
+    //     user:user[0].email,
+    //     product:data,
+    //     quantity:count
+    //   }
+    //   console.log("obj",obj)
+
+    function Star(rating) {
+        return (
+          <Box display="flex" alignItems="center">
+            {Array(5)
+              .fill('')
+              .map((_, i) => {
+                const roundedRating = Math.round(rating * 2) / 2;
+                if (roundedRating - i >= 1) {
+                  return (
+                    <BsStarFill
+                      key={i}
+                      style={{ marginLeft: '1' }}
+                      color={i < rating ? 'teal.500' : 'gray.300'}
+                    />
+                  );
+                }
+                if (roundedRating - i === 0.5) {
+                  return <BsStarHalf key={i} style={{ marginLeft: '1' }} />;
+                }
+                return <BsStar key={i} style={{ marginLeft: '1' }} />;
+              })}
+            
+          </Box>
+        );
+      }
+      
+    
+     
+    const handleClick=(id)=>{
+        console.log("id",id)
+          dispatch(cartLoading())
+        //   if(data){
+        //     let flag=false
+        //     product.map((el)=>{
+        //       if(el.id===id){
+        //         flag=true
+        //         alert("Already added to cart")
+        //       }
+        //       return el;
+        //     })
+
+        //     if(!flag){
+        //         const payload={
+        //             user:user[0].email,
+        //             userProduct:[...product, {...data,quantity:1}],
+        //         }
+        //         axios.post(`${BASE_URL}/cart`,payload)
+        //         .then((res)=>{
+        //         dispatch(cartSuccess(res.data))
+        //         toast({
+        //             title: 'Add to Cart',
+        //             description: "Your Product Added in Cart!.",
+        //             status: 'success',
+        //             duration: 2000,
+        //             isClosable: true,
+        //           })
+        //       })
+        //       .catch((err)=>{
+        //         dispatch(cartError())
+        //         toast({
+        //             title: 'Add to Cart',
+        //             description: "Something Error..!.",
+        //             status: 'Error',
+        //             duration: 2000,
+        //             isClosable: true,
+        //           })
+        //       })
+        //     }
+           
+         // }
+          
 
     }
 
     const handleGetData=()=>{
-        axios.get(`${BASE_URL}/data/1`)
+        axios.get(`${BASE_URL}${location.pathname}`)
         .then((res)=>{
             setData(res.data)
         })
@@ -58,7 +136,37 @@ function SingleProduct(){
     useEffect(()=>{
         handleGetData()
     },[])
-    console.log("data",data)
+    console.log("singdata",data)
+    const handleQuantityPlus=(id)=>{
+        product.map((el)=>{
+            if(el.id===id){
+                return{
+                    ...el,
+                    quantity:el.quantity+1
+                }
+            }
+            return el
+            
+        })
+
+
+        axios.patch(`${BASE_URL}/cart/${id}`, {userProduct:[...product]})
+
+    }
+
+    const handleQuantityMinus=(id)=>{
+        product.map((el)=>{
+            if(el.id===id){
+                return{
+                    ...el,
+                    quantity:el.quantity-1<0?0:el.quantity-1
+                }
+            }
+            return el
+        })
+
+        axios.patch(`${BASE_URL}/cart/${id}`, {userProduct:[...product]})
+    }
     return(
         <div>
             {/* <WithSubnavigation/> */}
@@ -71,7 +179,7 @@ function SingleProduct(){
                 </BreadcrumbItem>
 
                  <BreadcrumbItem>
-                   <BreadcrumbLink href='/product'>Products</BreadcrumbLink>
+                   <BreadcrumbLink href='#'>Products</BreadcrumbLink>
                  </BreadcrumbItem>
 
                  <BreadcrumbItem isCurrentPage>
@@ -81,30 +189,31 @@ function SingleProduct(){
             </div>
             <div className={style.SingleProductBox}>
                 <div className={style.SingleProductBoxfirst}>
-                    <img src="https://i.ebayimg.com/images/g/CEkAAOSw7ixi~qNt/s-l500.png" alt="imagename" />
+                    <img src={data.image} alt="imagename" />
                 </div>
                 <div className={style.SingleProductBoxsecond}>
-                    <div className={style.SingleProductBoxthirdDiv}>
-                        <div style={{fontSize:"20px"}}><FcApproval/></div>
+                    {/* <div className={style.SingleProductBoxthirdDiv}>
+                        <div style={{fontSize:"30px"}}><FcApproval/></div>
                         <div>
-                           <h3 style={{fontWeight:"bold"}}>eBay Refurbished</h3>
+                           <h3 style={{fontWeight:"bold",fontSize:"30px"}}>eBay Refurbished</h3>
                         </div>
-                    </div>
+                    </div> */}
                     <div>
-                        <h1 style={{fontSize:"22px",fontWeight:"bold"}}>Samsung Galaxy Book S SM-W767 256GB Wi-Fi + 4G Verizon 13.3" - Mercury Gray</h1>
+                        <h1 style={{fontSize:"25px",fontWeight:"bold"}}>{data.title}</h1>
                     </div>
                     <br />
                     <Flex gap={3} alignItems={'center'}>
                         <div style={{color:"#DD1E31"}}><FaHotjar/></div>
-                        <div><p style={{color:"#DD1E31"}}>15 watched in the last 24 hours</p></div>
+                        <div><p style={{color:"#DD1E31"}}>{data.reviews} watched in the last 24 hours</p></div>
                         <Flex gap={2}>
+                            {/* <div style={{color:"orange"}}><BsStarFill/></div>
                             <div style={{color:"orange"}}><BsStarFill/></div>
                             <div style={{color:"orange"}}><BsStarFill/></div>
                             <div style={{color:"orange"}}><BsStarFill/></div>
-                            <div style={{color:"orange"}}><BsStarFill/></div>
-                            <div style={{color:"orange"}}><BsStarFill/></div>
+                            <div style={{color:"orange"}}><BsStarFill/></div> */}
+                            {Star(data.rating)}
                         </Flex>
-                        <p>5 products ratings</p>
+                        <p>{data.rating} products ratings</p>
                         
                     </Flex>
                     <hr />
@@ -113,12 +222,12 @@ function SingleProduct(){
                         <p>"Limited quantity available"</p>
                         <h1 style={{fontSize:"17px",fontWeight:"bold"}}>Quantity:</h1>
                         <Flex gap={2}>
-                            <Button disabled={count==1} onClick={()=>setCount(count-1)}>Reduce</Button>
+                            <Button disabled={count==1} onClick={()=>handleQuantityPlus(data.id)}>-</Button>
                             <Button disabled>{count}</Button>
-                            <Button disabled={count==5} onClick={()=>setCount(count+1)}>Add</Button>
+                            <Button disabled={count==5} onClick={()=>handleQuantityMinus(data.id)}>+</Button>
                         </Flex>
                         <br />
-                        <h1 style={{fontSize:"17px",fontWeight:"bold"}}>Price: <span> ${1000*count}</span></h1>
+                        <h1 style={{fontSize:"17px",fontWeight:"bold"}}>Price: <span> ${data.price*count}</span></h1>
                         <br />
                         <hr />
                     </div>
@@ -128,7 +237,7 @@ function SingleProduct(){
                         <Button bg={"orange.500"} color={"white"} onClick={handleCartlocate}>Check Cart</Button>
                         <br />
                         <br />
-                        <Button onClick={handleClick} bg={"green.700"} color={"white"}>Add to Cart</Button>
+                        <Button onClick={()=>handleClick(data.id)} bg={"green.700"} color={"white"}>Add to Cart</Button>
                         <br />
                     </div>
                     <br />
@@ -137,7 +246,7 @@ function SingleProduct(){
                     <div>
                         <Flex gap={5}>
                             <h2 style={{color:"#DD1E31",fontWeight:"bold"}}>Free shipping and returns</h2>
-                            <h2 style={{fontWeight:"bold"}}>121 watchers</h2>
+                            <h2 style={{fontWeight:"bold"}}>{data.reviews} watchers</h2>
                             <h2 style={{fontWeight:"bold"}}>28 sold</h2>
                         </Flex>
                     </div>

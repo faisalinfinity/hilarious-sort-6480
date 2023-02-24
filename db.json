@@ -1,278 +1,278 @@
 {
-  "electronic":[
+  "electronic": [
     {
-        "id":1,
-        "title":"Apple iPad 2nd 3rd 4th Generation 16GB 32GB 64GB 128GB PICK:GB - Color *Grade C*",
-        "category":"apple",
-        "image":"https://i.ebayimg.com/thumbs/images/g/F-gAAOSwfhlb22RE/s-l500.jpg",
-        "price":59.99,
-        "rating":4,
-        "reviews":89
+      "id": 1,
+      "title": "Apple iPad 2nd 3rd 4th Generation 16GB 32GB 64GB 128GB PICK:GB - Color *Grade C*",
+      "category": "apple",
+      "image": "https://i.ebayimg.com/thumbs/images/g/F-gAAOSwfhlb22RE/s-l500.jpg",
+      "price": 59.99,
+      "rating": 4,
+      "reviews": 89
     },
     {
-        "id":2,
-        "title":"Apple iPad Mini (5th Generation) 256GB, Wi-Fi, 7.9in - Space Gray",
-        "category":"apple",
-        "image":"https://i.ebayimg.com/thumbs/images/g/4BUAAOSwwnVj8yzD/s-l500.jpg",
-        "price":167.50,
-        "rating":5,
-        "reviews":76
+      "id": 2,
+      "title": "Apple iPad Mini (5th Generation) 256GB, Wi-Fi, 7.9in - Space Gray",
+      "category": "apple",
+      "image": "https://i.ebayimg.com/thumbs/images/g/4BUAAOSwwnVj8yzD/s-l500.jpg",
+      "price": 167.5,
+      "rating": 5,
+      "reviews": 76
     },
     {
-        "id":3,
-        "title":"Apple iPad 2 (2nd Generation A1395) WiFi 16GB Black - Good Condition",
-        "category":"apple",
-        "image":"https://i.ebayimg.com/thumbs/images/g/VhoAAOSw8sRj5ZnY/s-l500.jpg",
-        "price":39.95,
-        "rating":5,
-        "reviews":89
+      "id": 3,
+      "title": "Apple iPad 2 (2nd Generation A1395) WiFi 16GB Black - Good Condition",
+      "category": "apple",
+      "image": "https://i.ebayimg.com/thumbs/images/g/VhoAAOSw8sRj5ZnY/s-l500.jpg",
+      "price": 39.95,
+      "rating": 5,
+      "reviews": 89
     },
     {
-        "id":4,
-        "title":"Apple iPad mini 2 (Wi-Fi Only) A1489 - 16GB/Space Gray Very Good",
-        "category":"apple",
-        "image":"https://i.ebayimg.com/thumbs/images/g/WLIAAOSwA3tj5TVs/s-l500.jpg",
-        "price":39.99,
-        "rating":4,
-        "reviews":56
+      "id": 4,
+      "title": "Apple iPad mini 2 (Wi-Fi Only) A1489 - 16GB/Space Gray Very Good",
+      "category": "apple",
+      "image": "https://i.ebayimg.com/thumbs/images/g/WLIAAOSwA3tj5TVs/s-l500.jpg",
+      "price": 39.99,
+      "rating": 4,
+      "reviews": 56
     },
     {
-        "id":5,
-        "title":"Apple iPad 4th Generation 16GB Wi-Fi A1458 Black ✅Maximum iOS 10.3✅ + Lightning",
-        "category":"apple",
-        "image":"https://i.ebayimg.com/thumbs/images/g/2CgAAOSwoI5j4bq~/s-l500.jpg",
-        "price":48.88,
-        "rating":3,
-        "reviews":55
+      "id": 5,
+      "title": "Apple iPad 4th Generation 16GB Wi-Fi A1458 Black ✅Maximum iOS 10.3✅ + Lightning",
+      "category": "apple",
+      "image": "https://i.ebayimg.com/thumbs/images/g/2CgAAOSwoI5j4bq~/s-l500.jpg",
+      "price": 48.88,
+      "rating": 3,
+      "reviews": 55
     },
     {
-        "id":6,
-        "title":"Apple iPad Air 1st Gen 16GB - Wi-Fi - 9.7 in Tablet Space Gray - Good",
-        "category":"apple",
-        "image":"https://i.ebayimg.com/thumbs/images/g/aIwAAOSw2iBg5Kbu/s-l500.jpg",
-        "price":64.99,
-        "rating":5,
-        "reviews":997
+      "id": 6,
+      "title": "Apple iPad Air 1st Gen 16GB - Wi-Fi - 9.7 in Tablet Space Gray - Good",
+      "category": "apple",
+      "image": "https://i.ebayimg.com/thumbs/images/g/aIwAAOSw2iBg5Kbu/s-l500.jpg",
+      "price": 64.99,
+      "rating": 5,
+      "reviews": 997
     },
     {
-        "id":7,
-        "title":"Dell Latitude 7490 14 HD , i7-8650U, 16GB , 256GB SSD, Win 10Pro-Excellent",
-        "category":"laptop",
-        "image":"https://i.ebayimg.com/thumbs/images/g/rN8AAOSwN9RieYFT/s-l500.jpg",
-        "price":292.00,
-        "rating":5,
-        "reviews":456
+      "id": 7,
+      "title": "Dell Latitude 7490 14 HD , i7-8650U, 16GB , 256GB SSD, Win 10Pro-Excellent",
+      "category": "laptop",
+      "image": "https://i.ebayimg.com/thumbs/images/g/rN8AAOSwN9RieYFT/s-l500.jpg",
+      "price": 292,
+      "rating": 5,
+      "reviews": 456
     },
     {
-        "id":8,
-        "title":"Dell Latitude 5490 FHD i5-8250U 8GB RAM 256GB SSD Windows 10 Pro Touchscreen",
-        "category":"laptop",
-        "image":"https://i.ebayimg.com/thumbs/images/g/j80AAOSwVDRj87Ph/s-l500.jpg",
-        "price":199.00,
-        "rating":4,
-        "reviews":895
+      "id": 8,
+      "title": "Dell Latitude 5490 FHD i5-8250U 8GB RAM 256GB SSD Windows 10 Pro Touchscreen",
+      "category": "laptop",
+      "image": "https://i.ebayimg.com/thumbs/images/g/j80AAOSwVDRj87Ph/s-l500.jpg",
+      "price": 199,
+      "rating": 4,
+      "reviews": 895
     },
     {
-        "id":9,
-        "title":"Latitude 7480 14 i5-6300U 2.4GHz, 16GB DDR4, 256GB SSD, Win 10Pro-Excellent",
-        "category":"laptop",
-        "image":"https://i.ebayimg.com/thumbs/images/g/9DAAAOSw8bxilhM6/s-l500.jpg",
-        "price":249.99,
-        "rating":5,
-        "reviews":675
+      "id": 9,
+      "title": "Latitude 7480 14 i5-6300U 2.4GHz, 16GB DDR4, 256GB SSD, Win 10Pro-Excellent",
+      "category": "laptop",
+      "image": "https://i.ebayimg.com/thumbs/images/g/9DAAAOSw8bxilhM6/s-l500.jpg",
+      "price": 249.99,
+      "rating": 5,
+      "reviews": 675
     },
     {
-        "id":10,
-        "title":"Dell 5490, 14in FHD, i7-8650U, 16GB Ram, 512GB SSD, Win 10 Pro-Excellent",
-        "category":"laptop",
-        "image":"https://i.ebayimg.com/thumbs/images/g/LH8AAOSwYMRie8aO/s-l500.jpg",
-        "price":380.88,
-        "rating":5,
-        "reviews":234
+      "id": 10,
+      "title": "Dell 5490, 14in FHD, i7-8650U, 16GB Ram, 512GB SSD, Win 10 Pro-Excellent",
+      "category": "laptop",
+      "image": "https://i.ebayimg.com/thumbs/images/g/LH8AAOSwYMRie8aO/s-l500.jpg",
+      "price": 380.88,
+      "rating": 5,
+      "reviews": 234
     },
     {
-        "id":11,
-        "title":"Canon EOS M200 Mirrorless Digital Camera with 15-45mm lens BLACK (DAMAGED BOX)",
-        "category":"camera",
-        "image":"https://i.ebayimg.com/thumbs/images/g/FB8AAOSwZ~peNsmk/s-l500.jpg",
-        "price":459.00,
-        "rating":4,
-        "reviews":578
+      "id": 11,
+      "title": "Canon EOS M200 Mirrorless Digital Camera with 15-45mm lens BLACK (DAMAGED BOX)",
+      "category": "camera",
+      "image": "https://i.ebayimg.com/thumbs/images/g/FB8AAOSwZ~peNsmk/s-l500.jpg",
+      "price": 459,
+      "rating": 4,
+      "reviews": 578
     },
     {
-        "id":12,
-        "title":"NEW Canon EOS M100 24.2MP Mirrorless Digital Camera with 15-45mm f/3.5-6.3 IS",
-        "category":"camera",
-        "image":"https://i.ebayimg.com/thumbs/images/g/bgoAAOSwYSJhFCq0/s-l500.jpg",
-        "price":561.24,
-        "rating":5,
-        "reviews":898
+      "id": 12,
+      "title": "NEW Canon EOS M100 24.2MP Mirrorless Digital Camera with 15-45mm f/3.5-6.3 IS",
+      "category": "camera",
+      "image": "https://i.ebayimg.com/thumbs/images/g/bgoAAOSwYSJhFCq0/s-l500.jpg",
+      "price": 561.24,
+      "rating": 5,
+      "reviews": 898
     },
     {
-        "id":13,
-        "title":"[Mint] Sony Alpha a5000 Digital Mirrorless Camera Body with PZ 16-50mm Lens",
-        "category":"camera",
-        "image":"https://i.ebayimg.com/thumbs/images/g/kwwAAOSwvOxgr12D/s-l500.jpg",
-        "price":284.99,
-        "rating":4,
-        "reviews":78
+      "id": 13,
+      "title": "[Mint] Sony Alpha a5000 Digital Mirrorless Camera Body with PZ 16-50mm Lens",
+      "category": "camera",
+      "image": "https://i.ebayimg.com/thumbs/images/g/kwwAAOSwvOxgr12D/s-l500.jpg",
+      "price": 284.99,
+      "rating": 4,
+      "reviews": 78
     },
     {
-        "id":14,
-        "title":"Samsung LC27F396FHNXZA-RB 27 Essential Curved Monitor - Certified Refurbished",
-        "category":"tv",
-        "image":"https://i.ebayimg.com/thumbs/images/g/4dUAAOSwwXdjXTv0/s-l500.jpg",
-        "price":135.99,
-        "rating":5,
-        "reviews":894
+      "id": 14,
+      "title": "Samsung LC27F396FHNXZA-RB 27 Essential Curved Monitor - Certified Refurbished",
+      "category": "tv",
+      "image": "https://i.ebayimg.com/thumbs/images/g/4dUAAOSwwXdjXTv0/s-l500.jpg",
+      "price": 135.99,
+      "rating": 5,
+      "reviews": 894
     },
     {
-        "id":15,
-        "title":"ASUS VZ279HEG1R 27 Gaming Monitor, Full HD (1920x1080) IPS, 75Hz with FreeSync",
-        "category":"tv",
-        "image":"https://i.ebayimg.com/thumbs/images/g/vk8AAOSwzDxjm2tB/s-l500.jpg",
-        "price":139.99,
-        "rating":5,
-        "reviews":428
+      "id": 15,
+      "title": "ASUS VZ279HEG1R 27 Gaming Monitor, Full HD (1920x1080) IPS, 75Hz with FreeSync",
+      "category": "tv",
+      "image": "https://i.ebayimg.com/thumbs/images/g/vk8AAOSwzDxjm2tB/s-l500.jpg",
+      "price": 139.99,
+      "rating": 5,
+      "reviews": 428
     }
-],
-"fashion":[
+  ],
+  "fashion": [
     {
-        "id":1,
-        "title":"Omega Italy Men's Premium Slim Fit Button Up Long Sleeve Solid Color Dress Shirt",
-        "category":"men",
-        "image":"https://i.ebayimg.com/thumbs/images/g/lw0AAOSwV4FgOC5-/s-l500.jpg",
-        "price":23.68,
-        "rating":4,
-        "reviews":478
+      "id": 1,
+      "title": "Omega Italy Men's Premium Slim Fit Button Up Long Sleeve Solid Color Dress Shirt",
+      "category": "men",
+      "image": "https://i.ebayimg.com/thumbs/images/g/lw0AAOSwV4FgOC5-/s-l500.jpg",
+      "price": 23.68,
+      "rating": 4,
+      "reviews": 478
     },
     {
-        "id":2,
-        "title":"Men's Berlioni Long Sleeve Regular Fit Classic Button Up Solid Dress Shirt",
-        "category":"men",
-        "image":"https://i.ebayimg.com/thumbs/images/g/VlIAAOSwSgVgWOsb/s-l500.jpg",
-        "price":21.95,
-        "rating":7,
-        "reviews":789
+      "id": 2,
+      "title": "Men's Berlioni Long Sleeve Regular Fit Classic Button Up Solid Dress Shirt",
+      "category": "men",
+      "image": "https://i.ebayimg.com/thumbs/images/g/VlIAAOSwSgVgWOsb/s-l500.jpg",
+      "price": 21.95,
+      "rating": 7,
+      "reviews": 789
     },
     {
-        "id":3,
-        "title":"Dress Shirts Men's Regular Fit Oxford Long Sleeve One Pocket Solid Color Shirt",
-        "category":"men",
-        "image":"https://i.ebayimg.com/thumbs/images/g/neQAAOSw-hpf91xf/s-l500.jpg",
-        "price":21.95,
-        "rating":4,
-        "reviews":678
+      "id": 3,
+      "title": "Dress Shirts Men's Regular Fit Oxford Long Sleeve One Pocket Solid Color Shirt",
+      "category": "men",
+      "image": "https://i.ebayimg.com/thumbs/images/g/neQAAOSw-hpf91xf/s-l500.jpg",
+      "price": 21.95,
+      "rating": 4,
+      "reviews": 678
     },
     {
-        "id":4,
-        "title":"Men Classic Fit Long Sleeve Wrinkle Resistant Button Down Premium Dress Shirt",
-        "category":"men",
-        "image":"https://i.ebayimg.com/thumbs/images/g/-IkAAOSwV0tjczL9/s-l500.jpg",
-        "price":13.59,
-        "rating":4,
-        "reviews":789
+      "id": 4,
+      "title": "Men Classic Fit Long Sleeve Wrinkle Resistant Button Down Premium Dress Shirt",
+      "category": "men",
+      "image": "https://i.ebayimg.com/thumbs/images/g/-IkAAOSwV0tjczL9/s-l500.jpg",
+      "price": 13.59,
+      "rating": 4,
+      "reviews": 789
     },
     {
-        "id":5,
-        "title":"Alberto Cardinali Men's Tailored Fit Long Sleeve Wrinkle Resistant Dress Shirt",
-        "category":"men",
-        "image":"https://i.ebayimg.com/thumbs/images/g/JcMAAOSwgm5d1c84/s-l500.jpg",
-        "price":23.68,
-        "rating":5,
-        "reviews":389
+      "id": 5,
+      "title": "Alberto Cardinali Men's Tailored Fit Long Sleeve Wrinkle Resistant Dress Shirt",
+      "category": "men",
+      "image": "https://i.ebayimg.com/thumbs/images/g/JcMAAOSwgm5d1c84/s-l500.jpg",
+      "price": 23.68,
+      "rating": 5,
+      "reviews": 389
     },
     {
-        "id":6,
-        "title":"Women Winter High Neck Pullover Dresses Warm Maxi Dress Long Sleeve Solid Color",
-        "category":"women",
-        "image":"https://i.ebayimg.com/thumbs/images/g/QDsAAOSwG91jrVee/s-l500.jpg",
-        "price":16.78,
-        "rating":5,
-        "reviews":567
+      "id": 6,
+      "title": "Women Winter High Neck Pullover Dresses Warm Maxi Dress Long Sleeve Solid Color",
+      "category": "women",
+      "image": "https://i.ebayimg.com/thumbs/images/g/QDsAAOSwG91jrVee/s-l500.jpg",
+      "price": 16.78,
+      "rating": 5,
+      "reviews": 567
     },
     {
-        "id":7,
-        "title":"Women Ladies Sailor Casual Sexy Boho Slim Long Maxi Dress Summer Sundress Party",
-        "category":"women",
-        "image":"https://i.ebayimg.com/thumbs/images/g/ItAAAOSw35Fgy47-/s-l500.jpg",
-        "price":20.99,
-        "rating":4,
-        "reviews":559
+      "id": 7,
+      "title": "Women Ladies Sailor Casual Sexy Boho Slim Long Maxi Dress Summer Sundress Party",
+      "category": "women",
+      "image": "https://i.ebayimg.com/thumbs/images/g/ItAAAOSw35Fgy47-/s-l500.jpg",
+      "price": 20.99,
+      "rating": 4,
+      "reviews": 559
     },
     {
-        "id":8,
-        "title":"Women Long Sleeve Boho Floral Maxi Dress Casual Party Cocktail Splice Dress Gift",
-        "category":"women",
-        "image":"https://i.ebayimg.com/thumbs/images/g/1mEAAOSw4ihjppbO/s-l500.jpg",
-        "price":12.92,
-        "rating":5,
-        "reviews":767
+      "id": 8,
+      "title": "Women Long Sleeve Boho Floral Maxi Dress Casual Party Cocktail Splice Dress Gift",
+      "category": "women",
+      "image": "https://i.ebayimg.com/thumbs/images/g/1mEAAOSw4ihjppbO/s-l500.jpg",
+      "price": 12.92,
+      "rating": 5,
+      "reviews": 767
     },
     {
-        "id":9,
-        "title":"Women Boho Floral V-Neck Tunic Midi Dress 3/4 Sleeve Holiday Party Swing Dresses",
-        "category":"women",
-        "image":"https://i.ebayimg.com/thumbs/images/g/NkEAAOSwk8BjxhcU/s-l500.jpg",
-        "price":14.57,
-        "rating":4,
-        "reviews":564
+      "id": 9,
+      "title": "Women Boho Floral V-Neck Tunic Midi Dress 3/4 Sleeve Holiday Party Swing Dresses",
+      "category": "women",
+      "image": "https://i.ebayimg.com/thumbs/images/g/NkEAAOSwk8BjxhcU/s-l500.jpg",
+      "price": 14.57,
+      "rating": 4,
+      "reviews": 564
     },
     {
-        "id":10,
-        "title":"Womens Ladies Short Sleeve Wrap Dress Office Formal Party Midi Dresses Plus Size",
-        "category":"women",
-        "image":"https://i.ebayimg.com/thumbs/images/g/JcEAAOSwFixi6KSU/s-l500.jpg",
-        "price":16.98,
-        "rating":4,
-        "reviews":26
+      "id": 10,
+      "title": "Womens Ladies Short Sleeve Wrap Dress Office Formal Party Midi Dresses Plus Size",
+      "category": "women",
+      "image": "https://i.ebayimg.com/thumbs/images/g/JcEAAOSwFixi6KSU/s-l500.jpg",
+      "price": 16.98,
+      "rating": 4,
+      "reviews": 26
     },
     {
-        "id":11,
-        "title":"Puma 192930-05 Toddler Boys Flyer Runner V Sneakers Shoes Casual - Blue -",
-        "category":"shoes",
-        "image":"https://i.ebayimg.com/thumbs/images/g/TZQAAOSwNpljNa~q/s-l500.jpg",
-        "price":14.99,
-        "rating":4,
-        "reviews":845
+      "id": 11,
+      "title": "Puma 192930-05 Toddler Boys Flyer Runner V Sneakers Shoes Casual - Blue -",
+      "category": "shoes",
+      "image": "https://i.ebayimg.com/thumbs/images/g/TZQAAOSwNpljNa~q/s-l500.jpg",
+      "price": 14.99,
+      "rating": 4,
+      "reviews": 845
     },
     {
-        "id":12,
-        "title":"Nike Star Runner 2 AT1803-404 Infant/Toddler Boys Shoes 4 C Laser Blue",
-        "category":"shoes",
-        "image":"https://i.ebayimg.com/thumbs/images/g/0SAAAOSwYhlivVEa/s-l500.jpg",
-        "price":17.6,
-        "rating":4,
-        "reviews":89
+      "id": 12,
+      "title": "Nike Star Runner 2 AT1803-404 Infant/Toddler Boys Shoes 4 C Laser Blue",
+      "category": "shoes",
+      "image": "https://i.ebayimg.com/thumbs/images/g/0SAAAOSwYhlivVEa/s-l500.jpg",
+      "price": 17.6,
+      "rating": 4,
+      "reviews": 89
     },
     {
-        "id":13,
-        "title":"Nike Toddler Boy's Star Runner 2 Athletic Shoes Blue Silver White Size 5",
-        "category":"shoes",
-        "image":"https://i.ebayimg.com/thumbs/images/g/EKcAAOSw3a9jYsfb/s-l500.jpg",
-        "price":27.99,
-        "rating":4,
-        "reviews":290
+      "id": 13,
+      "title": "Nike Toddler Boy's Star Runner 2 Athletic Shoes Blue Silver White Size 5",
+      "category": "shoes",
+      "image": "https://i.ebayimg.com/thumbs/images/g/EKcAAOSw3a9jYsfb/s-l500.jpg",
+      "price": 27.99,
+      "rating": 4,
+      "reviews": 290
     },
     {
-        "id":14,
-        "title":"Nike Toddler Kids Court Borough Low 2 White/Univ. Red/Black Shoes, BQ5453-110",
-        "category":"shoes",
-        "image":"https://i.ebayimg.com/thumbs/images/g/RZsAAOSwORNjx0lb/s-l500.jpg",
-        "price":35.00,
-        "rating":4,
-        "reviews":345
+      "id": 14,
+      "title": "Nike Toddler Kids Court Borough Low 2 White/Univ. Red/Black Shoes, BQ5453-110",
+      "category": "shoes",
+      "image": "https://i.ebayimg.com/thumbs/images/g/RZsAAOSwORNjx0lb/s-l500.jpg",
+      "price": 35,
+      "rating": 4,
+      "reviews": 345
     },
     {
-        "id":15,
-        "title":"Crocs Kids’ Classic Solarized Tie Dye Clogs| Water Shoes | Kids' Shoes",
-        "category":"shoes",
-        "image":"https://i.ebayimg.com/thumbs/images/g/xdIAAOSw14Bjy87E/s-l500.jpg",
-        "price":22.50,
-        "rating":4,
-        "reviews":234
+      "id": 15,
+      "title": "Crocs Kids’ Classic Solarized Tie Dye Clogs| Water Shoes | Kids' Shoes",
+      "category": "shoes",
+      "image": "https://i.ebayimg.com/thumbs/images/g/xdIAAOSw14Bjy87E/s-l500.jpg",
+      "price": 22.5,
+      "rating": 4,
+      "reviews": 234
     }
-],
+  ],
   "jewellary": [
     {
       "title": "Guaranteed 925 Sterling Silver Cuban Curb Chain Necklace Solid & Heavy Version",
@@ -835,7 +835,7 @@
       "image": "https://i.ebayimg.com/images/g/I6cAAOSwtEJj9WKP/s-l500.jpg",
       "price": 1200,
       "rating": 3.3,
-      "reviews":480,
+      "reviews": 480,
       "id": 2
     },
     {
@@ -898,7 +898,7 @@
       "image": "https://i.ebayimg.com/images/g/IHsAAOSw8ItjarLE/s-l500.jpg",
       "price": 300,
       "rating": 3.5,
-      "reviews":2025,
+      "reviews": 2025,
       "id": 9
     },
     {
@@ -964,6 +964,23 @@
       "reviews": 12345,
       "id": 16
     }
-    
+  ],
+  "cart": [
+    {
+      "user": "vinayhatwar16@gmail.com",
+      "userProduct": [
+        {
+          "id": 2,
+          "title": "Apple iPad Mini (5th Generation) 256GB, Wi-Fi, 7.9in - Space Gray",
+          "category": "apple",
+          "image": "https://i.ebayimg.com/thumbs/images/g/4BUAAOSwwnVj8yzD/s-l500.jpg",
+          "price": 167.5,
+          "rating": 5,
+          "reviews": 76,
+          "quantity": 1
+        }
+      ],
+      "id": 1
+    }
   ]
 }
