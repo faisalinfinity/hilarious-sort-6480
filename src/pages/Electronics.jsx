@@ -35,6 +35,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  getDataElectronic } from '../redux/products/productAction';
 
 import { Checkbox, CheckboxGroup, Stack,Heading } from '@chakra-ui/react'
+import { useLocation } from 'react-router-dom';
+
 const data = {
   isNew: true,
   imageURL:
@@ -101,6 +103,8 @@ function Star({ rating }) {
 
 const Electronics = () => {
   const {products,loading}=useSelector((store)=>store.product)
+
+  
  
   const [grid,setGrid]=useState(true)
   const dispatch=useDispatch()
