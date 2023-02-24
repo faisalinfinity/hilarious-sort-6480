@@ -11,7 +11,7 @@ import {
     Td,
     Tr,
   } from "@chakra-ui/react";
-  import { Link } from "react-router-dom";
+  import { Link, useSearchParams } from "react-router-dom";
   import {
     Flex,
     Circle,
@@ -101,13 +101,32 @@ function Star({ rating }) {
 
 const Electronics = () => {
   const {products,loading}=useSelector((store)=>store.product)
- 
+  
+ const[searchParams,setSearchParam]=useSearchParams()
+ console.log(searchParams)
+ const initialValues=searchParams.getAll('filter');
+  const[filterValues,setFilterValues]=useState(initialValues||[])
+
   const [grid,setGrid]=useState(true)
   const dispatch=useDispatch()
  useEffect(()=>{
    dispatch(getDataElectronic())
  },[])
-  console.log(products)
+ useEffect(()=>{
+  let params={}
+  if(filterValues.length)
+  params=filterValues;
+ 
+ console.log(params)
+
+//  setSearchParam(params)
+  
+ 
+},[filterValues,searchParams])
+const handleFilterChange=(value)=>{
+  setFilterValues(value)
+}
+  
   return (
     <div style={{ width: "95%", margin: "auto" }}>
       {/* ------BreadCrumb------ */}
@@ -142,19 +161,19 @@ const Electronics = () => {
         <Heading size={'sm'} fontWeight={'bold'} marginBottom={"5px"} marginTop={'5px'}>Category</Heading>
      
         <CheckboxGroup colorScheme={'green'}
-        
+        onChange={handleFilterChange}
        >
         <Stack  direction={'column'}>
-  <Checkbox value={'apple'} colorScheme='green' >
+  <Checkbox value='apple' colorScheme='green' >
    Iphone
   </Checkbox>
-  <Checkbox value={'laptop'} colorScheme='green' >
+  <Checkbox value='laptop' colorScheme='green' >
     Laptop
   </Checkbox>
-  <Checkbox value={'camera'} colorScheme='green' >
+  <Checkbox value='camera' colorScheme='green' >
    Camera
   </Checkbox>
-  <Checkbox value={"tv"} colorScheme='green' >
+  <Checkbox value="tv" colorScheme='green' >
    Tv
   </Checkbox>
   
@@ -185,29 +204,7 @@ const Electronics = () => {
   </Stack>
   </CheckboxGroup>
 
-  <Heading size={'sm'} fontWeight={'bold'} marginBottom={"5px"} marginTop={'5px'}>Price</Heading>
-     
-        <CheckboxGroup colorScheme={'green'}
-        
-       >
-        <Stack  direction={'column'}>
-  <Checkbox value={'bags'} colorScheme='green' >
-    Mobile
-  </Checkbox>
-  <Checkbox value={'electronics'} colorScheme='green' >
-    Electronics
-  </Checkbox>
-  <Checkbox value={'jewelery'} colorScheme='green' >
-   Jewelery
-  </Checkbox>
-  <Checkbox value={"men's clothing"} colorScheme='green' >
-   Mens clothing
-  </Checkbox>
-  <Checkbox value={"women's clothing"} colorScheme='green' >
-   Womens clothing
-  </Checkbox>
-  </Stack>
-  </CheckboxGroup>
+  
 
         </div>
          {/* ------Rigth Side------ */}
