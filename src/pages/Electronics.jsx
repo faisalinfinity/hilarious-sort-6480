@@ -7,11 +7,12 @@ import {
   Button,
   Image,
   Img,
+  Select,
   Table,
   Td,
   Tr,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {
   Flex,
@@ -98,8 +99,10 @@ function Star({ rating }) {
 
 const Electronics = () => {
   const { products, loading } = useSelector((store) => store.product);
+  const [searchParams,setSearchParam]=useSearchParams();
+  const [categoryfilter,setCategoryFilter]=useState([])
   const location = useLocation();
-
+ const [sortValue,setSortValue]=useState("")
   const [grid, setGrid] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -108,14 +111,40 @@ const Electronics = () => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const category = searchParams.get("category");
     const searchValue = searchParams.get("q");
-
+    const category = searchParams.get("category");
     if (searchValue !== "") {
       console.log(searchValue);
       dispatch(getDataElectronic(searchValue));
     }
   }, [location]);
+  const handleChange=(e)=>{
+   setCategoryFilter(e);
+  }
+  useEffect(()=>{
+    let params={}
+    if(categoryfilter.length||sortValue.length){
+      params.category=categoryfilter
+      params.sort=sortValue
+    }
+    setSearchParam(params)
+  },[categoryfilter,sortValue])
+
+ useEffect(()=>{
+  const searchParams = new URLSearchParams(location.search);
+  const searchValue = searchParams.get("q");
+  if(products?.length===0||location){
+    const getProductParam={
+      params:{
+        category:searchParams.getAll('category'),
+        _sort:"price",
+        _order:searchParams.getAll('sort')[0]
+      }
+    }
+    dispatch(getDataElectronic(searchValue,getProductParam))
+  }
+  
+ },[location.search])
   return (
     <div style={{ width: "95%", margin: "auto" }}>
       {/* ------BreadCrumb------ */}
@@ -153,7 +182,10 @@ const Electronics = () => {
             Category
           </Heading>
 
-          <CheckboxGroup colorScheme={"green"}>
+          <CheckboxGroup colorScheme={"green"}
+           onChange={handleChange}
+           value={categoryfilter}
+          >
             <Stack direction={"column"}>
               <Checkbox value={"apple"} colorScheme="green">
                 Iphone
@@ -229,7 +261,13 @@ const Electronics = () => {
           </CheckboxGroup>
         </div>
         {/* ------Rigth Side------ */}
+        
         <div>
+        <Select placeholder='Select option' onChange={(e)=>setSortValue(e.target.value)} value={sortValue}>
+  <option value='asc'>Low to high</option>
+  <option value='desc'>High to low</option>
+  
+</Select>
           {loading ? (
             <Spinner
               thickness="4px"
