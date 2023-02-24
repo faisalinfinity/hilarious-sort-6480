@@ -11,7 +11,7 @@ import {
     Td,
     Tr,
   } from "@chakra-ui/react";
-  import { Link } from "react-router-dom";
+  import { Link, useLocation } from "react-router-dom";
   import {
     Flex,
     Circle,
@@ -101,12 +101,27 @@ function Rating({ rating, numReviews }) {
 const Home = () => {
   const {products,loading}=useSelector((store)=>store.product)
  
+ 
   const [grid,setGrid]=useState(true)
   const dispatch=useDispatch()
  useEffect(()=>{
    dispatch(getDataHome())
  },[])
-  console.log(products)
+ const location = useLocation();
+
+
+
+ useEffect(() => {
+   const searchParams = new URLSearchParams(location.search);
+   const category = searchParams.get("category");
+   const searchValue = searchParams.get("q");
+
+   if (searchValue !== "") {
+     console.log(searchValue);
+     dispatch(getDataHome(searchValue))
+    ;
+   }
+ }, [location]);
   return (
     <div style={{ width: "95%", margin: "auto" }}>
       {/* ------BreadCrumb------ */}
