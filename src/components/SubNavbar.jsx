@@ -1,4 +1,5 @@
 import {
+<<<<<<< HEAD
   Box,
   Flex,
   Text,
@@ -62,6 +63,131 @@ export default function SubNavbar() {
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
+=======
+    Box,
+    Flex,
+    Text,
+    IconButton,
+    Button,
+    Stack,
+    Collapse,
+    Icon,
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    useColorModeValue,
+    useBreakpointValue,
+    useDisclosure,
+  } from '@chakra-ui/react';
+  import {
+    HamburgerIcon,
+    CloseIcon,
+    ChevronDownIcon,
+    ChevronRightIcon,
+    BellIcon
+  } from '@chakra-ui/icons';
+  import {AiOutlineShoppingCart} from "react-icons/ai"
+  import {Link, useNavigate} from "react-router-dom"
+  
+  export default function SubNavbar() {
+    const { isOpen, onToggle } = useDisclosure();
+    const navigate = useNavigate()
+  
+    const handleClick = () =>{
+      navigate("/cart")
+    }
+    return (
+      <Box>
+        <Flex
+          bg={useColorModeValue('white', 'gray.800')}
+          color={useColorModeValue('gray.600', 'white')}
+          minH={'20px'}
+          height='30px'
+          py={{ base: 2 }}
+          px={{ base: 4 }}
+          borderBottom={1}
+          borderStyle={'solid'}
+          borderColor={useColorModeValue('gray.200', 'gray.900')}
+          align={'center'}>
+          <Flex
+            flex={{ base: 1, md: 'auto' }}
+            ml={{ base: -2 }}
+            display={{ base: 'flex', md: 'none' }}>
+            <IconButton
+              onClick={onToggle}
+              icon={
+                isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+              }
+              variant={'ghost'}
+              aria-label={'Toggle Navigation'}
+            />
+          </Flex>
+          <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} ml='30px'>
+            <Text
+              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+              fontFamily={'heading'}
+              color={useColorModeValue('gray.800', 'white')} >
+              Hi!      
+            </Text>
+            <Link style={{color:'blue', textDecoration:"underline", marginLeft:"10px"}} to={'/login'}>Sign-in</Link>
+            <Text ml='5px'>or</Text> 
+            <Link style={{color:'blue', textDecoration:"underline", marginLeft:"5px"}} to={'/signup'}>register</Link>
+  
+            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+              <DesktopNav />
+            </Flex>
+          </Flex>
+          <Stack
+            flex={{ base: 1, md: 0 }}
+            justify={'flex-end'}
+            direction={'row'}
+            spacing={3}
+            mr='50px'
+            >
+            <Button
+              variant={'link'}
+              display={{ base: 'none', md: 'inline-flex' }}
+              href={'#'}>
+              Sell
+            </Button>
+            <Button
+              as={'a'}
+              display={{ base: 'none', md: 'inline-flex' }}
+              variant={'link'}
+              color={'black'}
+              href={'#'}
+             >
+              Watchlist <ChevronDownIcon />
+            </Button>
+          </Stack>
+  
+          <Stack
+            flex={{ base: 1, md: 0 }}
+            justify={'space-evenly'}
+            direction={'row'}
+            spacing={2}
+            mr='40px'
+            >
+            <Button
+              as={'a'}
+              fontSize={'26px'}
+              variant={'link'}
+              href={'#'}>
+             <BellIcon />
+            </Button>
+            <Button
+              as={'a'}
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'26px'}
+              fontWeight={400}            
+              variant={'link'}
+              _hover={{ bg:"green.200"}}
+              onClick={handleClick}
+              >
+              <AiOutlineShoppingCart /><span style={{fontSize:"15px"}} >0</span>
+            </Button>
+          </Stack>
+>>>>>>> 7e73cf91b0730b6b270c8a88ca931e291438e47f
         </Flex>
         <Flex
           flex={{ base: 1 }}

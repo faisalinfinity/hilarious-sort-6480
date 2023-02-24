@@ -34,11 +34,10 @@ import {
       <Box>
         <Flex
           bg={useColorModeValue("white", "gray.800")}
-          color={useColorModeValue("gray.600", "white")}
+          color={useColorModeValue("gray.700", "white")}
           minH={"30px"}
           width={"full"}
           borderBottom={1}
-          ml={38}
           columnGap={{base:0,sm:0,md:5,lg:8}}
           borderStyle={"solid"}
           borderColor={useColorModeValue("gray.200", "gray.900")}
@@ -110,7 +109,7 @@ import {
     const popoverContentBgColor = useColorModeValue("white", "gray.800");
   
     return (
-      <Stack direction={"row"} spacing={4}>
+      <Stack direction={"row"} spacing={6} ml={15}>
         {NAV_ITEMS.map((navItem) => (
           <Box key={navItem.label}>
             <Popover trigger={"hover"} placement={"bottom-start"}>

@@ -21,7 +21,7 @@ import {
   export default function Footer() {
     return (
       <Box
-        bg={useColorModeValue('gray.50', 'gray.900')}
+        bg={useColorModeValue('gray.100', 'gray.900')}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container as={Stack} maxW={'7xl'} py={12}>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 5 }} spacing={10}>

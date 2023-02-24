@@ -17,6 +17,9 @@ import { BASE_URL } from '../constants/apiConstants';
 import axios from "axios"
 import { useToast } from '@chakra-ui/react'
 import Carousel from '../components/singleProductCarousel';
+import WithSubnavigation from "../components/Navbar"
+import Footer from '../components/Footer';
+import { useNavigate} from 'react-router-dom';
 
 //singleProduct page
 function SingleProduct(){
@@ -24,6 +27,8 @@ function SingleProduct(){
     const [data,setData]=useState({})
 
     const toast = useToast()
+
+    const navigate=useNavigate()
 
     const handleClick=()=>{
         // setBag([...bag,sdata])
@@ -47,20 +52,26 @@ function SingleProduct(){
             console.log(err)
         })
     }
+    const handleCartlocate=()=>{
+        navigate('/cart')
+    }
     useEffect(()=>{
         handleGetData()
     },[])
     console.log("data",data)
     return(
+        <div>
+            {/* <WithSubnavigation/> */}
+            <br />
         <div className={style.singleProduct}>
             <div>
                <Breadcrumb fontWeight='medium' fontSize='sm'>
                  <BreadcrumbItem>
-                 <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+                 <BreadcrumbLink href='/'>Home</BreadcrumbLink>
                 </BreadcrumbItem>
 
                  <BreadcrumbItem>
-                   <BreadcrumbLink href='#'>Products</BreadcrumbLink>
+                   <BreadcrumbLink href='/product'>Products</BreadcrumbLink>
                  </BreadcrumbItem>
 
                  <BreadcrumbItem isCurrentPage>
@@ -114,7 +125,7 @@ function SingleProduct(){
                     <hr />
                     <br />
                     <div>
-                        <Button bg={"orange.500"} color={"white"}>Buy it now</Button>
+                        <Button bg={"orange.500"} color={"white"} onClick={handleCartlocate}>Check Cart</Button>
                         <br />
                         <br />
                         <Button onClick={handleClick} bg={"green.700"} color={"white"}>Add to Cart</Button>
@@ -192,7 +203,6 @@ function SingleProduct(){
                         <p>We have multiple physical locations in the US; residents of these states will be charged tax according to the state they reside in. This information is available at checkout.</p>
 
                     </Box>
-                    <br />
                     <h1 style={{fontSize:"18px",color:"blue"}}>Shipping</h1>
                     <hr />
                     <Box p={4}>
@@ -208,7 +218,6 @@ function SingleProduct(){
                         <p>Please make sure the ship to address is correct at the time of payment. We are not responsible for packages that are shipped to the incorrect address due to buyer error.</p>
                         <p>In the checkout process, a phone number must be added since our delivery company requires this for all packages.</p>
                     </Box>
-                    <br />
                     <h1 style={{fontSize:"18px",color:"blue"}}>Warranty</h1>
                     <hr />
                     <Box p={4}>
@@ -217,11 +226,11 @@ function SingleProduct(){
                         <p>We are unable to issue refunds for transactions older than 30 days, but will do our best to either repair your item or provide a comparable replacement.</p>
                         <p>Turnaround time once the non-working item is received is 2-4 business days, depending on the issue or the extent of testing required. Please contact us for full warranty details.</p>
                     </Box>
-                    <br />
                 </div>
             </div>
-            <br />
-            <br />
+           
+        </div>
+         <Footer/>
         </div>
     )
 }

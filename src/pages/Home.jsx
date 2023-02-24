@@ -32,7 +32,7 @@ import {
   import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineRight,AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
-import {  getDataElectronic } from '../redux/products/productAction';
+import {getDataHome } from '../redux/products/productAction';
 
 import { Checkbox, CheckboxGroup, Stack,Heading } from '@chakra-ui/react'
 const data = {
@@ -44,7 +44,31 @@ const data = {
   rating: 4.2,
   numReviews: 34,
 };
-
+function Star({ rating }) {
+  return (
+    <Box display="flex" alignItems="center">
+      {Array(5)
+        .fill('')
+        .map((_, i) => {
+          const roundedRating = Math.round(rating * 2) / 2;
+          if (roundedRating - i >= 1) {
+            return (
+              <BsStarFill
+                key={i}
+                style={{ marginLeft: '1' }}
+                color={i < rating ? 'teal.500' : 'gray.300'}
+              />
+            );
+          }
+          if (roundedRating - i === 0.5) {
+            return <BsStarHalf key={i} style={{ marginLeft: '1' }} />;
+          }
+          return <BsStar key={i} style={{ marginLeft: '1' }} />;
+        })}
+      
+    </Box>
+  );
+}
 
 function Rating({ rating, numReviews }) {
   return (
@@ -73,39 +97,14 @@ function Rating({ rating, numReviews }) {
     </Box>
   );
 }
-function Star({ rating }) {
-  return (
-    <Box display="flex" alignItems="center">
-      {Array(5)
-        .fill('')
-        .map((_, i) => {
-          const roundedRating = Math.round(rating * 2) / 2;
-          if (roundedRating - i >= 1) {
-            return (
-              <BsStarFill
-                key={i}
-                style={{ marginLeft: '1' }}
-                color={i < rating ? 'teal.500' : 'gray.300'}
-              />
-            );
-          }
-          if (roundedRating - i === 0.5) {
-            return <BsStarHalf key={i} style={{ marginLeft: '1' }} />;
-          }
-          return <BsStar key={i} style={{ marginLeft: '1' }} />;
-        })}
-      
-    </Box>
-  );
-}
 
-const Electronics = () => {
+const Home = () => {
   const {products,loading}=useSelector((store)=>store.product)
  
   const [grid,setGrid]=useState(true)
   const dispatch=useDispatch()
  useEffect(()=>{
-   dispatch(getDataElectronic())
+   dispatch(getDataHome())
  },[])
   console.log(products)
   return (
@@ -120,10 +119,10 @@ const Electronics = () => {
           <Link to={"/"}>Productify</Link>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <Link to={"/all_electronics"}>All Electronics</Link>
+          <Link to={"/electronics"}>Electronics</Link>
         </BreadcrumbItem>
         <BreadcrumbItem isCurrentPage>
-          <b> Electronic </b>
+          <b>  smartphone </b>
         </BreadcrumbItem>
       </Breadcrumb>
       <div
@@ -145,45 +144,48 @@ const Electronics = () => {
         
        >
         <Stack  direction={'column'}>
-  <Checkbox value={'apple'} colorScheme='green' >
-   Iphone
+  <Checkbox value={'bags'} colorScheme='green' >
+    Mobile
   </Checkbox>
-  <Checkbox value={'laptop'} colorScheme='green' >
-    Laptop
+  <Checkbox value={'electronics'} colorScheme='green' >
+    Electronics
   </Checkbox>
-  <Checkbox value={'camera'} colorScheme='green' >
-   Camera
+  <Checkbox value={'jewelery'} colorScheme='green' >
+   Jewelery
   </Checkbox>
-  <Checkbox value={"tv"} colorScheme='green' >
-   Tv
+  <Checkbox value={"men's clothing"} colorScheme='green' >
+   Mens clothing
   </Checkbox>
-  
+  <Checkbox value={"women's clothing"} colorScheme='green' >
+   Womens clothing
+  </Checkbox>
   </Stack>
   </CheckboxGroup>
 
   <Heading size={'sm'} fontWeight={'bold'} marginBottom={"5px"} marginTop={'5px'}>Rating</Heading>
      
-        <CheckboxGroup colorScheme={'green'}
-        
-       >
-        <Stack  direction={'column'}>
-  <Checkbox value={'bags'} colorScheme='green' >
-  <Star rating={5} />
-  </Checkbox>
-  <Checkbox value={'electronics'} colorScheme='green' >
-  <Star rating={4} />
-  </Checkbox>
-  <Checkbox value={'jewelery'} colorScheme='green' >
-  <Star rating={3} />
-  </Checkbox>
-  <Checkbox value={"men's clothing"} colorScheme='green' >
-  <Star rating={2} />
-  </Checkbox>
-  <Checkbox value={"women's clothing"} colorScheme='green' >
-  <Star rating={1} />
-  </Checkbox>
-  </Stack>
-  </CheckboxGroup>
+     <CheckboxGroup colorScheme={'green'}
+     
+    >
+     <Stack  direction={'column'}>
+<Checkbox value={'bags'} colorScheme='green' >
+<Star rating={5} />
+</Checkbox>
+<Checkbox value={'electronics'} colorScheme='green' >
+<Star rating={4} />
+</Checkbox>
+<Checkbox value={'jewelery'} colorScheme='green' >
+<Star rating={3} />
+</Checkbox>
+<Checkbox value={"men's clothing"} colorScheme='green' >
+<Star rating={2} />
+</Checkbox>
+<Checkbox value={"women's clothing"} colorScheme='green' >
+<Star rating={1} />
+</Checkbox>
+</Stack>
+</CheckboxGroup>
+
 
   <Heading size={'sm'} fontWeight={'bold'} marginBottom={"5px"} marginTop={'5px'}>Price</Heading>
      
@@ -290,7 +292,7 @@ const Electronics = () => {
               <Box as="span" color={'gray.600'} fontSize="2xl">
               ₹
               </Box>
-              {item.price*80}
+              {item.price.toFixed(2)}
             </Box>
         </Box>
       </Box>
@@ -313,4 +315,4 @@ const Electronics = () => {
   )
 }
 
-export default Electronics
+export default Home
