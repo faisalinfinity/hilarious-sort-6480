@@ -290,7 +290,7 @@ const Electronics = () => {
               <Box as="span" color={'gray.600'} fontSize="2xl">
               ₹
               </Box>
-              {item.price*80}
+              {(item.price*80).toFixed(2)}
             </Box>
         </Box>
       </Box>

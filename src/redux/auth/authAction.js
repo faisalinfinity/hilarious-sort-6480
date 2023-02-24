@@ -20,7 +20,7 @@ const firebaseAuth = getAuth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();
 
-export const loginAction = (payload,navigate) => async (dispatch) => {
+export const loginAction = (payload, navigate) => async (dispatch) => {
   let obj = {
     isLoggedIn: true,
     user: payload,
@@ -32,7 +32,7 @@ export const loginAction = (payload,navigate) => async (dispatch) => {
     type: LOGIN,
     payload: payload,
   });
-  navigate("/")
+  navigate("/");
 };
 
 export const logoutAction = () => {
@@ -42,10 +42,12 @@ export const logoutAction = () => {
   };
 };
 
-export function signup(name,email, password) {
+export function signup(name, email, password) {
   return async (dispatch, getState) => {
     try {
-      const {user} =await firebase.auth().createUserWithEmailAndPassword(email, password);
+      const { user } = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password);
       await user.updateProfile({
         displayName: name,
       });
@@ -57,25 +59,24 @@ export function signup(name,email, password) {
   };
 }
 
-export function manualSignin(navigate,email, password) {
+export function manualSignin(navigate, email, password) {
   return async (dispatch, getState) => {
     try {
       await signInWithEmailAndPassword(firebaseAuth, email, password);
       const user = firebase.auth().currentUser;
       // Dispatch a success action
-      console.log(user.displayName)
+      console.log(user.displayName);
       let obj = {
         isLoggedIn: true,
         user: [{ email: email, displayName: user.displayName }],
       };
 
       localStorage.setItem("cache", JSON.stringify(obj));
-      navigate("/")
+      navigate("/");
       dispatch({
         type: LOGIN,
-        payload: [{ email: email, displayName: user.displayName}],
+        payload: [{ email: email, displayName: user.displayName }],
       });
-       
     } catch (error) {
       // Dispatch an error action
       alert("Incorrect Credentials");

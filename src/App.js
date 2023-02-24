@@ -8,10 +8,9 @@ import SearchPage from './pages/SearchPage';
 function App() {
   return (
    <>
-   {/* <Navbar></Navbar>
-   <MainRoute/> */}
-   <SearchPage/>
-   dkfcj
+   <Navbar></Navbar>
+   <MainRoute/>
+  
    </>
   );
 }
