@@ -14,11 +14,13 @@ import Home from "../pages/Home";
 import Toys from "../pages/Toys";
 import Jewellary from "../pages/Jewellary";
 import Sports from "../pages/Sports";
+import Admin from "../pages/Admin";
 
 const MainRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />}></Route>
+      <Route path="/admin" element={<Admin/>}/>
       <Route path="/electronic" element={<Electronics />}></Route>
       <Route path="/electronic/:id" element={<SingleProduct />} />
       <Route path="/fashion" element={<Fashion />}></Route>

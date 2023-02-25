@@ -157,10 +157,10 @@
     },
     {
       "id": 3,
-      "title": "Dress Shirts Men's Regular Fit Oxford Long Sleeve One Pocket Solid Color Shirt",
-      "category": "men",
+      "title": "Men Classic Fit Long Sleeve Wrinkle Resistant",
+      "category": "fashion",
       "image": "https://i.ebayimg.com/thumbs/images/g/neQAAOSw-hpf91xf/s-l500.jpg",
-      "price": 21.95,
+      "price": 44,
       "rating": 4,
       "reviews": 678
     },
@@ -246,29 +246,11 @@
       "reviews": 89
     },
     {
-      "id": 13,
-      "title": "Nike Toddler Boy's Star Runner 2 Athletic Shoes Blue Silver White Size 5",
-      "category": "shoes",
-      "image": "https://i.ebayimg.com/thumbs/images/g/EKcAAOSw3a9jYsfb/s-l500.jpg",
-      "price": 27.99,
-      "rating": 4,
-      "reviews": 290
-    },
-    {
-      "id": 14,
-      "title": "Nike Toddler Kids Court Borough Low 2 White/Univ. Red/Black Shoes, BQ5453-110",
-      "category": "shoes",
-      "image": "https://i.ebayimg.com/thumbs/images/g/RZsAAOSwORNjx0lb/s-l500.jpg",
-      "price": 35,
-      "rating": 4,
-      "reviews": 345
-    },
-    {
       "id": 15,
-      "title": "Crocs Kids’ Classic Solarized Tie Dye Clogs| Water Shoes | Kids' Shoes",
-      "category": "shoes",
+      "title": "Nike Toddler Kids Court Borough Low",
+      "category": "fashion",
       "image": "https://i.ebayimg.com/thumbs/images/g/xdIAAOSw14Bjy87E/s-l500.jpg",
-      "price": 22.5,
+      "price": 55,
       "rating": 4,
       "reviews": 234
     }
@@ -927,15 +909,6 @@
       "rating": 5,
       "reviews": 5467,
       "id": 12
-    },
-    {
-      "title": "Globe G1 Lineform 7.75 Black Skateboard Street Complete - Brand New Sealed!",
-      "category": "skateboard",
-      "image": "https://i.ebayimg.com/images/g/4qkAAOSw1WhhBsE-/s-l500.jpg",
-      "price": 2800,
-      "rating": 3,
-      "reviews": 2024,
-      "id": 13
     },
     {
       "title": "Chicago Roller Skates Black Blue Red Childrens Kids Size 2 8601k Lace Up Strap",

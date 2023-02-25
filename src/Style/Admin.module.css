@@ -1,0 +1,15 @@
+
+.adminPanel{
+    width:80%;
+    margin:auto;
+
+}
+
+.heading{
+    font-family:sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color:#3182ce;
+    text-align: center;
+    margin:auto;
+}
