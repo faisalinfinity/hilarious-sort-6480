@@ -1,13 +1,13 @@
 import axios from "axios";
 import * as types from "./productsType";
-export const getDataElectronic = (searchValue) => (dispatch) => {
+export const getDataElectronic = (searchValue,getProductParam) => (dispatch) => {
   if (searchValue == null) {
     searchValue = "";
   }
   dispatch({ type: types.PRODUCT_LOADING });
 
   axios
-    .get(`http://localhost:8080/electronic?q=${searchValue}`)
+    .get(`http://localhost:8080/electronic?q=${searchValue}`,getProductParam)
     .then((res) => dispatch({ type: types.PRODUCT_SUCCESS, payload: res.data }))
     .catch((e) => {
       dispatch({ type: types.PRODUCT_ERROR, payload: e });

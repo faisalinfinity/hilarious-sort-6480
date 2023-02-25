@@ -133,11 +133,9 @@ const Home = () => {
         <BreadcrumbItem>
           <Link to={"/"}>Productify</Link>
         </BreadcrumbItem>
-        <BreadcrumbItem>
-          <Link to={"/electronics"}>Electronics</Link>
-        </BreadcrumbItem>
+      
         <BreadcrumbItem isCurrentPage>
-          <b>  smartphone </b>
+          <b>  Home </b>
         </BreadcrumbItem>
       </Breadcrumb>
       <div
@@ -202,30 +200,7 @@ const Home = () => {
 </CheckboxGroup>
 
 
-  <Heading size={'sm'} fontWeight={'bold'} marginBottom={"5px"} marginTop={'5px'}>Price</Heading>
-     
-        <CheckboxGroup colorScheme={'green'}
-        
-       >
-        <Stack  direction={'column'}>
-  <Checkbox value={'bags'} colorScheme='green' >
-    Mobile
-  </Checkbox>
-  <Checkbox value={'electronics'} colorScheme='green' >
-    Electronics
-  </Checkbox>
-  <Checkbox value={'jewelery'} colorScheme='green' >
-   Jewelery
-  </Checkbox>
-  <Checkbox value={"men's clothing"} colorScheme='green' >
-   Mens clothing
-  </Checkbox>
-  <Checkbox value={"women's clothing"} colorScheme='green' >
-   Womens clothing
-  </Checkbox>
-  </Stack>
-  </CheckboxGroup>
-
+  
         </div>
          {/* ------Rigth Side------ */}
         <div>
@@ -246,7 +221,7 @@ const Home = () => {
        {
         products?.map((item)=>(
 <Flex  w="fit-content" alignItems="center" justifyContent="center" >
-     <Link to={`/electronic/${item.id}`}> <Box
+     <Link to={`/home/${item.id}`}> <Box
        
         maxW="sm"
         borderWidth="1px"

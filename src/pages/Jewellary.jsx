@@ -199,29 +199,7 @@ const Jewellary = () => {
 </Stack>
 </CheckboxGroup>
 
-  <Heading size={'sm'} fontWeight={'bold'} marginBottom={"5px"} marginTop={'5px'}>Price</Heading>
-     
-        <CheckboxGroup colorScheme={'green'}
-        
-       >
-        <Stack  direction={'column'}>
-  <Checkbox value={'bags'} colorScheme='green' >
-    Mobile
-  </Checkbox>
-  <Checkbox value={'electronics'} colorScheme='green' >
-    Electronics
-  </Checkbox>
-  <Checkbox value={'jewelery'} colorScheme='green' >
-   Jewelery
-  </Checkbox>
-  <Checkbox value={"men's clothing"} colorScheme='green' >
-   Mens clothing
-  </Checkbox>
-  <Checkbox value={"women's clothing"} colorScheme='green' >
-   Womens clothing
-  </Checkbox>
-  </Stack>
-  </CheckboxGroup>
+  
 
         </div>
          {/* ------Rigth Side------ */}
@@ -243,7 +221,7 @@ const Jewellary = () => {
        {
         products?.map((item)=>(
 <Flex  w="fit-content" alignItems="center" justifyContent="center" >
-     <Link to={`/electronic/${item.id}`}> <Box
+     <Link to={`/jewellary/${item.id}`}> <Box
        
         maxW="sm"
         borderWidth="1px"
