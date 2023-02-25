@@ -8,7 +8,7 @@ import SearchPage from './pages/SearchPage';
 function App() {
   return (
    <>
-   <Navbar></Navbar>
+   {/* <Navbar></Navbar> */}
    <MainRoute/>
   
    </>

@@ -5,18 +5,50 @@
     display: grid;
    grid-template-columns: 24% 24% 24% 24%;
     justify-content: space-between;
-     gap: 2
+     gap: 2;
+     
 }
-@media only screen and (max-width: 450px){
+.filter{
+   background-color: white;
+}
+.mobileview{
+    display: none;
+}
+.desktop{
+    display: block;
+    display: flex;
+    width: 100%;
+    justify-content:right;
+    border: 1px solid red;
+}
+@media only screen and (max-width: 480px){
     .leftside{
         display: none;
     } 
     .productgrid{
         display: grid;
-       grid-template-columns:100%;
-       width: 100%;
+       grid-template-columns:50% 50%;
+       width: 350%;
         justify-content:center;
 align-items: center;
-         gap: 2
+         gap:15 ;
+        
     } 
+    .mobileview{
+        display: block;
+      
+     
+    }
+    .disktop{
+        display: none;
+    }
+    .productgrid1{
+        display: grid;
+       grid-template-columns:100%;
+       width: 350%;
+        justify-content:center;
+align-items: center;
+         gap:15px;
+        
+    }
 }

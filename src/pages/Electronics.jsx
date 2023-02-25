@@ -11,6 +11,7 @@ import {
   Table,
   Td,
   Tr,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -34,6 +35,15 @@ import { getDataElectronic } from "../redux/products/productAction";
 import {FaFilter} from 'react-icons/fa'
 import { Checkbox, CheckboxGroup, Stack, Heading } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+} from '@chakra-ui/react'
 import "./allproduct.css"
 const data = {
   isNew: true,
@@ -104,6 +114,9 @@ const Electronics = () => {
   const[startfilter,setStarFilter]=useState([])
   const location = useLocation();
  const [sortValue,setSortValue]=useState("")
+ const { isOpen, onOpen, onClose } = useDisclosure()
+  const [placement, setPlacement] = React.useState('right')
+
   const [grid, setGrid] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -170,7 +183,90 @@ const Electronics = () => {
           <b> Electronic </b>
         </BreadcrumbItem>
       </Breadcrumb>
-      <FaFilter size={"20px"}/>
+    
+<div style={{display:"flex",justifyContent:"right"}}>
+<Select placeholder='Sort By'width={"150px"} onChange={(e)=>setSortValue(e.target.value)} value={sortValue}>
+  <option value='asc'>Low to high</option>
+  <option value='desc'>High to low</option>
+  
+</Select>
+</div>
+<div className="mobileview">
+     
+      
+      <FaFilter className="filter" size={"20px"}  onClick={onOpen}/>
+     
+      <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay/>
+        <DrawerContent>
+          <DrawerHeader borderBottomWidth='1px'>Filter By</DrawerHeader><DrawerCloseButton/>
+          <DrawerBody>
+          <Heading
+            size={"sm"}
+            fontWeight={"bold"}
+            marginBottom={"5px"}
+            marginTop={"5px"}
+          >
+            Category
+          </Heading>
+
+          <CheckboxGroup colorScheme={"green"}
+           onChange={handleChange}
+           value={categoryfilter}
+          >
+            <Stack direction={"column"}>
+              <Checkbox value={"apple"} colorScheme="green">
+                Iphone
+              </Checkbox>
+              <Checkbox value={"laptop"} colorScheme="green">
+                Laptop
+              </Checkbox>
+              <Checkbox value={"camera"} colorScheme="green">
+                Camera
+              </Checkbox>
+              <Checkbox value={"tv"} colorScheme="green">
+                Tv
+              </Checkbox>
+            </Stack>
+          </CheckboxGroup>
+         
+          <Heading
+            size={"sm"}
+            fontWeight={"bold"}
+            marginBottom={"5px"}
+            marginTop={"5px"}
+          >
+            Rating
+          </Heading>
+
+          <CheckboxGroup colorScheme={"green"}
+           onChange={handleChangestar}
+           value={startfilter}
+          >
+            <Stack direction={"column"}>
+              <Checkbox value={"5"} colorScheme="green">
+                <Star rating={5} />
+              </Checkbox>
+              <Checkbox value={"4"} colorScheme="green">
+                <Star rating={4} />
+              </Checkbox>
+              <Checkbox value={"3"} colorScheme="green">
+                <Star rating={3} />
+              </Checkbox>
+              <Checkbox value={"2"} colorScheme="green">
+                <Star rating={2} />
+              </Checkbox>
+              <Checkbox value={"1"} colorScheme="green">
+                <Star rating={1} />
+              </Checkbox>
+            </Stack>
+          </CheckboxGroup>
+
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>  
+</div>
+
       <div
         style={{
           display: "grid",
@@ -247,11 +343,7 @@ const Electronics = () => {
         {/* ------Rigth Side------ */}
         
         <div>
-        <Select placeholder='Select option' onChange={(e)=>setSortValue(e.target.value)} value={sortValue}>
-  <option value='asc'>Low to high</option>
-  <option value='desc'>High to low</option>
-  
-</Select>
+       
           {loading ? (
             <Box  style={{width:"100%",marginTop:"30px",display:"flex",justifyContent:"center"}}>
             <Spinner
