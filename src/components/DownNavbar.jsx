@@ -18,8 +18,6 @@ import {
     PopoverBody,
   } from "@chakra-ui/react";
   import {
-    HamburgerIcon,
-    CloseIcon,
     ChevronDownIcon,
     ChevronRightIcon,
   } from "@chakra-ui/icons";
@@ -48,14 +46,14 @@ import {
             ml={{ base: -2 }}
             display={{ base: "flex", md: "flex",lg:"none" }}
           >
-            <IconButton
+            {/* <IconButton
               onClick={onToggle}
               icon={
                 isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
               }
               variant={"ghost"}
               aria-label={"Toggle Navigation"}
-            />
+            /> */}
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: "center", sm:'center',  md: "start" }}>
 
@@ -97,7 +95,7 @@ import {
         </Flex>
         </Flex>
           <Collapse in={isOpen} animateOpacity  >
-          <MobileNav />
+          {/* <MobileNav /> */}
         </Collapse>
       </Box>
     );
@@ -126,7 +124,7 @@ import {
                     borderBottom: "3px solid #BB1679",
                   }}
                 >
-                  <NavLink to='/product' >
+                  <NavLink to='/electronic' >
                   {navItem.label}
                   </NavLink>
                 </Link>
@@ -213,23 +211,23 @@ import {
     );
   };
   
-  const MobileNav = () => {
-    return (
-      <Stack
-        bg={useColorModeValue("white", "gray.800")}
-        paddingX={5}
-        display={{ lg: "none" }}
-      >
-        {NAV_ITEMS.map((navItem) => (
-          <MobileNavItem key={navItem.label} {...navItem} />
-        ))}
-      </Stack>
-    );
-  };
+  // const MobileNav = () => {
+  //   return (
+  //     <Stack
+  //       bg={useColorModeValue("white", "gray.800")}
+  //       paddingX={5}
+  //       display={{ lg: "none" }}
+  //     >
+  //       {NAV_ITEMS.map((navItem) => (
+  //         <MobileNavItem key={navItem.label} {...navItem} />
+  //       ))}
+  //     </Stack>
+  //   );
+  // };
   
   const MobileNavItem = ({ label, children, href }) => {
     const { isOpen, onToggle } = useDisclosure();
-  
+    
     return (
       <Stack spacing={4} onClick={children && onToggle}  mt={{base:'4rem',sm:'5rem',md:20,lg:20}}>
         <Flex
@@ -249,7 +247,7 @@ import {
             color={useColorModeValue("gray.600", "gray.200")}
             fontSize={{base:12,sm:13,md:18,lg:18}}
           >
-            <NavLink  to="/product">
+            <NavLink  to="/electronic">
             {label}
             </NavLink>
           </Text>
