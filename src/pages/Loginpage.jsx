@@ -77,7 +77,7 @@ export default function Loginpage() {
         justify={"center"}
         bg={useColorModeValue("gray.50", "gray.800")}
       >
-        <Stack  spacing={8} mx={"auto"} maxW={"sm"}  py={1} px={6}>
+        <Stack  spacing={8} mx={"auto"} maxW={"md"}  py={1} px={6}>
           <Stack  align={"center"}>
             <Box bg={Blue} p="7px" color={"white"}>
               {" "}

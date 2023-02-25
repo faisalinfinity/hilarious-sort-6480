@@ -11,7 +11,8 @@ import { productReducer } from "./products/productReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  product:productReducer
+  product:productReducer,
+  cart:cartReducer
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

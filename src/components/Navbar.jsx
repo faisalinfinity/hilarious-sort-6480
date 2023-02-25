@@ -26,12 +26,28 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import SubNavbar from "./SubNavbar";
-import {Link} from "react-router-dom"
+import {Link, useNavigate, useParams, useSearchParams} from "react-router-dom"
 import logo from "../constants/logo.png"
 import DownNav from './DownNavbar';
+import { useState } from 'react';
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const [searchValue,setSearchValue]=useState("")
+  const [category,setCategory]=useState("All Category")
+  const [searchparams,setSearchParams]=useSearchParams()
+const navigate=useNavigate()
+  const handleSearch=(e)=>{
+  setSearchValue(e.target.value)
+  }
+
+  const handleMenu=(e)=>{
+    setCategory(e.target.innerText.toLowerCase())
+  }
+
+  const onSearch=()=>{
+    navigate(`/${category}?q=${searchValue}`)
+  }
 
   return (
     
@@ -69,10 +85,10 @@ export default function WithSubnavigation() {
             <DesktopNav />
           </Flex>
           <Flex alignItems='center' >
-            <Input placeholder="Search here anything..." w='600px' ml='30px'  border="2px solid black" height='44px' />
+            <Input value={searchValue} onChange={handleSearch} placeholder="Search here anything..." w='600px' ml='30px'  border="2px solid black" height='44px' />
             <Menu >
               <MenuButton as={Button} border="2px solid black" height='44px'>
-                All Categories <ChevronDownIcon />
+                {category} <ChevronDownIcon />
               </MenuButton>
               <MenuList
                 spacing={3}
@@ -80,27 +96,18 @@ export default function WithSubnavigation() {
                 h={"185px"}
                 overflowY={"scroll"}
                 >
-                    <MenuItem>All Categories</MenuItem>
-                    <MenuItem>Art</MenuItem>
-                    <MenuItem>Antiques</MenuItem>
-                    <MenuItem>Baby</MenuItem>
-                    <MenuItem>Books</MenuItem>
-                    <MenuItem>Business & industrial</MenuItem>
-                    <MenuItem>Cameras & photos</MenuItem>
-                    <MenuItem>Cellphones & Accessories</MenuItem>
-                    <MenuItem>Clothing, Shoes & Accessories</MenuItem>
-                    <MenuItem>Computer, Tablets & Networking</MenuItem>
-                    <MenuItem>Collectibles</MenuItem>
-                    <MenuItem>Consumer Electronics</MenuItem>
-                    <MenuItem>Crafts</MenuItem>
-                    <MenuItem>Dolls & Bears</MenuItem>
-                    <MenuItem>DVD's and Movies</MenuItem>
-                    <MenuItem>Health & Beauty</MenuItem>
-                    <MenuItem>eBay Motors</MenuItem>
-                    <MenuItem>Home & Garden</MenuItem>
+
+     
+
+                    <MenuItem onClick={handleMenu}>Electronic</MenuItem>
+                    <MenuItem onClick={handleMenu}>Fashion</MenuItem>
+                    <MenuItem onClick={handleMenu}>Toys</MenuItem>
+                  <MenuItem onClick={handleMenu}>Home</MenuItem>
+                    <MenuItem onClick={handleMenu}>Jewellary</MenuItem>
+                    <MenuItem onClick={handleMenu}>Sports</MenuItem>
               </MenuList>
            </Menu>
-           <Button  bg='blue.500' color='white' width="120px" height='43px'>Search</Button>
+           <Button onClick={onSearch}  bg='blue.500' color='white' width="120px" height='43px'>Search</Button>
            <Button bg='white' mt='4px'>Advanced</Button>
           </Flex>
         </Flex>
