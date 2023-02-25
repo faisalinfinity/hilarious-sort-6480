@@ -42,14 +42,6 @@ import {
               <Link href={'#'}>Stores</Link>
             </Stack>
             
-          <Stack align={'flex-start'}>
-              <ListHeader>Sell</ListHeader>
-              <Link href={'#'}>Start Selling</Link>
-              <Stack direction={'row'} align={'center'} spacing={2}>
-                <Link href={'#'}>Learn to sell</Link>
-              </Stack>
-              <Link href={'#'}>Affiliates</Link>
-            </Stack>
             <Stack align={'flex-start'}>
               <ListHeader>Product</ListHeader>
               <Link href={'#'}>Overview</Link>

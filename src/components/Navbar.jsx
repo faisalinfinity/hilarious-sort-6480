@@ -96,6 +96,9 @@ const navigate=useNavigate()
                 h={"185px"}
                 overflowY={"scroll"}
                 >
+
+     
+
                     <MenuItem onClick={handleMenu}>Electronic</MenuItem>
                     <MenuItem onClick={handleMenu}>Fashion</MenuItem>
                     <MenuItem onClick={handleMenu}>Toys</MenuItem>
@@ -227,12 +230,12 @@ const MobileNavItem = ({ label, children, href }) => {
         _hover={{
           textDecoration: 'none',
         }}>
-        <Text
+        {/* <Text
           fontWeight={600}
           color={useColorModeValue('gray.600', 'gray.200')}>
           {label}
-        </Text>
-        {children && (
+        </Text> */}
+        {/* {children && (
           <Icon
             as={ChevronDownIcon}
             transition={'all .25s ease-in-out'}
@@ -240,10 +243,10 @@ const MobileNavItem = ({ label, children, href }) => {
             w={6}
             h={6}
           />
-        )}
+        )} */}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+      {/* <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
         <Stack
           mt={2}
           pl={4}
@@ -258,7 +261,7 @@ const MobileNavItem = ({ label, children, href }) => {
               </Link>
             ))}
         </Stack>
-      </Collapse>
+      </Collapse> */}
     </Stack>
 
   );

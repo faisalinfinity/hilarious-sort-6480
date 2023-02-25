@@ -4,13 +4,10 @@ import "react-slideshow-image/dist/styles.css";
 import styles from "./Carousel.module.css";
 const slideImages = [
   {
+    url: "https://i.postimg.cc/HsCkCwDC/Capture.png",
+  },
+  {
     url: "https://sellglobal.ebay.in/seller-center/wp-content/uploads/2022/05/EGS-Banner_revised_2A-1.png",
-  },
-  {
-    url: "https://i.ebayimg.com/images/g/9DIAAOSwq-Fj7Z56/s-l1600.webp.jpg",
-  },
-  {
-    url: "https://img.freepik.com/free-vector/horizontal-sale-banner-template_23-2148897327.jpg?w=360",
   },
   {
     url: "https://images-static.nykaa.com/uploads/fe616105-d856-4ef7-9a91-22a68a988094.png?tr=w-1200,cm-pad_resize",

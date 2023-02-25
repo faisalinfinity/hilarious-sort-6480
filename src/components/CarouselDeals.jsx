@@ -131,7 +131,7 @@ export default function CarouselDeals() {
         <Text fontWeight={700} fontSize={22} textAlign="left">
           Daily Deals |
         </Text>
-        <Link to={"/product"}>
+        <Link to={"/electronic"}>
           <Text fontWeight={700} fontSize={22} ml={10}>
             See all <ArrowForwardIcon />{" "}
           </Text>

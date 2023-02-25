@@ -50,7 +50,7 @@ export default function Homepage() {
       text:"Celebrate 27 year's of  Pokemmon with toys, figueres & games.",
       button:"Shop Now",
       image:
-        'https://images.unsplash.com/photo-1516796181074-bf453fbfa3e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+        'https://i.postimg.cc/j2tjb1Dd/Screenshot-2023-02-24-102013.png',
     },
     {
       title: 'Set Your Walking style',
@@ -58,7 +58,7 @@ export default function Homepage() {
         "Create unique outfit with the perfect pair of sneakers.",
       button:"Shop Now",
       image:
-        'https://images.unsplash.com/photo-1438183972690-6d4658e3290e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2274&q=80',
+        'https://i.postimg.cc/P5gTH7cs/Screenshot-2023-02-24-102128.png',
     },
     {
       title: 'Free yourself from stress',
@@ -66,7 +66,7 @@ export default function Homepage() {
         "Enjoy your favorite sport with the perfect allies.",
       button:"Shop Now",
       image:
-        'https://images.unsplash.com/photo-1507237998874-b4d52d1dd655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+        'https://i.postimg.cc/ZRTkKzxg/Screenshot-2023-02-24-102333.png',
     },
   ];
 
@@ -74,7 +74,7 @@ export default function Homepage() {
     <>
     <Box
       position={'relative'}
-      height={'400px'}
+      height={'380px'}
       width={'full'}
       overflow={'hidden'}>
       {/* CSS files for react-slick */}
@@ -118,12 +118,13 @@ export default function Homepage() {
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={'6xl'}
+            height={'380'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={`url(${card.image})`}>
+            objectFit="fill"
+            backgroundImage={card.image}>
             {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="600px" position="relative">
               <Stack
@@ -131,15 +132,16 @@ export default function Homepage() {
                 w={'full'}
                 maxW={'lg'}
                 position="absolute"
-                top="50%"
+                right="85%"
+                top="16%"
                 transform="translate(0, -50%)">
-                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+                <Heading color={'red.800'} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
                   {card.title}
                 </Heading>
-                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
+                <Text color={'red.800'} fontSize={{ base: 'md', lg: 'lg' }} >
                   {card.text}
                 </Text>
-                <Button _hover={{bg:"green"}}>
+                <Button  _hover={{bg:"green"}}>
                   {card.button}
                 </Button>
               </Stack>
