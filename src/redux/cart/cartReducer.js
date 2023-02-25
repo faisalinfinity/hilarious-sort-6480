@@ -3,8 +3,9 @@ import * as types from "./cartTypes"
 let initialState={
     isLoading:false,
     isError:false,
-    product:[],
-  
+    cart:[],
+    order:[]
+
 }
 
 const reducer=(state=initialState,action)=>{
@@ -20,11 +21,19 @@ const reducer=(state=initialState,action)=>{
                 ...state,
                 isError:true
             }
-        case types.SUCCESS_API:
-            return{
-                ...state,
-                product:[...state.product,payload]
-
+        
+            case types.GET_CART:{
+                return {
+                    ...state,
+                    cart:payload.cart
+                }
+            }
+            case types.ADD_TO_CART:{
+              
+                return{
+                    ...state,
+                    cart:payload
+                }
             }
         default:
             return state;

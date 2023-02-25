@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { Sdk } from "../../constants/firebaseConstants";
 import { LOGIN, LOGOUT } from "./authTypes";
 import "firebase/compat/auth";
+import axios from "axios";
 
 firebase.initializeApp({
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -20,19 +21,28 @@ const firebaseAuth = getAuth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();
 
-export const loginAction = (payload, navigate) => async (dispatch) => {
+export const loginAction = (payload, navigate,toast) => async (dispatch) => {
   let obj = {
     isLoggedIn: true,
     user: payload,
   };
 
   localStorage.setItem("cache", JSON.stringify(obj));
-
+  console.log("payload",payload)
+   getUsers(payload[0])
   dispatch({
     type: LOGIN,
     payload: payload,
-  });
-  navigate("/");
+  })
+
+  toast({
+    title: 'Login Successfull.',
+    description: "",
+    status: 'success',
+    duration: 2000,
+    isClosable: true,
+  })
+  navigate("/electronic");
 };
 
 export const logoutAction = () => {
@@ -42,7 +52,7 @@ export const logoutAction = () => {
   };
 };
 
-export function signup(name, email, password) {
+export function signup(name, email, password,toast) {
   return async (dispatch, getState) => {
     try {
       const { user } = await firebase
@@ -52,34 +62,105 @@ export function signup(name, email, password) {
         displayName: name,
       });
       // Dispatch a success action
-      alert("Sign Up Successfull");
+    
+      toast({
+        title: 'Sign Up Successfull.',
+        description: "",
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      })
     } catch (error) {
       // Dispatch an error action
+      toast({
+        title: 'User Already exist',
+        description: "",
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      })
     }
   };
 }
 
-export function manualSignin(navigate, email, password) {
+export function manualSignin(navigate, email, password,toast) {
   return async (dispatch, getState) => {
     try {
       await signInWithEmailAndPassword(firebaseAuth, email, password);
       const user = firebase.auth().currentUser;
+      const uid=user.uid
+      const displayName=user.displayName
       // Dispatch a success action
-      console.log(user.displayName);
       let obj = {
         isLoggedIn: true,
-        user: [{ email: email, displayName: user.displayName }],
+        user: [{ email: email, displayName: user.displayName,uid:uid }],
       };
-
+      getUsers({
+        uid,
+        email,
+        displayName
+      })
       localStorage.setItem("cache", JSON.stringify(obj));
       navigate("/");
       dispatch({
         type: LOGIN,
-        payload: [{ email: email, displayName: user.displayName }],
+        payload: [{ email: email, displayName: user.displayName ,uid:uid}],
       });
+
+      toast({
+        title: 'Login Successfull.',
+        description: "",
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      })
     } catch (error) {
       // Dispatch an error action
-      alert("Incorrect Credentials");
+      toast({
+        title: 'Incorrect Credentials.',
+        description: "",
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      })
     }
   };
 }
+
+export const getUsers=(user)=>{
+ axios.get(`http://localhost:8080/users`)
+ .then((res)=>{
+  let flag=false
+  res.data.map((el)=>{
+    if(el.email===user.email){
+      flag=true
+    }
+  })
+
+  if(!flag){
+    const UserData={
+      id:user.uid,
+      name:user.displayName,
+      email:user.email,
+      cart:[
+        
+      ],
+      order:[
+
+      ]
+
+     
+    }
+    axios.post(`http://localhost:8080/users`,UserData)
+  }
+ })
+}
+
+// {
+//   date:,
+//   status:
+//   id:1,
+//   ...el,
+//   quantity:3
+
+// }

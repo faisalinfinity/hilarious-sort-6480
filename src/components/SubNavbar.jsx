@@ -27,11 +27,13 @@ import {AiOutlineShoppingCart} from "react-icons/ai"
 import {Link, useNavigate} from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutAction } from '../redux/auth/authAction';
+import { useEffect } from 'react';
+import { cartLoading, getCart } from '../redux/cart/cartAction';
 
 export default function SubNavbar() {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate()
-
+const {cart} = useSelector((store)=>store.cart)
   const { isLoggedIn, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   let userName = user[0]?.displayName;
@@ -40,6 +42,14 @@ export default function SubNavbar() {
   const handleClick = () =>{
     navigate("/cart")
   }
+
+   useEffect(()=>{
+    if(user[0]?.uid){
+      dispatch(getCart(user[0].uid))
+    }
+    
+   },[])
+  
   return (
     <Box>
       <Flex
@@ -186,7 +196,7 @@ export default function SubNavbar() {
             _hover={{ bg:"green.200"}}
             onClick={handleClick}
             >
-            <AiOutlineShoppingCart /><span style={{fontSize:"15px"}} >0</span>
+            <AiOutlineShoppingCart /><span style={{fontSize:"15px"}} >{cart?.length===0?"Cart is Empty":cart.length}</span>
           </Button>
         </Stack>
       </Flex>
