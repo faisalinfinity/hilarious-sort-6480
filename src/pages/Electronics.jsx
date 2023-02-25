@@ -11,6 +11,7 @@ import {
   Table,
   Td,
   Tr,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -31,10 +32,19 @@ import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineRight, AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { getDataElectronic } from "../redux/products/productAction";
-
+import {FaFilter} from 'react-icons/fa'
 import { Checkbox, CheckboxGroup, Stack, Heading } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
-
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+} from '@chakra-ui/react'
+import "./allproduct.css"
 const data = {
   isNew: true,
   imageURL:
@@ -99,6 +109,15 @@ function Star({ rating }) {
 
 const Electronics = () => {
   const { products, loading } = useSelector((store) => store.product);
+  
+ 
+  const[startfilter,setStarFilter]=useState([])
+  
+
+ const { isOpen, onOpen, onClose } = useDisclosure()
+  const [placement, setPlacement] = React.useState('right')
+
+
   const [searchParams, setSearchParam] = useSearchParams();
   const [categoryfilter, setCategoryFilter] = useState([]);
   const location = useLocation();
@@ -118,17 +137,13 @@ const Electronics = () => {
       dispatch(getDataElectronic(searchValue));
     }
   }, [location]);
-  const handleChange = (e) => {
-    setCategoryFilter(e);
-  };
-  useEffect(() => {
-    let params = {};
-    if (categoryfilter.length || sortValue.length) {
-      params.category = categoryfilter;
-      params.sort = sortValue;
-    }
-    setSearchParam(params);
-  }, [categoryfilter, sortValue]);
+
+  const handleChange=(e)=>{
+   setCategoryFilter(e);
+  }
+  const handleChangestar=(e)=>{
+    setStarFilter(e);
+   }
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -162,16 +177,24 @@ const Electronics = () => {
           <b> Electronic </b>
         </BreadcrumbItem>
       </Breadcrumb>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "25% 73%",
-          gap: "5px",
-          marginTop: "10px",
-        }}
-      >
-        {/* ------Left Side------ */}
-        <div>
+    
+<div style={{display:"flex",justifyContent:"right"}}>
+<Select placeholder='Sort By'width={"150px"} onChange={(e)=>setSortValue(e.target.value)} value={sortValue}>
+  <option value='asc'>Low to high</option>
+  <option value='desc'>High to low</option>
+  
+</Select>
+</div>
+<div className="mobileview">
+     
+      
+      <FaFilter className="filter" size={"20px"}  onClick={onOpen}/>
+     
+      <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay/>
+        <DrawerContent>
+          <DrawerHeader borderBottomWidth='1px'>Filter By</DrawerHeader><DrawerCloseButton/>
+          <DrawerBody>
           <Heading
             size={"sm"}
             fontWeight={"bold"}
@@ -201,7 +224,7 @@ const Electronics = () => {
               </Checkbox>
             </Stack>
           </CheckboxGroup>
-
+         
           <Heading
             size={"sm"}
             fontWeight={"bold"}
@@ -211,58 +234,113 @@ const Electronics = () => {
             Rating
           </Heading>
 
-          <CheckboxGroup colorScheme={"green"}>
+          <CheckboxGroup colorScheme={"green"}
+           onChange={handleChangestar}
+           value={startfilter}
+          >
             <Stack direction={"column"}>
-              <Checkbox value={"bags"} colorScheme="green">
+              <Checkbox value={"5"} colorScheme="green">
                 <Star rating={5} />
               </Checkbox>
-              <Checkbox value={"electronics"} colorScheme="green">
+              <Checkbox value={"4"} colorScheme="green">
                 <Star rating={4} />
               </Checkbox>
-              <Checkbox value={"jewelery"} colorScheme="green">
+              <Checkbox value={"3"} colorScheme="green">
                 <Star rating={3} />
               </Checkbox>
-              <Checkbox value={"men's clothing"} colorScheme="green">
+              <Checkbox value={"2"} colorScheme="green">
                 <Star rating={2} />
               </Checkbox>
-              <Checkbox value={"women's clothing"} colorScheme="green">
+              <Checkbox value={"1"} colorScheme="green">
                 <Star rating={1} />
               </Checkbox>
             </Stack>
           </CheckboxGroup>
 
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>  
+</div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "25% 73%",
+          gap: "5px",
+          marginTop: "10px",
+        }}
+      >
+        {/* ------Left Side------ */}
+        <div className="leftside">
           <Heading
             size={"sm"}
             fontWeight={"bold"}
             marginBottom={"5px"}
             marginTop={"5px"}
           >
-            Price
+            Category
           </Heading>
 
-          <CheckboxGroup colorScheme={"green"}>
+          <CheckboxGroup colorScheme={"green"}
+           onChange={handleChange}
+           value={categoryfilter}
+          >
             <Stack direction={"column"}>
-              <Checkbox value={"bags"} colorScheme="green">
-                Mobile
+              <Checkbox value={"apple"} colorScheme="green">
+                Iphone
               </Checkbox>
-              <Checkbox value={"electronics"} colorScheme="green">
-                Electronics
+              <Checkbox value={"laptop"} colorScheme="green">
+                Laptop
               </Checkbox>
-              <Checkbox value={"jewelery"} colorScheme="green">
-                Jewelery
+              <Checkbox value={"camera"} colorScheme="green">
+                Camera
               </Checkbox>
-              <Checkbox value={"men's clothing"} colorScheme="green">
-                Mens clothing
-              </Checkbox>
-              <Checkbox value={"women's clothing"} colorScheme="green">
-                Womens clothing
+              <Checkbox value={"tv"} colorScheme="green">
+                Tv
               </Checkbox>
             </Stack>
           </CheckboxGroup>
+         
+          <Heading
+            size={"sm"}
+            fontWeight={"bold"}
+            marginBottom={"5px"}
+            marginTop={"5px"}
+          >
+            Rating
+          </Heading>
+
+          <CheckboxGroup colorScheme={"green"}
+           onChange={handleChangestar}
+           value={startfilter}
+          >
+            <Stack direction={"column"}>
+              <Checkbox value={"5"} colorScheme="green">
+                <Star rating={5} />
+              </Checkbox>
+              <Checkbox value={"4"} colorScheme="green">
+                <Star rating={4} />
+              </Checkbox>
+              <Checkbox value={"3"} colorScheme="green">
+                <Star rating={3} />
+              </Checkbox>
+              <Checkbox value={"2"} colorScheme="green">
+                <Star rating={2} />
+              </Checkbox>
+              <Checkbox value={"1"} colorScheme="green">
+                <Star rating={1} />
+              </Checkbox>
+            </Stack>
+          </CheckboxGroup>
+
+          
         </div>
         {/* ------Rigth Side------ */}
 
         <div>
+
+       
+
           <Select
             placeholder="Select option"
             onChange={(e) => setSortValue(e.target.value)}
@@ -271,28 +349,31 @@ const Electronics = () => {
             <option value="asc">Low to high</option>
             <option value="desc">High to low</option>
           </Select>
+
           {loading ? (
+            <Box  style={{width:"100%",marginTop:"30px",display:"flex",justifyContent:"center"}}>
             <Spinner
               thickness="4px"
               speed="0.65s"
               emptyColor="gray.200"
               color="blue.500"
               size="xl"
-            />
+              style={{display:"flex",justifyContent:"center"}} /></Box>
           ) : (
             <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "24% 24% 24% 24%",
-                justifyContent: "space-between",
-                gap: "2",
-              }}
-              className={grid ? "gridview" : "listview"}
+             className="productgrid"
+            
             >
               {products?.map((item) => (
+                <div>
                 <Flex
+
+                w={"fit-content"}
+                margin="auto"
+
                   key={item.id}
                   w="fit-content"
+
                   alignItems="center"
                   justifyContent="center"
                 >
@@ -380,6 +461,7 @@ const Electronics = () => {
                     </Box>
                   </Link>
                 </Flex>
+                </div>
               ))}
             </div>
           )}
