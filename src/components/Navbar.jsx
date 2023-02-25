@@ -18,76 +18,90 @@ import {
   MenuList,
   MenuButton,
   Menu,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-} from '@chakra-ui/icons';
+} from "@chakra-ui/icons";
 import SubNavbar from "./SubNavbar";
-import {Link, useNavigate, useParams, useSearchParams} from "react-router-dom"
-import logo from "../constants/logo.png"
-import DownNav from './DownNavbar';
-import { useState } from 'react';
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
+import logo from "../constants/logo.png";
+import DownNav from "./DownNavbar";
+import { useState } from "react";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
-  const [searchValue,setSearchValue]=useState("")
-  const [category,setCategory]=useState("All Category")
-  const [searchparams,setSearchParams]=useSearchParams()
-const navigate=useNavigate()
-  const handleSearch=(e)=>{
-  setSearchValue(e.target.value)
-  }
+  const [searchValue, setSearchValue] = useState("");
+  const [category, setCategory] = useState("All Category");
+  const [searchparams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value);
+  };
 
-  const handleMenu=(e)=>{
-    setCategory(e.target.innerText.toLowerCase())
-  }
+  const handleMenu = (e) => {
+    setCategory(e.target.innerText.toLowerCase());
+  };
 
-  const onSearch=()=>{
-    navigate(`/${category}?q=${searchValue}`)
-  }
+  const onSearch = () => {
+    navigate(`/${category}?q=${searchValue}`);
+  };
 
   return (
-    
     <Box>
       <SubNavbar />
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
-        minH={'60px'}
+        bg={useColorModeValue("white", "gray.800")}
+        color={useColorModeValue("gray.600", "white")}
+        minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.900")}
+        align={"center"}
+      >
         <Flex
-          flex={{ base: 1, md: 'auto' }}
+          flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
+          display={{ base: "flex", md: "none" }}
+        >
           <IconButton
             onClick={onToggle}
             icon={
               isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
             }
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
+            variant={"ghost"}
+            aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Link to={"/"}>
-            <Image src={logo} w='140px' ml='20px' />
+            <Image src={logo} w="140px" ml="20px" />
           </Link>
 
-          <Flex display={{ base: 'none', md: 'flex' }} >
+          <Flex display={{ base: "none", md: "flex" }}>
             <DesktopNav />
           </Flex>
-          <Flex alignItems='center' >
-            <Input value={searchValue} onChange={handleSearch} placeholder="Search here anything..." w='600px' ml='30px'  border="2px solid black" height='44px' />
-            <Menu >
-              <MenuButton as={Button} border="2px solid black" height='44px'>
+          <Flex alignItems="center">
+            <Input
+              value={searchValue}
+              onChange={handleSearch}
+              placeholder="Search here anything..."
+              w="600px"
+              ml="30px"
+              border="2px solid black"
+              height="44px"
+            />
+            <Menu>
+              <MenuButton as={Button} border="2px solid black" height="44px">
                 {category} <ChevronDownIcon />
               </MenuButton>
               <MenuList
@@ -95,23 +109,29 @@ const navigate=useNavigate()
                 borderTop={"1px solid gray"}
                 h={"185px"}
                 overflowY={"scroll"}
-                >
-
-     
-
-                    <MenuItem onClick={handleMenu}>Electronic</MenuItem>
-                    <MenuItem onClick={handleMenu}>Fashion</MenuItem>
-                    <MenuItem onClick={handleMenu}>Toys</MenuItem>
-                  <MenuItem onClick={handleMenu}>Home</MenuItem>
-                    <MenuItem onClick={handleMenu}>Jewellary</MenuItem>
-                    <MenuItem onClick={handleMenu}>Sports</MenuItem>
+              >
+                <MenuItem onClick={handleMenu}>Electronic</MenuItem>
+                <MenuItem onClick={handleMenu}>Fashion</MenuItem>
+                <MenuItem onClick={handleMenu}>Toys</MenuItem>
+                <MenuItem onClick={handleMenu}>Home</MenuItem>
+                <MenuItem onClick={handleMenu}>Jewellary</MenuItem>
+                <MenuItem onClick={handleMenu}>Sports</MenuItem>
               </MenuList>
-           </Menu>
-           <Button onClick={onSearch}  bg='blue.500' color='white' width="120px" height='43px'>Search</Button>
-           <Button bg='white' mt='4px'>Advanced</Button>
+            </Menu>
+            <Button
+              onClick={onSearch}
+              bg="blue.500"
+              color="white"
+              width="120px"
+              height="43px"
+            >
+              Search
+            </Button>
+            <Button bg="white" mt="4px">
+              Advanced
+            </Button>
           </Flex>
         </Flex>
-       
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -123,38 +143,41 @@ const navigate=useNavigate()
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
-  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+  const linkColor = useColorModeValue("gray.600", "gray.200");
+  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={'row'} spacing={4} alignItems='center'>
+    <Stack direction={"row"} spacing={4} alignItems="center">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger={'hover'} placement={'bottom-start'}>
+          <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? '#'}
-                fontSize={'sm'}
+                href={navItem.href ?? "#"}
+                fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
-                  textDecoration: 'none',
+                  textDecoration: "none",
                   color: linkHoverColor,
-                }}>
-                {navItem.label}<ChevronDownIcon />
+                }}
+              >
+                {navItem.label}
+                <ChevronDownIcon />
               </Link>
             </PopoverTrigger>
 
             {navItem.children && (
               <PopoverContent
                 border={0}
-                boxShadow={'xl'}
+                boxShadow={"xl"}
                 bg={popoverContentBgColor}
                 p={4}
-                rounded={'xl'}
-                minW={'sm'}>
+                rounded={"xl"}
+                minW={"sm"}
+              >
                 <Stack>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
@@ -173,30 +196,33 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
       href={href}
-      role={'group'}
-      display={'block'}
+      role={"group"}
+      display={"block"}
       p={2}
-      rounded={'md'}
-      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
-      <Stack direction={'row'} align={'center'}>
+      rounded={"md"}
+      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+    >
+      <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
-            transition={'all .3s ease'}
-            _groupHover={{ color: 'pink.400' }}
-            fontWeight={500}>
+            transition={"all .3s ease"}
+            _groupHover={{ color: "pink.400" }}
+            fontWeight={500}
+          >
             {label}
           </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
+          <Text fontSize={"sm"}>{subLabel}</Text>
         </Box>
         <Flex
-          transition={'all .3s ease'}
-          transform={'translateX(-10px)'}
+          transition={"all .3s ease"}
+          transform={"translateX(-10px)"}
           opacity={0}
-          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
-          justify={'flex-end'}
-          align={'center'}
-          flex={1}>
-          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+          justify={"flex-end"}
+          align={"center"}
+          flex={1}
+        >
+          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -206,9 +232,10 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={useColorModeValue("white", "gray.800")}
       p={4}
-      display={{ md: 'none' }}>
+      display={{ md: "none" }}
+    >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -224,12 +251,13 @@ const MobileNavItem = ({ label, children, href }) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
-        justify={'space-between'}
-        align={'center'}
+        href={href ?? "#"}
+        justify={"space-between"}
+        align={"center"}
         _hover={{
-          textDecoration: 'none',
-        }}>
+          textDecoration: "none",
+        }}
+      >
         {/* <Text
           fontWeight={600}
           color={useColorModeValue('gray.600', 'gray.200')}>
@@ -263,44 +291,43 @@ const MobileNavItem = ({ label, children, href }) => {
         </Stack>
       </Collapse> */}
     </Stack>
-
   );
 };
 
 const NAV_ITEMS = [
   {
-    label: 'Shop By Category',
+    label: "Shop By Category",
     children: [
       {
-        label: 'Collectible & art',
-        subLabel: 'Collectibles',
-        href: '#',
+        label: "Collectible & art",
+        subLabel: "Collectibles",
+        href: "#",
       },
       {
-        label: 'Electronics',
-        subLabel: 'Computer & tablets',
-        href: '#',
+        label: "Electronics",
+        subLabel: "Computer & tablets",
+        href: "#",
       },
       {
-        label: 'Fashion',
-        subLabel: 'Men & women',
-        href: '#',
+        label: "Fashion",
+        subLabel: "Men & women",
+        href: "#",
       },
       {
-        label: 'Home & Garden',
-        subLabel: 'Home Improvement',
-        href: '#',
+        label: "Home & Garden",
+        subLabel: "Home Improvement",
+        href: "#",
       },
       {
-        label: 'Auto parts & accessories',
-        subLabel: 'Radar & Laser detector',
-        href: '#',
+        label: "Auto parts & accessories",
+        subLabel: "Radar & Laser detector",
+        href: "#",
       },
       {
-        label: 'Musical Instrument and gear',
-        subLabel: 'Pro Audio equipment',
-        href: '#',
-      }
+        label: "Musical Instrument and gear",
+        subLabel: "Pro Audio equipment",
+        href: "#",
+      },
     ],
-  }
+  },
 ];
