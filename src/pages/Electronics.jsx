@@ -31,10 +31,10 @@ import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineRight, AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { getDataElectronic } from "../redux/products/productAction";
-
+import {FaFilter} from 'react-icons/fa'
 import { Checkbox, CheckboxGroup, Stack, Heading } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
-
+import "./allproduct.css"
 const data = {
   isNew: true,
   imageURL:
@@ -101,6 +101,7 @@ const Electronics = () => {
   const { products, loading } = useSelector((store) => store.product);
   const [searchParams,setSearchParam]=useSearchParams();
   const [categoryfilter,setCategoryFilter]=useState([])
+  const[startfilter,setStarFilter]=useState([])
   const location = useLocation();
  const [sortValue,setSortValue]=useState("")
   const [grid, setGrid] = useState(true);
@@ -121,14 +122,19 @@ const Electronics = () => {
   const handleChange=(e)=>{
    setCategoryFilter(e);
   }
+  const handleChangestar=(e)=>{
+    setStarFilter(e);
+   }
   useEffect(()=>{
     let params={}
-    if(categoryfilter.length||sortValue.length){
+    if(categoryfilter.length||sortValue.length||startfilter.length){
       params.category=categoryfilter
+      params.rating=startfilter
       params.sort=sortValue
+     
     }
     setSearchParam(params)
-  },[categoryfilter,sortValue])
+  },[categoryfilter,startfilter,sortValue])
 
  useEffect(()=>{
   const searchParams = new URLSearchParams(location.search);
@@ -137,6 +143,7 @@ const Electronics = () => {
     const getProductParam={
       params:{
         category:searchParams.getAll('category'),
+        rating:searchParams.getAll("rating"),
         _sort:"price",
         _order:searchParams.getAll('sort')[0]
       }
@@ -163,6 +170,7 @@ const Electronics = () => {
           <b> Electronic </b>
         </BreadcrumbItem>
       </Breadcrumb>
+      <FaFilter size={"20px"}/>
       <div
         style={{
           display: "grid",
@@ -172,7 +180,7 @@ const Electronics = () => {
         }}
       >
         {/* ------Left Side------ */}
-        <div>
+        <div className="leftside">
           <Heading
             size={"sm"}
             fontWeight={"bold"}
@@ -201,7 +209,7 @@ const Electronics = () => {
               </Checkbox>
             </Stack>
           </CheckboxGroup>
-
+         
           <Heading
             size={"sm"}
             fontWeight={"bold"}
@@ -211,54 +219,30 @@ const Electronics = () => {
             Rating
           </Heading>
 
-          <CheckboxGroup colorScheme={"green"}>
+          <CheckboxGroup colorScheme={"green"}
+           onChange={handleChangestar}
+           value={startfilter}
+          >
             <Stack direction={"column"}>
-              <Checkbox value={"bags"} colorScheme="green">
+              <Checkbox value={"5"} colorScheme="green">
                 <Star rating={5} />
               </Checkbox>
-              <Checkbox value={"electronics"} colorScheme="green">
+              <Checkbox value={"4"} colorScheme="green">
                 <Star rating={4} />
               </Checkbox>
-              <Checkbox value={"jewelery"} colorScheme="green">
+              <Checkbox value={"3"} colorScheme="green">
                 <Star rating={3} />
               </Checkbox>
-              <Checkbox value={"men's clothing"} colorScheme="green">
+              <Checkbox value={"2"} colorScheme="green">
                 <Star rating={2} />
               </Checkbox>
-              <Checkbox value={"women's clothing"} colorScheme="green">
+              <Checkbox value={"1"} colorScheme="green">
                 <Star rating={1} />
               </Checkbox>
             </Stack>
           </CheckboxGroup>
 
-          <Heading
-            size={"sm"}
-            fontWeight={"bold"}
-            marginBottom={"5px"}
-            marginTop={"5px"}
-          >
-            Price
-          </Heading>
-
-          <CheckboxGroup colorScheme={"green"}>
-            <Stack direction={"column"}>
-              <Checkbox value={"bags"} colorScheme="green">
-                Mobile
-              </Checkbox>
-              <Checkbox value={"electronics"} colorScheme="green">
-                Electronics
-              </Checkbox>
-              <Checkbox value={"jewelery"} colorScheme="green">
-                Jewelery
-              </Checkbox>
-              <Checkbox value={"men's clothing"} colorScheme="green">
-                Mens clothing
-              </Checkbox>
-              <Checkbox value={"women's clothing"} colorScheme="green">
-                Womens clothing
-              </Checkbox>
-            </Stack>
-          </CheckboxGroup>
+          
         </div>
         {/* ------Rigth Side------ */}
         
@@ -269,26 +253,24 @@ const Electronics = () => {
   
 </Select>
           {loading ? (
+            <Box  style={{width:"100%",marginTop:"30px",display:"flex",justifyContent:"center"}}>
             <Spinner
               thickness="4px"
               speed="0.65s"
               emptyColor="gray.200"
               color="blue.500"
               size="xl"
-            />
+              style={{display:"flex",justifyContent:"center"}} /></Box>
           ) : (
             <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "24% 24% 24% 24%",
-                justifyContent: "space-between",
-                gap: "2",
-              }}
-              className={grid ? "gridview" : "listview"}
+             className="productgrid"
+            
             >
               {products?.map((item) => (
+                <div>
                 <Flex
-                  w="fit-content"
+                w={"fit-content"}
+                margin="auto"
                   alignItems="center"
                   justifyContent="center"
                 >
@@ -376,6 +358,7 @@ const Electronics = () => {
                     </Box>
                   </Link>
                 </Flex>
+                </div>
               ))}
             </div>
           )}

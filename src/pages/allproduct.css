@@ -1,0 +1,22 @@
+.leftside{
+    display: block;
+}
+.productgrid{
+    display: grid;
+   grid-template-columns: 24% 24% 24% 24%;
+    justify-content: space-between;
+     gap: 2
+}
+@media only screen and (max-width: 450px){
+    .leftside{
+        display: none;
+    } 
+    .productgrid{
+        display: grid;
+       grid-template-columns:100%;
+       width: 100%;
+        justify-content:center;
+align-items: center;
+         gap: 2
+    } 
+}

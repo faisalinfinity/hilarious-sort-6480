@@ -24,7 +24,7 @@
       "category": "apple",
       "image": "https://i.ebayimg.com/thumbs/images/g/VhoAAOSw8sRj5ZnY/s-l500.jpg",
       "price": 39.95,
-      "rating": 5,
+      "rating": 2,
       "reviews": 89
     },
     {
@@ -33,7 +33,7 @@
       "category": "apple",
       "image": "https://i.ebayimg.com/thumbs/images/g/WLIAAOSwA3tj5TVs/s-l500.jpg",
       "price": 39.99,
-      "rating": 4,
+      "rating": 1,
       "reviews": 56
     },
     {
@@ -51,7 +51,7 @@
       "category": "apple",
       "image": "https://i.ebayimg.com/thumbs/images/g/aIwAAOSw2iBg5Kbu/s-l500.jpg",
       "price": 64.99,
-      "rating": 5,
+      "rating": 4,
       "reviews": 997
     },
     {
@@ -60,7 +60,7 @@
       "category": "laptop",
       "image": "https://i.ebayimg.com/thumbs/images/g/rN8AAOSwN9RieYFT/s-l500.jpg",
       "price": 292,
-      "rating": 5,
+      "rating": 2,
       "reviews": 456
     },
     {
@@ -69,7 +69,7 @@
       "category": "laptop",
       "image": "https://i.ebayimg.com/thumbs/images/g/j80AAOSwVDRj87Ph/s-l500.jpg",
       "price": 199,
-      "rating": 4,
+      "rating": 3,
       "reviews": 895
     },
     {
@@ -78,7 +78,7 @@
       "category": "laptop",
       "image": "https://i.ebayimg.com/thumbs/images/g/9DAAAOSw8bxilhM6/s-l500.jpg",
       "price": 249.99,
-      "rating": 5,
+      "rating": 3,
       "reviews": 675
     },
     {
@@ -132,7 +132,7 @@
       "category": "tv",
       "image": "https://i.ebayimg.com/thumbs/images/g/vk8AAOSwzDxjm2tB/s-l500.jpg",
       "price": 139.99,
-      "rating": 5,
+      "rating": 4,
       "reviews": 428
     }
   ],
@@ -288,7 +288,7 @@
       "category": "necklace",
       "image": "https://i.ebayimg.com/images/g/PZIAAOSwNlxjhGRw/s-l300.jpg",
       "price": 199.99,
-      "rating": 3.3,
+      "rating": 2,
       "reviews": 666,
       "id": 2
     },
@@ -968,18 +968,7 @@
   "cart": [
     {
       "user": "vinayhatwar16@gmail.com",
-      "userProduct": [
-        {
-          "id": 2,
-          "title": "Apple iPad Mini (5th Generation) 256GB, Wi-Fi, 7.9in - Space Gray",
-          "category": "apple",
-          "image": "https://i.ebayimg.com/thumbs/images/g/4BUAAOSwwnVj8yzD/s-l500.jpg",
-          "price": 167.5,
-          "rating": 5,
-          "reviews": 76,
-          "quantity": 1
-        }
-      ],
+      "userProduct": [],
       "id": 1
     }
   ]
