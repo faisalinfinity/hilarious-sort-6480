@@ -21,6 +21,7 @@ import {
   Text,
   useColorModeValue,
   Container,
+  useToast,
 } from "@chakra-ui/react";
 import { Blue } from "../constants/theme";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +30,7 @@ export default function Loginpage() {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const toast = useToast();
   const dispatch = useDispatch();
   const SignInWithGoogle = () => {
     auth
@@ -38,7 +39,7 @@ export default function Loginpage() {
         console.log(res.user);
         const { displayName, email } = res.user;
         console.log(displayName, email);
-        dispatch(loginAction(res.user.providerData, navigate));
+        dispatch(loginAction(res.user.providerData, navigate, toast));
       })
       .catch((error) => {
         console.log(error.message);
@@ -66,7 +67,7 @@ export default function Loginpage() {
     if (email.includes("@productify") && password === "productify") {
       navigate("/admin");
     } else {
-      dispatch(manualSignin(navigate, email, password));
+      dispatch(manualSignin(navigate, email, password, toast));
     }
   };
   return (
@@ -77,8 +78,8 @@ export default function Loginpage() {
         justify={"center"}
         bg={useColorModeValue("gray.50", "gray.800")}
       >
-        <Stack  spacing={8} mx={"auto"} maxW={"md"}  py={1} px={6}>
-          <Stack  align={"center"}>
+        <Stack spacing={8} mx={"auto"} maxW={"md"} py={1} px={6}>
+          <Stack align={"center"}>
             <Box bg={Blue} p="7px" color={"white"}>
               {" "}
               To buy and sell on www.productify.com or other productify sites

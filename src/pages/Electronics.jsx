@@ -109,14 +109,19 @@ function Star({ rating }) {
 
 const Electronics = () => {
   const { products, loading } = useSelector((store) => store.product);
-  const [searchParams,setSearchParam]=useSearchParams();
-  const [categoryfilter,setCategoryFilter]=useState([])
+  
+ 
   const[startfilter,setStarFilter]=useState([])
-  const location = useLocation();
- const [sortValue,setSortValue]=useState("")
+  
+
  const { isOpen, onOpen, onClose } = useDisclosure()
   const [placement, setPlacement] = React.useState('right')
 
+
+  const [searchParams, setSearchParam] = useSearchParams();
+  const [categoryfilter, setCategoryFilter] = useState([]);
+  const location = useLocation();
+  const [sortValue, setSortValue] = useState("");
   const [grid, setGrid] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -132,39 +137,28 @@ const Electronics = () => {
       dispatch(getDataElectronic(searchValue));
     }
   }, [location]);
+
   const handleChange=(e)=>{
    setCategoryFilter(e);
   }
   const handleChangestar=(e)=>{
     setStarFilter(e);
    }
-  useEffect(()=>{
-    let params={}
-    if(categoryfilter.length||sortValue.length||startfilter.length){
-      params.category=categoryfilter
-      params.rating=startfilter
-      params.sort=sortValue
-     
-    }
-    setSearchParam(params)
-  },[categoryfilter,startfilter,sortValue])
 
- useEffect(()=>{
-  const searchParams = new URLSearchParams(location.search);
-  const searchValue = searchParams.get("q");
-  if(products?.length===0||location){
-    const getProductParam={
-      params:{
-        category:searchParams.getAll('category'),
-        rating:searchParams.getAll("rating"),
-        _sort:"price",
-        _order:searchParams.getAll('sort')[0]
-      }
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const searchValue = searchParams.get("q");
+    if (products?.length === 0 || location) {
+      const getProductParam = {
+        params: {
+          category: searchParams.getAll("category"),
+          _sort: "price",
+          _order: searchParams.getAll("sort")[0],
+        },
+      };
+      dispatch(getDataElectronic(searchValue, getProductParam));
     }
-    dispatch(getDataElectronic(searchValue,getProductParam))
-  }
-  
- },[location.search])
+  }, [location.search]);
   return (
     <div style={{ width: "95%", margin: "auto" }}>
       {/* ------BreadCrumb------ */}
@@ -210,9 +204,10 @@ const Electronics = () => {
             Category
           </Heading>
 
-          <CheckboxGroup colorScheme={"green"}
-           onChange={handleChange}
-           value={categoryfilter}
+          <CheckboxGroup
+            colorScheme={"green"}
+            onChange={handleChange}
+            value={categoryfilter}
           >
             <Stack direction={"column"}>
               <Checkbox value={"apple"} colorScheme="green">
@@ -341,9 +336,20 @@ const Electronics = () => {
           
         </div>
         {/* ------Rigth Side------ */}
-        
+
         <div>
+
        
+
+          <Select
+            placeholder="Select option"
+            onChange={(e) => setSortValue(e.target.value)}
+            value={sortValue}
+          >
+            <option value="asc">Low to high</option>
+            <option value="desc">High to low</option>
+          </Select>
+
           {loading ? (
             <Box  style={{width:"100%",marginTop:"30px",display:"flex",justifyContent:"center"}}>
             <Spinner
@@ -361,8 +367,13 @@ const Electronics = () => {
               {products?.map((item) => (
                 <div>
                 <Flex
+
                 w={"fit-content"}
                 margin="auto"
+
+                  key={item.id}
+                  w="fit-content"
+
                   alignItems="center"
                   justifyContent="center"
                 >

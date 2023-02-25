@@ -23,6 +23,7 @@ import {
     Text,
     useColorModeValue,
     Link,
+    useToast,
   } from '@chakra-ui/react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { Blue } from "../constants/theme";
@@ -36,6 +37,7 @@ export default function Signup() {
   const [Lastname, setLastName] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const toast =useToast()
 
   const handleEmail = (e) => {
     !e.target.value.includes("@")
@@ -62,7 +64,7 @@ export default function Signup() {
   const handleSubmit = () => {
     if (Firstname === "" || Lastname === "" || password === "" || email === "")
       alert("Fill all Details First");
-    else dispatch(signup(Firstname + " " + Lastname, email, password));
+    else dispatch(signup(Firstname + " " + Lastname, email, password,toast));
   };
   return (
     <>
