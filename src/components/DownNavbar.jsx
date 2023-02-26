@@ -286,12 +286,11 @@ import {
   const NAV_ITEMS = [
     {
         label: "Home",
+        href: '/',
+
         
     },
-    {
-        label: "Saved",
-       
-    },
+   
     {
       label: "Electronics",
       children: [
@@ -306,7 +305,7 @@ import {
             "Refurbished",
             "Smart home",
           ],
-          href: "#",
+          href: "/electronic",
         },
         {
           label: "More Categories",
@@ -319,7 +318,190 @@ import {
             "Deals",
             "Sell on eBay",
           ],
+          href:"/electronic",
+        },
+      ],
+    },
+   
+    {
+      label: "Fashion",
+      children: [
+        {
+          label: "Most popular category",
+          subLabel: [
+            "T-Shirts",
+            "Casual Shirts",
+            "Formal Shirts",
+            "Sweatshirts",
+            "Sweaters",
+            "Jackets",
+            "Blazzers and Coats",
+            "Suits",
+            "Rain Jackets",
+          ],
+          href: '/fashion',
+        },
+        {
+          label: "More categories",
+          subLabel: [
+            "Shampoo",
+            "Conditioners",
+            "Hair Treatments",
+            "Hair Masks",
+            "Hair Oils",
+            "Hair Sprays",
+            "Hair Styling",
+            "Hair Thinning & Loss",
+          ],
+          href: '/fashion',
+        },
+        {
+          label: "Footwear",
+          subLabel: [
+            "Flats",
+            "Casual Shoes",
+            "Heels",
+            "Boots",
+            "Sports Shoes & Floaters",
+            "Sports and Active Wear",
+          ],
+          href: '/fashion',
+        },
+        {
+          label: "Toys",
+          subLabel: ["Flat Irons", "Hair Dryers", "Rollers & Curling Tongs"],
           href: "#",
+        },
+        {
+          label: "Infants",
+          subLabel: [" Removal Devices", " Removal Products", " Beauty Products"],
+          href: '/toys',
+        },
+      ],
+    },
+    {
+        label: "Sports",
+        children: [
+          {
+            label: "Most popular categories",
+            subLabel: [
+                "Cycling",
+                "Fitness, running and yoga",
+                "Fitness Tech",
+                "Fishing",
+                "Camping",
+                "Scooters",
+                "Team Sports"
+            ],
+            href: '/sports',
+          },
+          {
+            label: "More Categories",
+            subLabel: [
+              "Watersports",
+              "Wintersports",
+              "Box and MMA",
+              "Swimming",
+              "GPS & Running Watches",
+              "Garmin",
+              "Deals",
+              "Sell on eBay"
+            ],
+            href: '/sports',
+          },
+          {
+            label: "Deoderants",
+            subLabel: [
+              "Perfume",
+              "EAU de Toilette",
+              "Body Spray",
+              "For Her",
+              "For Him",
+            ],
+            href: '/sports',
+          },
+          {
+            label: "Ethnic",
+            subLabel: [
+              "Scented Candles",
+              "Diffusers",
+              "Aromatherapy",
+              "Pillow Mists",
+              "Room Sprays",
+            ],
+            href: '/fashion',
+          },
+    
+          {
+            label: "Upcoming Fashion",
+            subLabel: ["In Shirts", "In Pants", "Casual", "Watches", "Footwear"],
+            href: '/fashion',
+          },
+        ],
+      },
+    {
+      label: "Home & Living",
+      children: [
+        {
+          label: "Ben Linen & Furnishing",
+          subLabel: [
+            "New In",
+            "Clean Makeup",
+            "5 Rated Products",
+            "Gifts & Sets",
+            "Brushes & Applicators",
+            "Makeup Palettes",
+            "Nails",
+          ],
+          href: '/home',
+        },
+        {
+          label: "Flooring",
+          subLabel: [
+            "Eye Liners",
+            "Lash & Brow Enhancers",
+            "Eye Shadows",
+            "Mascaras",
+            "Brow Pencils",
+          ],
+          href: '/home',
+        },
+        {
+          label: "Bath",
+          subLabel: [
+            "BB && CC Cream",
+            "Blushers",
+            "Bronzers",
+            "Color Correctors",
+            "Concealers",
+            "Contour",
+            "Face Powders",
+            "Foundations",
+            "Highlighters",
+          ],
+          href: '/home',
+        },
+        {
+          label: "Lamps and Lighting",
+          subLabel: [
+            "stastics",
+            "Lamps Balms",
+            "Lamp Glosses",
+            " Liners",
+            " Plumpers",
+            "Liquid Lamps",
+          ],
+          href: '/home',
+        },
+        {
+          label: "Home Decor",
+          subLabel: [
+            "Accessories",
+            "Pre-Tan Preparation",
+            "Body Tanners",
+            "Post Tanning",
+          ],
+          href: '/home',
         },
       ],
     },
@@ -356,188 +538,6 @@ import {
           href: "#",
         },
         
-      ],
-    },
-    {
-      label: "Fashion",
-      children: [
-        {
-          label: "Most popular category",
-          subLabel: [
-            "T-Shirts",
-            "Casual Shirts",
-            "Formal Shirts",
-            "Sweatshirts",
-            "Sweaters",
-            "Jackets",
-            "Blazzers and Coats",
-            "Suits",
-            "Rain Jackets",
-          ],
-          href: "#",
-        },
-        {
-          label: "More categories",
-          subLabel: [
-            "Shampoo",
-            "Conditioners",
-            "Hair Treatments",
-            "Hair Masks",
-            "Hair Oils",
-            "Hair Sprays",
-            "Hair Styling",
-            "Hair Thinning & Loss",
-          ],
-          href: "#",
-        },
-        {
-          label: "Footwear",
-          subLabel: [
-            "Flats",
-            "Casual Shoes",
-            "Heels",
-            "Boots",
-            "Sports Shoes & Floaters",
-            "Sports and Active Wear",
-          ],
-          href: "#",
-        },
-        {
-          label: "Toys",
-          subLabel: ["Flat Irons", "Hair Dryers", "Rollers & Curling Tongs"],
-          href: "#",
-        },
-        {
-          label: "Infants",
-          subLabel: [" Removal Devices", " Removal Products", " Beauty Products"],
-          href: "#",
-        },
-      ],
-    },
-    {
-        label: "Sports",
-        children: [
-          {
-            label: "Most popular categories",
-            subLabel: [
-                "Cycling",
-                "Fitness, running and yoga",
-                "Fitness Tech",
-                "Fishing",
-                "Camping",
-                "Scooters",
-                "Team Sports"
-            ],
-            href: "#",
-          },
-          {
-            label: "More Categories",
-            subLabel: [
-              "Watersports",
-              "Wintersports",
-              "Box and MMA",
-              "Swimming",
-              "GPS & Running Watches",
-              "Garmin",
-              "Deals",
-              "Sell on eBay"
-            ],
-            href: "#",
-          },
-          {
-            label: "Deoderants",
-            subLabel: [
-              "Perfume",
-              "EAU de Toilette",
-              "Body Spray",
-              "For Her",
-              "For Him",
-            ],
-            href: "#",
-          },
-          {
-            label: "Ethnic",
-            subLabel: [
-              "Scented Candles",
-              "Diffusers",
-              "Aromatherapy",
-              "Pillow Mists",
-              "Room Sprays",
-            ],
-            href: "#",
-          },
-    
-          {
-            label: "Upcoming Fashion",
-            subLabel: ["In Shirts", "In Pants", "Casual", "Watches", "Footwear"],
-            href: "#",
-          },
-        ],
-      },
-    {
-      label: "Home & Living",
-      children: [
-        {
-          label: "Ben Linen & Furnishing",
-          subLabel: [
-            "New In",
-            "Clean Makeup",
-            "5 Rated Products",
-            "Gifts & Sets",
-            "Brushes & Applicators",
-            "Makeup Palettes",
-            "Nails",
-          ],
-          href: "#",
-        },
-        {
-          label: "Flooring",
-          subLabel: [
-            "Eye Liners",
-            "Lash & Brow Enhancers",
-            "Eye Shadows",
-            "Mascaras",
-            "Brow Pencils",
-          ],
-          href: "#",
-        },
-        {
-          label: "Bath",
-          subLabel: [
-            "BB && CC Cream",
-            "Blushers",
-            "Bronzers",
-            "Color Correctors",
-            "Concealers",
-            "Contour",
-            "Face Powders",
-            "Foundations",
-            "Highlighters",
-          ],
-          href: "#",
-        },
-        {
-          label: "Lamps and Lighting",
-          subLabel: [
-            "stastics",
-            "Lamps Balms",
-            "Lamp Glosses",
-            " Liners",
-            " Plumpers",
-            "Liquid Lamps",
-          ],
-          href: "#",
-        },
-        {
-          label: "Home Decor",
-          subLabel: [
-            "Accessories",
-            "Pre-Tan Preparation",
-            "Body Tanners",
-            "Post Tanning",
-          ],
-          href: "#",
-        },
       ],
     },
     {
