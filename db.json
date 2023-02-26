@@ -943,28 +943,7 @@
       "id": "103478198087354213159",
       "name": "Faisal Mujtaba",
       "email": "mujtabafaisal944.fk@gmail.com",
-      "cart": [
-        {
-          "title": "Guaranteed 925 Sterling Silver Cuban Curb Chain Necklace Solid & Heavy Version",
-          "category": "necklace",
-          "image": "https://i.ebayimg.com/images/g/L8YAAOSwPERjaWSt/s-l300.jpg",
-          "price": 129.99,
-          "rating": 4,
-          "reviews": 4444,
-          "id": 1,
-          "quantity": 1
-        },
-        {
-          "id": 2,
-          "title": "Apple iPad Mini (5th Generation) 256GB, Wi-Fi, 7.9in - Space Gray",
-          "category": "apple",
-          "image": "https://i.ebayimg.com/thumbs/images/g/4BUAAOSwwnVj8yzD/s-l500.jpg",
-          "price": 167.5,
-          "rating": 5,
-          "reviews": 76,
-          "quantity": 1
-        }
-      ],
+      "cart": [],
       "order": [
         {
           "id": 2,

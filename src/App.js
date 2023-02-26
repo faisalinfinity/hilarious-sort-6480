@@ -13,7 +13,8 @@ function App() {
   const email=user[0]?.email
   return (
    <>
-   { !email?.includes("@productify.com") &&<Navbar></Navbar>}
+   {/* { !email?.includes("@productify.com") &&<Navbar></Navbar>} */}
+   <Navbar/>
    <MainRoute/>
    </>
   );
