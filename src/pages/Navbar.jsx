@@ -57,7 +57,7 @@ const Navbar = () => {
     const { isOpen, onOpen, onClose ,onToggle} = useDisclosure();
     const navigate = useNavigate()
     const [searchValue, setSearchValue] = useState("");
-    const [category, setCategory] = useState("Select Category");
+    const [category, setCategory] = useState("Electronic");
     const {cart} = useSelector((store)=>store.cart)
     let userName = user[0]?.displayName;
   let image = user[0]?.photoURL;
@@ -192,7 +192,7 @@ const Navbar = () => {
                 variant={'link'}
                 cursor={'pointer'}
                 minW={0}>
-                 <Avatar src={image} />
+                 <Avatar name={userName} src={image} />
               </MenuButton>
               <MenuList>
                 <MenuItem>Hi! {userName}</MenuItem>
@@ -234,7 +234,8 @@ const Navbar = () => {
               </MenuList>
             </Menu> */}
           </Flex>
-          <AiOutlineShoppingCart size={"30px"} margin={"5px"}/><span style={{fontSize:"15px",fontWeight:"bold"}} >{cart?.length===0?"0":cart.length}</span>
+          
+          <AiOutlineShoppingCart  onClick={()=>navigate("/cart")} size={"30px"} margin={"5px"}/><span style={{fontSize:"15px",fontWeight:"bold"}} >{cart?.length===0?"0":cart.length}</span>
         </Flex>
 
         {/* {isOpen ? (

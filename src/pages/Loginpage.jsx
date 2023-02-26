@@ -15,7 +15,6 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
@@ -24,7 +23,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Blue } from "../constants/theme";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 export default function Loginpage() {
   const [email, setemail] = useState("");
@@ -89,7 +88,7 @@ export default function Loginpage() {
             <Heading fontSize={"2xl"}>Hello</Heading>
             <Text fontSize={"lg"} color={"gray.600"}>
               Sign in to Productify or{" "}
-              <Link href="/signup" color={"blue.400"}>
+              <Link style={{color:"blue"}} to="/signup" >
                 create an account
               </Link>{" "}
             </Text>

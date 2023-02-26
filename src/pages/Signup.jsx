@@ -22,12 +22,12 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    Link,
     useToast,
   } from '@chakra-ui/react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { Blue } from "../constants/theme";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
+
 
 export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
@@ -135,7 +135,7 @@ export default function Signup() {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link href="/login" color={'blue.400'}>Login</Link>
+                Already a user? <Link style={{color:"blue"}} to="/login" >Login</Link>
               </Text>
             </Stack>
           </Stack>

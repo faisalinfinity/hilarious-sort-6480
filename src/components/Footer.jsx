@@ -1,7 +1,6 @@
 import {
     Box,
     Container,
-    Link,
     SimpleGrid,
     Stack,
     Text,
@@ -9,6 +8,7 @@ import {
     Tag,
     useColorModeValue,
   } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
   
   const ListHeader = ({ children } ) => {
     return (
@@ -81,7 +81,7 @@ import {
               <Link href={'https://twitter.com/eBay'}>Twitter</Link>
               <Link href={'#'}>Dribbble</Link>
               <Link href={'#'}>Instagram</Link>
-              <Link href={'#'}>LinkedIn</Link>
+              <Link to="/admin">Admin</Link>
             </Stack>
           </SimpleGrid>
         </Container>

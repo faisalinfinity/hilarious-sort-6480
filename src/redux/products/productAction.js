@@ -1,4 +1,5 @@
 import axios from "axios";
+import { BASE_URL } from "../../constants/apiConstants";
 import * as types from "./productsType";
 export const getDataElectronic =
   (searchValue, getProductParam) => (dispatch) => {
@@ -8,7 +9,7 @@ export const getDataElectronic =
     dispatch({ type: types.PRODUCT_LOADING });
 
     axios
-      .get(`http://localhost:8080/electronic?q=${searchValue}`, getProductParam)
+      .get(`${BASE_URL}/electronic?q=${searchValue}`, getProductParam)
       .then((res) =>
         dispatch({ type: types.PRODUCT_SUCCESS, payload: res.data })
       )
@@ -22,7 +23,7 @@ export const getDataFashion = (searchValue, getProductParam) => (dispatch) => {
   }
   dispatch({ type: types.PRODUCT_LOADING });
   axios
-    .get(`http://localhost:8080/fashion?q=${searchValue}`, getProductParam)
+    .get(`${BASE_URL}/fashion?q=${searchValue}`, getProductParam)
     .then((res) => dispatch({ type: types.PRODUCT_SUCCESS, payload: res.data }))
     .catch((e) => {
       dispatch({ type: types.PRODUCT_ERROR, payload: e });
@@ -34,7 +35,7 @@ export const getDataHome = (searchValue, getProductParam) => (dispatch) => {
   }
   dispatch({ type: types.PRODUCT_LOADING });
   axios
-    .get(`http://localhost:8080/home?q=${searchValue}`, getProductParam)
+    .get(`${BASE_URL}/home?q=${searchValue}`, getProductParam)
     .then((res) => dispatch({ type: types.PRODUCT_SUCCESS, payload: res.data }))
     .catch((e) => {
       dispatch({ type: types.PRODUCT_ERROR, payload: e });
@@ -46,7 +47,7 @@ export const getDataToys = (searchValue, getProductParam) => (dispatch) => {
   }
   dispatch({ type: types.PRODUCT_LOADING });
   axios
-    .get(`http://localhost:8080/toys?q=${searchValue}`, getProductParam)
+    .get(`${BASE_URL}/toys?q=${searchValue}`, getProductParam)
     .then((res) => dispatch({ type: types.PRODUCT_SUCCESS, payload: res.data }))
     .catch((e) => {
       dispatch({ type: types.PRODUCT_ERROR, payload: e });
@@ -59,7 +60,7 @@ export const getDataJewellary =
     }
     dispatch({ type: types.PRODUCT_LOADING });
     axios
-      .get(`http://localhost:8080/jewellary?q=${searchValue}`, getProductParam)
+      .get(`${BASE_URL}/jewellary?q=${searchValue}`, getProductParam)
       .then((res) =>
         dispatch({ type: types.PRODUCT_SUCCESS, payload: res.data })
       )
@@ -73,7 +74,7 @@ export const getDataSports = (searchValue, getProductParam) => (dispatch) => {
   }
   dispatch({ type: types.PRODUCT_LOADING });
   axios
-    .get(`http://localhost:8080/sports?q=${searchValue}`, getProductParam)
+    .get(`${BASE_URL}/sports?q=${searchValue}`, getProductParam)
     .then((res) => dispatch({ type: types.PRODUCT_SUCCESS, payload: res.data }))
     .catch((e) => {
       dispatch({ type: types.PRODUCT_ERROR, payload: e });
