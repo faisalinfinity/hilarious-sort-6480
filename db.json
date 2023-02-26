@@ -946,6 +946,19 @@
       "cart": [],
       "order": [
         {
+          "id": 2,
+          "title": "Apple iPad Mini (5th Generation) 256GB, Wi-Fi, 7.9in - Space Gray",
+          "category": "apple",
+          "image": "https://i.ebayimg.com/thumbs/images/g/4BUAAOSwwnVj8yzD/s-l500.jpg",
+          "price": 167.5,
+          "rating": 5,
+          "reviews": 76,
+          "quantity": 1,
+          "date": "26022023",
+          "status": "pending",
+          "orderId": "103478198087354213159Aa"
+        },
+        {
           "id": 12,
           "title": "NEW Canon EOS M100 24.2MP Mirrorless Digital Camera with 15-45mm f/3.5-6.3 IS",
           "category": "camera",
@@ -1025,8 +1038,7 @@
           "status": "pending",
           "orderId": "jnicHEJLtLe9vvr4fwvdX3BKAvl2Mm"
         }
-      ],
-    },
-    
+      ]
+    }
   ]
 }

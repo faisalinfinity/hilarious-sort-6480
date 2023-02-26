@@ -380,8 +380,12 @@ const Electronics = () => {
               size="xl"
               style={{display:"flex",justifyContent:"center"}} /></Box>
           ) : (
-            <div
-             className="productgrid"
+            <Box
+            //  className="productgrid"
+             
+             display={"grid"}
+             gridTemplateColumns={{base:"repeat(2,1fr)",md:"repeat(3,1fr)",lg:"repeat(4,1fr)"}}
+             gap="10px"
             
             >
               {products?.map((item) => (
@@ -417,8 +421,9 @@ const Electronics = () => {
                       )}
 
                       <Image
-                        width={"100%"}
-                        height={"250px"}
+                      m="auto"
+                        width={{base:"150px",md:"150px",lg:"250px"}}
+                        height={{base:"150px",md:"150px",lg:"220px"}}
                         src={item.image}
                         alt={`Picture of ${item.title}`}
                         roundedTop="lg"
@@ -483,7 +488,7 @@ const Electronics = () => {
                 </Flex>
                 </div>
               ))}
-            </div>
+            </Box>
           )}
         </div>
       </div>
