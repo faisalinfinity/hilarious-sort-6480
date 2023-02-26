@@ -4,11 +4,14 @@ import Navbar from './components/Navbar';
 import MainRoute from './routes/MainRoute';
 import SingleProduct from './pages/SingleProduct';
 import SearchPage from './pages/SearchPage';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  const location=useLocation()
   return (
    <>
-   <Navbar></Navbar>
+   {location.pathname!=="/admin" && <Navbar></Navbar>}
+   
    <MainRoute/>
   
    </>

@@ -108,13 +108,13 @@ function SingleProduct() {
   const handleQuantityMinus = (el) => {
     if (uid) {
       setCount((prev) => {
-        if (count === 1) {
+        if (count === 0) {
           dispatch(removeCart(el.id, cart, uid));
           setForcedUpdate(!forcedUpdate);
           toast({
             title: "Item Removed from Cart",
             description: "",
-            status: "success",
+            status: "error",
             duration: 3000,
             isClosable: true,
           });
@@ -138,14 +138,8 @@ function SingleProduct() {
   };
 
   const handleRemove = (id) => {
-    dispatch(removeCart(id, cart, uid));
-    toast({
-      title: "Item Removed from Cart",
-      description: "",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+    dispatch(removeCart(id, cart, uid,toast));
+
     setForcedUpdate(!forcedUpdate);
   };
 
@@ -248,9 +242,12 @@ function SingleProduct() {
               </Flex>
               <br />
               <h1 style={{ fontSize: "17px", fontWeight: "bold" }}>
-                Price: <span> ${data.price * count}</span>
+                Price: <span> ₹ {data.price*80}</span>
               </h1>
               <br />
+              <h1 style={{ fontSize: "17px", fontWeight: "bold" }}>
+                Subtotal: <span> ₹ {(+data.price * count*80).toFixed(2)}</span>
+              </h1>
               <hr />
             </div>
             <hr />
@@ -269,7 +266,7 @@ function SingleProduct() {
 
             {isLoggedIn && (
               <Button
-                disabled={uid === undefined}
+              isDisabled={count===0}
                 bg={"red.600"}
                 color={"white"}
                 onClick={() => handleRemove(data.id)}
@@ -323,14 +320,12 @@ function SingleProduct() {
                 <FcApproval />
               </div>
               <div>
-                <h3 style={{ fontWeight: "bold" }}>eBay Refurbished</h3>
+                <h3 style={{ fontWeight: "bold" }}>Productify Refurbished</h3>
                 <p>
                   All items are tested by qualified refurbishers and function as
                   intended.
                 </p>
-                <a style={{ color: "blue" }} href="#">
-                  Learn More
-                </a>
+                
               </div>
             </div>
             <hr />
@@ -347,9 +342,7 @@ function SingleProduct() {
                   only. Your email is shared with Allstate for a frictionless
                   experience.
                 </p>
-                <a style={{ color: "blue" }} href="#">
-                  Learn More
-                </a>
+                
               </div>
             </div>
             <hr />
@@ -359,118 +352,16 @@ function SingleProduct() {
               </div>
               <div>
                 <h3 style={{ fontWeight: "bold" }}>
-                  eBay Money Back Guarantee
+                  Productify Money Back Guarantee
                 </h3>
                 <p>Get the item you ordered or get your money back.</p>
-                <a style={{ color: "blue" }} href="#">
-                  Learn More
-                </a>
+               
               </div>
             </div>
             <hr />
             <h2 style={{ fontWeight: "bold" }}>Seller information</h2>
             <h3>amazing-wireless (127162)</h3>
             <p>99.9% Positive feedback</p>
-          </div>
-        </div>
-        <br />
-        <br />
-        <div>
-          <Carousel />
-          <br />
-          <br />
-          <div>
-            <h1 style={{ fontSize: "18px", color: "blue" }}>Payment</h1>
-            <hr />
-            <Box p={4}>
-              <p>
-                PayPal is the only form of payment accepted and Immediate
-                Payment is required.
-              </p>
-              <p>
-                Unfortunately, transactions cannot be cancelled after payment
-                has been made. Please read the entire description prior to
-                making a purchase.
-              </p>
-              <p>
-                Purchases by resellers are subject to cancellation at our
-                discretion.
-              </p>
-              <p>
-                We have multiple physical locations in the US; residents of
-                these states will be charged tax according to the state they
-                reside in. This information is available at checkout.
-              </p>
-            </Box>
-            <h1 style={{ fontSize: "18px", color: "blue" }}>Shipping</h1>
-            <hr />
-            <Box p={4}>
-              <p>Items ship within 1 business day of cleared payment.</p>
-              <p>
-                Items can only be shipped to the lower 48 United States. FedEx
-                packages cannot be shipped to P.O. Boxes, APO/FPO, Hawaii, Guam,
-                Puerto Rico, or Alaska.
-              </p>
-              <p>
-                We do not ship outside of the United States, or to freight
-                forwarding companies.
-              </p>
-              <p>We do not sell products to resellers.</p>
-              <p>
-                Bidding on or attempting to purchase our items if you live in
-                any of these locations or meet these restrictions will result in
-                your payment being refunded and the transaction canceled.
-              </p>
-              <p>
-                Items are shipped from multiple locations throughout the United
-                States. Combined shipping is not guaranteed even if multiple
-                items are paid with the same payment.
-              </p>
-              <p>Unfortunately, local pick-up is not available.</p>
-              <p>All items above $750 require a signature at delivery.</p>
-              <p>
-                All packages that are returned to us by FedEx as undeliverable
-                are subject to an additional shipping charge to re-ship the
-                item. If we attempt to contact a buyer and do not receive a
-                response within 3 days of receiving the item, the transaction
-                will be subject to cancellation and a restocking fee.
-              </p>
-              <p>
-                Please make sure the ship to address is correct at the time of
-                payment. We are not responsible for packages that are shipped to
-                the incorrect address due to buyer error.
-              </p>
-              <p>
-                In the checkout process, a phone number must be added since our
-                delivery company requires this for all packages.
-              </p>
-            </Box>
-            <h1 style={{ fontSize: "18px", color: "blue" }}>Warranty</h1>
-            <hr />
-            <Box p={4}>
-              <p>
-                For functionality, this item comes with a one year warranty from
-                Quick Ship from the date of delivery. If a problem occurs, we
-                are happy to help you. Please contact us via email with a
-                detailed description of the issue so we can assist.
-              </p>
-              <p>
-                Within the first 30 days, we will send a prepaid shipping label
-                to send the unit back for an exchange (pending availability) or
-                full refund. After 30 days, buyers are responsible for the
-                shipping costs associated with shipping the item back to us.
-              </p>
-              <p>
-                We are unable to issue refunds for transactions older than 30
-                days, but will do our best to either repair your item or provide
-                a comparable replacement.
-              </p>
-              <p>
-                Turnaround time once the non-working item is received is 2-4
-                business days, depending on the issue or the extent of testing
-                required. Please contact us for full warranty details.
-              </p>
-            </Box>
           </div>
         </div>
       </div>
