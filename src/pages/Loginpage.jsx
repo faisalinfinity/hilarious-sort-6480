@@ -36,7 +36,7 @@ export default function Loginpage() {
     auth
       .signInWithPopup(googleProvider)
       .then((res) => {
-        console.log(res.user);
+        console.log(res.user)
         const { displayName, email } = res.user;
         console.log(displayName, email);
         dispatch(loginAction(res.user.providerData, navigate, toast));
@@ -64,11 +64,10 @@ export default function Loginpage() {
   };
 
   const handleSubmit = () => {
-    if (email.includes("@productify") && password === "productify") {
-      navigate("/admin");
-    } else {
-      dispatch(manualSignin(navigate, email, password, toast));
-    }
+    
+
+      dispatch(manualSignin(navigate, email, password, toast))
+    
   };
   return (
     <>

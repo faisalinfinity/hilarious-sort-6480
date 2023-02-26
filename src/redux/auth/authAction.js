@@ -101,7 +101,14 @@ export function manualSignin(navigate, email, password,toast) {
         displayName
       })
       localStorage.setItem("cache", JSON.stringify(obj));
-      navigate("/");
+
+      if (email.includes("@productify.com")) {
+        navigate("/admin")
+      
+      }else{
+        navigate("/");
+      }
+    
       dispatch({
         type: LOGIN,
         payload: [{ email: email, displayName: user.displayName ,uid:uid}],
