@@ -90,10 +90,17 @@ export const cartQuantity = (q, previousCart, el, uid) => (dispatch) => {
 };
 
 export const removeCart = (id, previousCart, uid) => (dispatch) => {
-  addToCartApi(
-    uid,
-    previousCart.filter((item) => item.id !== id)
-  ).then(() => dispatch(getCart(uid)));
+
+  if(id==="complete"){
+    addToCartApi(uid,[]).then(() => dispatch(getCart(uid)));
+  }else{
+    addToCartApi(
+      uid,
+      previousCart.filter((item) => item.id !== id)
+    ).then(() => dispatch(getCart(uid)));
+  }
+  
+
 };
 
 export { cartLoading };

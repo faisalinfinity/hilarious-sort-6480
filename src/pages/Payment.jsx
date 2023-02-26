@@ -46,7 +46,8 @@ import {
     AlertDescription,
   } from '@chakra-ui/react'
 import { useDispatch, useSelector } from "react-redux";
-import { getCart } from "../redux/cart/cartAction";
+import { getCart, removeCart } from "../redux/cart/cartAction";
+import { addOrder, getOrder } from "../redux/order/orderAction";
  
 
 
@@ -84,7 +85,7 @@ import { getCart } from "../redux/cart/cartAction";
       UseRef.current = setInterval(() => {
         setTimer((prev) => {
           if (prev <= 1) {
-              navigate("/dashboard")
+              navigate("/order")
             clearInterval(UseRef.current);
           }
           return prev - 1;
@@ -149,16 +150,32 @@ export default function Payment() {
   const navigate=useNavigate()
   const Redirect=()=>{
     let timeout=setTimeout(()=>{
-        navigate("/cart")
+        navigate("/order")
 
-    },3000)
+    },1000)
   }
 
   const {cart}=useSelector((store)=>store.cart)
   const [item,setItem]=useState(0)
   const [total,setTotal]=useState(0)
  const dispatch=useDispatch()
- const {uid}=useSelector((store)=>store.auth)
+ const {user}=useSelector((store)=>store.auth)
+ const {order}=useSelector((store)=>store.order)
+ const uid=user[0]?.uid
+ const [forcedUpdate,setForcedUpdate]=useState(false)
+ const handlePayment=()=>{
+  const currentDate = new Date();
+  const day = currentDate.getDate().toString().padStart(2, '0');
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+  const year = currentDate.getFullYear().toString();
+  const date = `${day}${month}${year}`;
+  if(uid){
+    dispatch(addOrder(cart,order,uid,date))
+    dispatch(removeCart("complete",[],uid))
+
+  }
+   
+ }
 
   useEffect(()=>{
     setItem(cart.length)
@@ -173,8 +190,10 @@ export default function Payment() {
 
   useEffect(()=>{
    dispatch(getCart(uid))
+   dispatch(getOrder(uid))
   },[uid])
- 
+
+ console.log(order)
   return (
     <>
       
@@ -317,6 +336,7 @@ export default function Payment() {
                 onClick={()=>{
                     setvisible(true)
                     Redirect()
+                    handlePayment()
                 }}
                   loadingText="Submitting"
                   size="lg"
