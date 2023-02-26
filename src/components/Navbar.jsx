@@ -18,6 +18,9 @@ import {
   MenuList,
   MenuButton,
   Menu,
+  VStack,
+  useBreakpointValue,
+  Avatar
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -34,14 +37,23 @@ import {
 } from "react-router-dom";
 import logo from "../constants/logo.png";
 import DownNav from "./DownNavbar";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import "./Navbar.css"
+import { useDispatch, useSelector } from "react-redux";
+import { getCart } from "../redux/cart/cartAction";
+import { logoutAction } from '../redux/auth/authAction';
+import { AiOutlineShoppingCart } from "react-icons/ai";
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const [searchValue, setSearchValue] = useState("");
-  const [category, setCategory] = useState("All Category");
+  const [category, setCategory] = useState("Select Category");
   const [searchparams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const dispatch=useDispatch();
+  const {cart} = useSelector((store)=>store.cart)
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
+  let userName = user[0]?.displayName;
+  let image = user[0]?.photoURL;
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
   };
@@ -49,15 +61,33 @@ export default function WithSubnavigation() {
   const handleMenu = (e) => {
     setCategory(e.target.innerText.toLowerCase());
   };
+  const handleClick = () =>{
+    navigate("/cart")
+  }
 
+   useEffect(()=>{
+    if(user[0]?.uid){
+      dispatch(getCart(user[0].uid))
+    }
+    
+   },[])
+  
   const onSearch = () => {
     navigate(`/${category}?q=${searchValue}`);
   };
 
-  return (
-    <Box>
+return (
+  <Box>
+      <Box className="mobile">
+       <Link to={"/"}>
+            <Image src={logo} w="80px" ml="20px" margin={"auto"} />
+          </Link>
+          
       <SubNavbar />
-      <Flex
+      </Box>
+    <Box  className="desktop">
+      <Flex 
+    
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
@@ -88,17 +118,18 @@ export default function WithSubnavigation() {
           </Link>
 
           <Flex display={{ base: "none", md: "flex" }}>
-            <DesktopNav />
-          </Flex>
+           <DesktopNav /> 
+        </Flex>
           <Flex alignItems="center">
             <Input
               value={searchValue}
               onChange={handleSearch}
               placeholder="Search here anything..."
-              w="600px"
+              w="500px"
               ml="30px"
               border="2px solid black"
               height="44px"
+              margin={"3px"}
             />
             <Menu>
               <MenuButton as={Button} border="2px solid black" height="44px">
@@ -124,20 +155,88 @@ export default function WithSubnavigation() {
               color="white"
               width="120px"
               height="43px"
+               margin={"3px"}
             >
               Search
             </Button>
-            <Button bg="white" mt="4px">
-              Advanced
-            </Button>
+          
+          <Text
+            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+            fontFamily={'heading'}
+            color={useColorModeValue('gray.800', 'white')} >
+     
+          </Text>
+          {!isLoggedIn ? (
+            <Box display={"flex"} w="20%" margin={"3px"}>
+             <Link
+                style={{
+                  color: "blue",
+                  textDecoration: "underline",
+                  marginLeft: "5px",
+                }}
+                to={"/signup"}
+              >
+               <Button bg="blue.700"  height="20px"  width="80px" color="white">Register</Button>
+              </Link>
+            </Box>
+          ) : (
+            <Box key={"Sign In"}  margin={"3px"}>
+              <Popover size={"sm"} trigger={"hover"} placement={"bottom-start"}>
+                <PopoverTrigger>
+                  <Link
+                    p={2}
+                    fontSize={"10px"}
+                    _hover={{
+                      textDecoration: "none",
+                    }}
+                  >
+                  <Text fontWeight={'bold'}> 
+                  Hi! {userName}</Text>  
+                  </Link>
+                </PopoverTrigger>
+
+                <PopoverContent
+                  border={0}
+                  boxShadow={"xl"}
+                  p={4}
+                  rounded={"xl"}
+                  minW={"sm"}
+                >
+                  <VStack>
+                    <Avatar src={image} />
+                    <Text>{userName}</Text>
+                    <Button
+                      onClick={() => {
+                        dispatch(logoutAction());
+                      }}
+                    >
+                      Sign Out
+                    </Button>
+                  </VStack>
+                </PopoverContent>
+              </Popover>
+            </Box>
+          )}
+             <Button
+            as={'a'}
+            display={{ base: 'none', md: 'inline-flex' }}
+            fontSize={'26px'}
+            fontWeight={400}            
+            variant={'link'}
+            _hover={{ bg:"green.200"}}
+            onClick={handleClick}
+            >
+            <AiOutlineShoppingCart /><span style={{fontSize:"15px"}} >{cart?.length===0?"Cart is Empty":cart.length}</span>
+          </Button>
           </Flex>
         </Flex>
       </Flex>
-
-      <Collapse in={isOpen} animateOpacity>
+     
+        <Collapse in={isOpen} animateOpacity>
         <MobileNav />
-      </Collapse>
-      <DownNav />
+        </Collapse>
+        <DownNav /> 
+        </Box>
     </Box>
   );
 }
