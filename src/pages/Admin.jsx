@@ -61,7 +61,6 @@ function Admin() {
     setId(value)
 
 }
-  console.log("id",id)
   const handleGetData = () => {
     axios
       .get(`${BASE_URL}/${category}`)

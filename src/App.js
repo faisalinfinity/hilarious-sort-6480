@@ -5,12 +5,15 @@ import MainRoute from './routes/MainRoute';
 import SingleProduct from './pages/SingleProduct';
 import SearchPage from './pages/SearchPage';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function App() {
   const location=useLocation()
+  const { isLoggedIn,user } = useSelector((state) => state.auth);
+  const email=user[0]?.email
   return (
    <>
-   {location.pathname!=="/admin" && <Navbar></Navbar>}
+   { !email?.includes("@productify.com") &&<Navbar></Navbar>}
    
    <MainRoute/>
   
