@@ -1,17 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-// import Navbar from './components/Navbar';
 import Navbar from './pages/Navbar'
 import MainRoute from './routes/MainRoute';
 import SingleProduct from './pages/SingleProduct';
 import SearchPage from './pages/SearchPage';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  const location=useLocation()
   return (
    <>
-  <Navbar/>
+   {location.pathname!=="/admin" && <Navbar></Navbar>}
    <MainRoute/>
-  
    </>
   );
 }
