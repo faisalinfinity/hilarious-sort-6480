@@ -7,6 +7,7 @@ import {
   Button,
   Container,
   Flex,
+  Grid,
   VStack,
 } from "@chakra-ui/react";
 import style from "../Style/SingleProduct.module.css";
@@ -209,7 +210,7 @@ function SingleProduct() {
               </h1>
             </div>
             <br />
-            <Flex gap={3} alignItems={"center"}>
+            <div className={style.starchild}>
               <div style={{ color: "#DD1E31" }}>
                 <FaHotjar />
               </div>
@@ -219,15 +220,10 @@ function SingleProduct() {
                 </p>
               </div>
               <Flex gap={2}>
-                {/* <div style={{color:"orange"}}><BsStarFill/></div>
-                            <div style={{color:"orange"}}><BsStarFill/></div>
-                            <div style={{color:"orange"}}><BsStarFill/></div>
-                            <div style={{color:"orange"}}><BsStarFill/></div>
-                            <div style={{color:"orange"}}><BsStarFill/></div> */}
                 {Star(data.rating)}
               </Flex>
               <p>{data.rating} products ratings</p>
-            </Flex>
+            </div>
             <hr />
             <div>
               <h3>Condition: Excellent - Refurbished</h3>
@@ -286,13 +282,13 @@ function SingleProduct() {
             <hr />
             <br />
             <div>
-              <Flex gap={5}>
+              <div className={style.freeShipping}>
                 <h2 style={{ color: "#DD1E31", fontWeight: "bold" }}>
                   Free shipping and returns
                 </h2>
                 <h2 style={{ fontWeight: "bold" }}>{data.reviews} watchers</h2>
                 <h2 style={{ fontWeight: "bold" }}>28 sold</h2>
-              </Flex>
+              </div>
             </div>
             <br />
             <div>

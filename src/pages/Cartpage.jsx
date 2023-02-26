@@ -48,13 +48,14 @@ const Cartpage = () => {
     <>
       <div className={style.cart}>
         <h1 className={style.cartHeading}>Shopping Cart</h1>
+        
         <div className={style.cartChild}>
-          {cart?.length===0 && <h1>Cart is Empty</h1>}
+         {cart?.length===0 && <Heading>Cart is Empty</Heading>}
           { 
             cart?.map((el) => {
               return (
                 <div className={style.cartChildfirst}>
-                  <div style={{ width: "25%" }}>
+                  <div >
                     <img
                       className={style.cartChildfirstImage}
                       src={el.image}
@@ -62,12 +63,12 @@ const Cartpage = () => {
                     />
                   </div>
                   <div
-                    style={{
-                      width: "25%",
-                      fontSize: "16px",
-                      fontWeight: "bold",
-                      textAlign: "left",
-                    }}
+                    // style={{
+                    //   width: "25%",
+                    //   fontSize: "16px",
+                    //   fontWeight: "bold",
+                    //   textAlign: "left",
+                    // }}
                   >
                     <h1>
                       {el.title}
@@ -76,11 +77,11 @@ const Cartpage = () => {
                     <p>New with tags</p>
                   </div>
                   <div
-                    style={{
-                      width: "25%",
-                      fontSize: "16px",
-                      fontWeight: "bold",
-                    }}
+                    // style={{
+                    //   width: "25%",
+                    //   fontSize: "16px",
+                    //   fontWeight: "bold",
+                    // }}
                   >
                     <h1>Quantity: {el.quantity}</h1>
                     <br />
@@ -89,11 +90,11 @@ const Cartpage = () => {
                     <p>Shipping</p>
                   </div>
                   <div
-                    style={{
-                      width: "25%",
-                      fontSize: "16px",
-                      fontWeight: "bold",
-                    }}
+                    // style={{
+                    //   width: "25%",
+                    //   fontSize: "16px",
+                    //   fontWeight: "bold",
+                    // }}
                   >
                     <h1>Request total</h1>
                     <hr />
@@ -109,6 +110,7 @@ const Cartpage = () => {
             })}
            
           <div className={style.cartChildsecond}>
+           {cart?.length===0 ? <Heading>Cart is Empty</Heading>:<div>
             <button className={style.cartChildsecondbutton}>
               Go to checkout
             </button>
@@ -129,6 +131,7 @@ const Cartpage = () => {
               <h1>Subtotal</h1>
               <h1>₹{+total+(15*80)}</h1>
             </Flex>
+            </div>}
           </div>
         </div>
         <br />

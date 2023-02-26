@@ -51,6 +51,7 @@ function AdminAddProduct(){
         })
         .then((res)=>{
             console.log(res)
+            alert("Product Added!")
         })
         .catch((err)=>{
             console.log(err)

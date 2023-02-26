@@ -37,6 +37,7 @@ import { getDataElectronic } from "../redux/products/productAction";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { BASE_URL } from "../constants/apiConstants";
 import AdminAddProduct from "../components/AdminAddProduct";
+import AdminTableUser from "../components/AdminTableUser";
 
 
 
@@ -311,12 +312,10 @@ function Admin() {
               </div>
             </TabPanel>
             <TabPanel>
-              {/* <Image
-                boxSize="200px"
-                fit="cover"
-                src="https://images5.alphacoders.com/810/thumbbig-810547.webp"
-              /> */}
               <AdminAddProduct/>
+            </TabPanel>
+            <TabPanel>
+              <AdminTableUser/>
             </TabPanel>
           </TabPanels>
         </Tabs>
