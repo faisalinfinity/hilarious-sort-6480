@@ -117,7 +117,7 @@ const Toys = () => {
  const { isOpen, onOpen, onClose } = useDisclosure()
   const [placement, setPlacement] = React.useState('right')
 
-  const [grid, setGrid] = useState(true);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDataToys());
@@ -128,7 +128,7 @@ const Toys = () => {
     const searchValue = searchParams.get("q");
     const category = searchParams.get("category");
     if (searchValue !== "") {
-      console.log(searchValue);
+     
       dispatch(getDataToys(searchValue));
     }
   }, [location]);

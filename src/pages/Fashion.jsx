@@ -117,7 +117,7 @@ const Fashion = () => {
  const { isOpen, onOpen, onClose } = useDisclosure()
   const [placement, setPlacement] = React.useState('right')
 
-  const [grid, setGrid] = useState(true);
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDataFashion());

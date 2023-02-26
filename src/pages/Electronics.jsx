@@ -122,11 +122,21 @@ const Electronics = () => {
   const [categoryfilter, setCategoryFilter] = useState([]);
   const location = useLocation();
   const [sortValue, setSortValue] = useState("");
-  const [grid, setGrid] = useState(true);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDataElectronic());
   }, []);
+  useEffect(()=>{
+    let params={}
+    if(categoryfilter.length||sortValue.length||startfilter.length){
+      params.category=categoryfilter
+      params.rating=startfilter
+      params.sort=sortValue
+     
+    }
+    setSearchParam(params)
+  },[categoryfilter,startfilter,sortValue])
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -152,6 +162,7 @@ const Electronics = () => {
       const getProductParam = {
         params: {
           category: searchParams.getAll("category"),
+          rating:searchParams.getAll("rating"),
           _sort: "price",
           _order: searchParams.getAll("sort")[0],
         },
@@ -210,17 +221,19 @@ const Electronics = () => {
             value={categoryfilter}
           >
             <Stack direction={"column"}>
-              <Checkbox value={"apple"} colorScheme="green">
-                Iphone
-              </Checkbox>
-              <Checkbox value={"laptop"} colorScheme="green">
-                Laptop
+            <Checkbox value={"tv"} colorScheme="green">
+                Tv
               </Checkbox>
               <Checkbox value={"camera"} colorScheme="green">
                 Camera
               </Checkbox>
-              <Checkbox value={"tv"} colorScheme="green">
-                Tv
+              <Checkbox value={"laptop"} colorScheme="green">
+                Laptop
+              </Checkbox>
+              
+             
+              <Checkbox value={"apple"} colorScheme="green">
+                Iphone
               </Checkbox>
             </Stack>
           </CheckboxGroup>
@@ -286,17 +299,19 @@ const Electronics = () => {
            value={categoryfilter}
           >
             <Stack direction={"column"}>
-              <Checkbox value={"apple"} colorScheme="green">
-                Iphone
-              </Checkbox>
-              <Checkbox value={"laptop"} colorScheme="green">
-                Laptop
+            <Checkbox value={"tv"} colorScheme="green">
+                Tv
               </Checkbox>
               <Checkbox value={"camera"} colorScheme="green">
                 Camera
               </Checkbox>
-              <Checkbox value={"tv"} colorScheme="green">
-                Tv
+              <Checkbox value={"laptop"} colorScheme="green">
+                Laptop
+              </Checkbox>
+              
+             
+              <Checkbox value={"apple"} colorScheme="green">
+                Iphone
               </Checkbox>
             </Stack>
           </CheckboxGroup>
@@ -341,14 +356,6 @@ const Electronics = () => {
 
        
 
-          <Select
-            placeholder="Select option"
-            onChange={(e) => setSortValue(e.target.value)}
-            value={sortValue}
-          >
-            <option value="asc">Low to high</option>
-            <option value="desc">High to low</option>
-          </Select>
 
           {loading ? (
             <Box  style={{width:"100%",marginTop:"30px",display:"flex",justifyContent:"center"}}>
@@ -372,7 +379,7 @@ const Electronics = () => {
                 margin="auto"
 
                   key={item.id}
-                  w="fit-content"
+                
 
                   alignItems="center"
                   justifyContent="center"
