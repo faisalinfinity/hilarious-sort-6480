@@ -970,13 +970,23 @@
       "email": "xyz@gmail.com",
       "cart": [
         {
-          "id": 12,
-          "title": "NEW Canon EOS M100 24.2MP Mirrorless Digital Camera with 15-45mm f/3.5-6.3 IS",
-          "category": "camera",
-          "image": "https://i.ebayimg.com/thumbs/images/g/bgoAAOSwYSJhFCq0/s-l500.jpg",
-          "price": 561.24,
-          "rating": 5,
-          "reviews": 898,
+          "id": 3,
+          "title": "Apple iPad 2 (2nd Generation A1395) WiFi 16GB Black - Good Condition",
+          "category": "apple",
+          "image": "https://i.ebayimg.com/thumbs/images/g/VhoAAOSw8sRj5ZnY/s-l500.jpg",
+          "price": 39.95,
+          "rating": 2,
+          "reviews": 89,
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "title": "Men Classic Fit Long Sleeve Wrinkle Resistant Button Down Premium Dress Shirt",
+          "category": "men",
+          "image": "https://i.ebayimg.com/thumbs/images/g/-IkAAOSwV0tjczL9/s-l500.jpg",
+          "price": 13.59,
+          "rating": 4,
+          "reviews": 789,
           "quantity": 1
         }
       ],

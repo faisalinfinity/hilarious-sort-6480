@@ -109,21 +109,22 @@ function Star({ rating }) {
 
 const Electronics = () => {
   const { products, loading } = useSelector((store) => store.product);
-  
- 
+  const [searchParams, setSearchParam] = useSearchParams();
+  const [categoryfilter, setCategoryFilter] = useState([]);
   const[startfilter,setStarFilter]=useState([])
-  
+  const location = useLocation();
+  const [sortValue, setSortValue] = useState("");
 
  const { isOpen, onOpen, onClose } = useDisclosure()
   const [placement, setPlacement] = React.useState('right')
-
-
-  const [searchParams, setSearchParam] = useSearchParams();
-  const [categoryfilter, setCategoryFilter] = useState([]);
-  const location = useLocation();
-  const [sortValue, setSortValue] = useState("");
   const [grid, setGrid] = useState(true);
   const dispatch = useDispatch();
+
+
+
+  
+ 
+
   useEffect(() => {
     dispatch(getDataElectronic());
   }, []);
@@ -145,6 +146,16 @@ const Electronics = () => {
     setStarFilter(e);
    }
 
+   useEffect(() => {
+    let params = {};
+    if (categoryfilter.length || sortValue.length||startfilter.length) {
+      params.category = categoryfilter;
+      params.rating=startfilter
+      params.sort = sortValue;
+    }
+    setSearchParam(params);
+  }, [categoryfilter, sortValue,startfilter]);
+
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const searchValue = searchParams.get("q");
@@ -152,6 +163,7 @@ const Electronics = () => {
       const getProductParam = {
         params: {
           category: searchParams.getAll("category"),
+          rating:searchParams.getAll("rating"),
           _sort: "price",
           _order: searchParams.getAll("sort")[0],
         },
