@@ -1051,7 +1051,18 @@
       "id": "M8O1H324ZbVOQkXqq4V12PF1sOX2",
       "name": "sk sk",
       "email": "sushant.shekhar1997@gmail.com",
-      "cart": [],
+      "cart": [
+        {
+          "id": 1,
+          "title": "Omega Italy Men's Premium Slim Fit Button Up Long Sleeve Solid Color Dress Shirt",
+          "category": "men",
+          "image": "https://i.ebayimg.com/thumbs/images/g/lw0AAOSwV4FgOC5-/s-l500.jpg",
+          "price": 23.68,
+          "rating": 4,
+          "reviews": 478,
+          "quantity": 1
+        }
+      ],
       "order": []
     }
   ]

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Box,
     Flex,
@@ -22,7 +22,7 @@ import {
     Popover,
     PopoverTrigger,
     PopoverContent,
-    Image,VStack
+    Image,VStack, Input
   } from '@chakra-ui/react';
   import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon, ChevronRightIcon,ChevronDownIcon } from '@chakra-ui/icons';
   import logo from "../constants/logo.png";
@@ -56,6 +56,8 @@ const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose ,onToggle} = useDisclosure();
     const navigate = useNavigate()
+    const [searchValue, setSearchValue] = useState("");
+    const [category, setCategory] = useState("Select Category");
     const {cart} = useSelector((store)=>store.cart)
     let userName = user[0]?.displayName;
   let image = user[0]?.photoURL;
@@ -63,16 +65,25 @@ const Navbar = () => {
   const handleClick = () =>{
     navigate("/cart")
   }
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value);
+  };
 
+  const handleMenu = (e) => {
+    setCategory(e.target.innerText.toLowerCase());
+  };
    useEffect(()=>{
     if(user[0]?.uid){
       dispatch(getCart(user[0].uid))
     }
     
    },[])
+   const onSearch = () => {
+    navigate(`/${category}?q=${searchValue}`);
+  };
   return (
-    <div>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} width={"100%"} px={4}>
+   
+      <Box bg={useColorModeValue('gray.100', 'gray.900')}  px={4}>
          <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -104,6 +115,47 @@ const Navbar = () => {
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
+         <Flex justifyContent={"center"} alignItems={'center'} margin={'auto'}  display={{ base: 'none', md: 'inline-flex' }}>
+            <Input
+              value={searchValue}
+              onChange={handleSearch}
+              placeholder="Search here anything..."
+              w="500px"
+              ml="30px"
+              border="2px solid black"
+              height="44px"
+              margin={"3px"}
+            />
+            <Menu>
+              <MenuButton as={Button} border="2px solid black" height="44px">
+                {category} <ChevronDownIcon />
+              </MenuButton>
+              <MenuList
+                spacing={3}
+                borderTop={"1px solid gray"}
+                h={"185px"}
+                overflowY={"scroll"}
+              >
+                <MenuItem onClick={handleMenu}>Electronic</MenuItem>
+                <MenuItem onClick={handleMenu}>Fashion</MenuItem>
+                <MenuItem onClick={handleMenu}>Toys</MenuItem>
+                <MenuItem onClick={handleMenu}>Home</MenuItem>
+                <MenuItem onClick={handleMenu}>Jewellary</MenuItem>
+                <MenuItem onClick={handleMenu}>Sports</MenuItem>
+              </MenuList>
+            </Menu>
+            <Button
+              onClick={onSearch}
+              bg="blue.500"
+              color="white"
+              width="120px"
+              height="43px"
+               margin={"3px"}
+            >
+              Search
+            </Button>
+            </Flex>
+        
           </Flex>
           
           <Flex alignItems={'center'}>
@@ -144,7 +196,7 @@ const Navbar = () => {
               </MenuButton>
               <MenuList>
                 <MenuItem>Hi! {userName}</MenuItem>
-                <MenuItem>Link 2</MenuItem>
+                <MenuItem><Link to="/order">My Order</Link></MenuItem>
                 <MenuDivider />
                 <MenuItem> <Button
                       onClick={() => {
@@ -200,7 +252,7 @@ const Navbar = () => {
       </Box>
 
      
-    </div>
+    
   )
 }
 const DesktopNav = () => {
@@ -252,20 +304,14 @@ const DesktopNav = () => {
   
   const DesktopSubNav = ({ label, href, subLabel }) => {
     return (
-      <Link
-        href={href}
-        role={'group'}
-        display={'block'}
-        p={2}
-        rounded={'md'}
-        _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+     
         <Stack direction={'row'} align={'center'}>
           <Box>
             <Text
               transition={'all .3s ease'}
               _groupHover={{ color: 'pink.400' }}
               fontWeight={500}>
-              {label}
+            <Link to={href}> {label}</Link> 
             </Text>
             <Text fontSize={'sm'}>{subLabel}</Text>
           </Box>
@@ -280,7 +326,7 @@ const DesktopNav = () => {
             <ChevronRightIcon/>
           </Flex>
         </Stack>
-      </Link>
+      
     );
   };
   
@@ -304,8 +350,7 @@ const DesktopNav = () => {
       <Stack spacing={4} onClick={children && onToggle}>
         <Flex
           py={2}
-          as={Link}
-          href={href ?? '#'}
+      
           justify={'space-between'}
           align={'center'}
           _hover={{
@@ -314,7 +359,7 @@ const DesktopNav = () => {
           <Text
             fontWeight={600}
             color={useColorModeValue('gray.600', 'gray.200')}>
-            {label}
+          <Link to={href}>  {label}</Link>
           </Text>
           {children && (
             <ChevronDownIcon  
@@ -342,7 +387,7 @@ const DesktopNav = () => {
             align={'start'}>
             {children &&
               children.map((child) => (
-                <Link key={child.label} py={2} href={child.href}>
+                <Link key={child.label} py={2} to={child.href}>
                   {child.label}
                 </Link>
               ))}
