@@ -16,12 +16,13 @@ import Jewellary from "../pages/Jewellary";
 import Sports from "../pages/Sports";
 import Admin from "../pages/Admin"
 import MyOrder from "../pages/MyOrder";
+import AdminRoute from "./AdminRoute";
 
 const MainRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />}></Route>
-      <Route path="/admin" element={<Admin/>}/>
+      <Route path="/admin" element={<AdminRoute><Admin/></AdminRoute>}/>
       <Route path="/electronic" element={<Electronics />}></Route>
       <Route path="/electronic/:id" element={<SingleProduct />} />
       <Route path="/fashion" element={<Fashion />}></Route>

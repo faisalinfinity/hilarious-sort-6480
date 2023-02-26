@@ -64,7 +64,7 @@ export default function Signup() {
   const handleSubmit = () => {
     if (Firstname === "" || Lastname === "" || password === "" || email === "")
       alert("Fill all Details First");
-    else dispatch(signup(Firstname + " " + Lastname, email, password,toast));
+    else dispatch(signup(Firstname + " " + Lastname, email, password,toast,navigate));
   };
   return (
     <>

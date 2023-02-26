@@ -52,7 +52,7 @@ export const logoutAction = () => {
   };
 };
 
-export function signup(name, email, password,toast) {
+export function signup(name, email, password,toast,navigate) {
   return async (dispatch, getState) => {
     try {
       const { user } = await firebase
@@ -65,11 +65,12 @@ export function signup(name, email, password,toast) {
     
       toast({
         title: 'Sign Up Successfull.',
-        description: "",
+        description: "Login to Continue",
         status: 'success',
         duration: 2000,
         isClosable: true,
       })
+      navigate("/login")
     } catch (error) {
       // Dispatch an error action
       toast({
