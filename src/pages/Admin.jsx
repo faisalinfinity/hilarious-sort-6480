@@ -38,6 +38,7 @@ import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { BASE_URL } from "../constants/apiConstants";
 import AdminAddProduct from "../components/AdminAddProduct";
 import AdminTableUser from "../components/AdminTableUser";
+import AdminOrder from "../components/AdminOrder";
 
 
 
@@ -316,6 +317,9 @@ function Admin() {
             </TabPanel>
             <TabPanel>
               <AdminTableUser/>
+            </TabPanel>
+            <TabPanel>
+              <AdminOrder/>
             </TabPanel>
           </TabPanels>
         </Tabs>
