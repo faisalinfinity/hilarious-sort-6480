@@ -212,7 +212,7 @@ const Electronics = () => {
 <div className="mobileview">
      
       
-      <FaFilter className="filter" size={"20px"}  onClick={onOpen}/>
+      <Icon as={FaFilter} className="filter" size={"20px"} color='red.500' onClick={onOpen}/>
      
       <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay/>

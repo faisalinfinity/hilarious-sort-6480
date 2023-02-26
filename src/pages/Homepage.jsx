@@ -73,10 +73,11 @@ export default function Homepage() {
   return (
     <>
     <Box
+    margin={"5px"}
       position={'relative'}
       height={'380px'}
-      width={'full'}
-      overflow={'hidden'}>
+     
+     >
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"

@@ -14,7 +14,8 @@ import {
   useBreakpointValue,
   useDisclosure,
   VStack,
-  Avatar
+  Avatar,
+  Image
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -23,12 +24,14 @@ import {
   ChevronRightIcon,
   BellIcon
 } from '@chakra-ui/icons';
+
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import {Link, useNavigate} from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutAction } from '../redux/auth/authAction';
 import { useEffect } from 'react';
 import { cartLoading, getCart } from '../redux/cart/cartAction';
+import logo from "../constants/logo.png";
 
 export default function SubNavbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -52,17 +55,19 @@ const {cart} = useSelector((store)=>store.cart)
   
   return (
     <Box>
+        
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
-        minH={'20px'}
-        height='30px'
+        
+        height='80px'
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.900')}
         align={'center'}>
+        
         <Flex
           flex={{ base: 1, md: 'auto' }}
           ml={{ base: -2 }}
@@ -81,23 +86,11 @@ const {cart} = useSelector((store)=>store.cart)
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')} >
-            Hi!      
+     
           </Text>
           {!isLoggedIn ? (
             <Box display={"flex"} w="20%">
-              <Link
-                style={{
-                  color: "blue",
-                  textDecoration: "underline",
-                  marginLeft: "10px",
-                }}
-                to={"/login"}
-              >
-                {" "}
-                Sigin In{" "}
-              </Link>
-              <Text ml="5px">or</Text>
-              <Link
+             <Link
                 style={{
                   color: "blue",
                   textDecoration: "underline",
@@ -105,7 +98,19 @@ const {cart} = useSelector((store)=>store.cart)
                 }}
                 to={"/signup"}
               >
-                register
+                 <Button
+            as={'a'}
+            display={{ base: 'none', md: 'inline-flex' }}
+            fontSize={'sm'}
+            fontWeight={600}
+            color={'white'}
+            bg={'pink.400'}
+            href={'#'}
+            _hover={{
+              bg: 'pink.300',
+            }}>
+            Sign Up
+          </Button>
               </Link>
             </Box>
           ) : (
@@ -119,7 +124,7 @@ const {cart} = useSelector((store)=>store.cart)
                       textDecoration: "none",
                     }}
                   >
-                    -{userName}
+                  <Text fontWeight={'bold'}> Hi! {userName}</Text>  
                   </Link>
                 </PopoverTrigger>
 
@@ -156,13 +161,13 @@ const {cart} = useSelector((store)=>store.cart)
           spacing={3}
           mr='50px'
           >
-          <Button
+          {/* <Button
             variant={'link'}
             display={{ base: 'none', md: 'inline-flex' }}
             href={'#'}>
             Sell
-          </Button>
-          <Button
+          </Button> */}
+          {/* <Button
             as={'a'}
             display={{ base: 'none', md: 'inline-flex' }}
             variant={'link'}
@@ -170,7 +175,7 @@ const {cart} = useSelector((store)=>store.cart)
             href={'#'}
            >
             Watchlist <ChevronDownIcon />
-          </Button>
+          </Button> */}
         </Stack>
 
         <Stack
@@ -180,13 +185,13 @@ const {cart} = useSelector((store)=>store.cart)
           spacing={2}
           mr='40px'
           >
-          <Button
+          {/* <Button
             as={'a'}
             fontSize={'26px'}
             variant={'link'}
             href={'#'}>
            <BellIcon />
-          </Button>
+          </Button> */}
           <Button
             as={'a'}
             display={{ base: 'none', md: 'inline-flex' }}
@@ -215,6 +220,7 @@ const DesktopNav = () => {
 
   return (
     <Stack direction={'row'} spacing={4}>
+     
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -229,7 +235,7 @@ const DesktopNav = () => {
                   textDecoration: 'none',
                   color: linkHoverColor,
                 }}>
-                {navItem.label}
+             <Text fontWeight={'bold'}>{navItem.label}</Text>   
               </Link>
             </PopoverTrigger>
 
@@ -269,10 +275,10 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           <Text
             transition={'all .3s ease'}
             _groupHover={{ color: 'pink.400' }}
-            fontWeight={500}>
-            {label}
+            fontWeight={'bold'}>
+            <Link to={`${href}`}> {label}</Link>
           </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
+         <Text fontSize={'sm'}>{subLabel}</Text>
         </Box>
         <Flex
           transition={'all .3s ease'}
@@ -310,16 +316,17 @@ const MobileNavItem = ({ label, children, href }) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
+       
         justify={'space-between'}
         align={'center'}
         _hover={{
           textDecoration: 'none',
         }}>
         <Text
-          fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
-          {label}
+        fontWeight={'bold'}
+          color={useColorModeValue('gray.600', 'gray.200')}
+          >
+         {label}
         </Text>
         {children && (
           <Icon
@@ -342,7 +349,7 @@ const MobileNavItem = ({ label, children, href }) => {
           align={'start'}>
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link key={child.label} py={2} to={child.href}>
                 {child.label}
               </Link>
             ))}
@@ -355,33 +362,48 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: 'Daily Deals',
+    label: 'Categories',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
+        label: 'Electronics',
+         href: '/electronic',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
+        label: 'Fashion',
+         href: '/fashion',
+      },
+      {
+        label: 'Toys',
+         href: '/toys',
+      },
+      {
+        label: 'Home',
+         href: '/home',
+      },
+      {
+        label: 'Jewellary',
+         href: '/jewellary',
+      },
+      {
+        label: 'Sports',
+         href: '/sports',
       },
     ],
   },
-  {
-    label: 'Help & Contact',
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
-  }
+  
+  // {
+  //   label: 'Help & Contact',
+  //   children: [
+  //     {
+  //       label: 'Job Board',
+  //       subLabel: 'Find your dream design job',
+  //       href: '#',
+  //     },
+  //     {
+  //       label: 'Freelance Projects',
+  //       subLabel: 'An exclusive list for contract work',
+  //       href: '#',
+  //     },
+  //   ],
+  // }
 ];
