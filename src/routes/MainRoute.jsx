@@ -14,7 +14,8 @@ import Home from "../pages/Home";
 import Toys from "../pages/Toys";
 import Jewellary from "../pages/Jewellary";
 import Sports from "../pages/Sports";
-import Admin from "../pages/Admin";
+import Admin from "../pages/Admin"
+import MyOrder from "../pages/MyOrder";
 
 const MainRoute = () => {
   return (
@@ -54,6 +55,7 @@ const MainRoute = () => {
       ></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="*" element={<h1>404 Page not found</h1>}></Route>
+      <Route path="/order" element={<PrivateRoute><MyOrder/></PrivateRoute>}></Route>
     </Routes>
   );
 };

@@ -4,7 +4,6 @@ let initialState={
     isLoading:false,
     isError:false,
     cart:[],
-    order:[]
 
 }
 

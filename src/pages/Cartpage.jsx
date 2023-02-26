@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "../Style/Cart.module.css";
 import Footer from "../components/Footer";
 import { getCart, removeCart } from "../redux/cart/cartAction";
+import { useNavigate } from "react-router-dom";
 
 const Cartpage = () => {
   const { user } = useSelector((store) => store.auth);
@@ -14,6 +15,7 @@ const Cartpage = () => {
   const dispatch = useDispatch();
   const toast=useToast()
   const [forcedUpdate, setForcedUpdate] = useState(false);
+  const navigate=useNavigate()
   const handleRemove = (id) => {
     dispatch(removeCart(id, cart, uid));
     toast({
@@ -48,13 +50,14 @@ const Cartpage = () => {
     <>
       <div className={style.cart}>
         <h1 className={style.cartHeading}>Shopping Cart</h1>
+        
         <div className={style.cartChild}>
-          {cart?.length===0 && <h1>Cart is Empty</h1>}
+         {cart?.length===0 && <Heading>Cart is Empty</Heading>}
           { 
             cart?.map((el) => {
               return (
                 <div className={style.cartChildfirst}>
-                  <div style={{ width: "25%" }}>
+                  <div >
                     <img
                       className={style.cartChildfirstImage}
                       src={el.image}
@@ -62,12 +65,12 @@ const Cartpage = () => {
                     />
                   </div>
                   <div
-                    style={{
-                      width: "25%",
-                      fontSize: "16px",
-                      fontWeight: "bold",
-                      textAlign: "left",
-                    }}
+                    // style={{
+                    //   width: "25%",
+                    //   fontSize: "16px",
+                    //   fontWeight: "bold",
+                    //   textAlign: "left",
+                    // }}
                   >
                     <h1>
                       {el.title}
@@ -76,11 +79,11 @@ const Cartpage = () => {
                     <p>New with tags</p>
                   </div>
                   <div
-                    style={{
-                      width: "25%",
-                      fontSize: "16px",
-                      fontWeight: "bold",
-                    }}
+                    // style={{
+                    //   width: "25%",
+                    //   fontSize: "16px",
+                    //   fontWeight: "bold",
+                    // }}
                   >
                     <h1>Quantity: {el.quantity}</h1>
                     <br />
@@ -89,11 +92,11 @@ const Cartpage = () => {
                     <p>Shipping</p>
                   </div>
                   <div
-                    style={{
-                      width: "25%",
-                      fontSize: "16px",
-                      fontWeight: "bold",
-                    }}
+                    // style={{
+                    //   width: "25%",
+                    //   fontSize: "16px",
+                    //   fontWeight: "bold",
+                    // }}
                   >
                     <h1>Request total</h1>
                     <hr />
@@ -109,7 +112,8 @@ const Cartpage = () => {
             })}
            
           <div className={style.cartChildsecond}>
-            <button className={style.cartChildsecondbutton}>
+           {cart?.length===0 ? <Heading>Cart is Empty</Heading>:<div>
+            <button onClick={()=>navigate("/payment")} className={style.cartChildsecondbutton}>
               Go to checkout
             </button>
             <br />
@@ -129,6 +133,7 @@ const Cartpage = () => {
               <h1>Subtotal</h1>
               <h1>₹{+total+(15*80)}</h1>
             </Flex>
+            </div>}
           </div>
         </div>
         <br />

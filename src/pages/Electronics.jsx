@@ -109,21 +109,24 @@ function Star({ rating }) {
 
 const Electronics = () => {
   const { products, loading } = useSelector((store) => store.product);
-  
- 
-  const[startfilter,setStarFilter]=useState([])
-  
-
- const { isOpen, onOpen, onClose } = useDisclosure()
-  const [placement, setPlacement] = React.useState('right')
-
-
   const [searchParams, setSearchParam] = useSearchParams();
   const [categoryfilter, setCategoryFilter] = useState([]);
+  const[startfilter,setStarFilter]=useState([])
   const location = useLocation();
   const [sortValue, setSortValue] = useState("");
 
+
+
+ const { isOpen, onOpen, onClose } = useDisclosure()
+  const [placement, setPlacement] = React.useState('right')
+  const [grid, setGrid] = useState(true);
   const dispatch = useDispatch();
+
+
+
+  
+ 
+
   useEffect(() => {
     dispatch(getDataElectronic());
   }, []);
@@ -154,6 +157,16 @@ const Electronics = () => {
   const handleChangestar=(e)=>{
     setStarFilter(e);
    }
+
+   useEffect(() => {
+    let params = {};
+    if (categoryfilter.length || sortValue.length||startfilter.length) {
+      params.category = categoryfilter;
+      params.rating=startfilter
+      params.sort = sortValue;
+    }
+    setSearchParam(params);
+  }, [categoryfilter, sortValue,startfilter]);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
