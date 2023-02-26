@@ -42,7 +42,7 @@ export const loginAction = (payload, navigate,toast) => async (dispatch) => {
     duration: 2000,
     isClosable: true,
   })
-  navigate("/electronic");
+  navigate("/");
 };
 
 export const logoutAction = () => {
