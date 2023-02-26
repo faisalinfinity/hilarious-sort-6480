@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "../Style/Cart.module.css";
 import Footer from "../components/Footer";
 import { getCart, removeCart } from "../redux/cart/cartAction";
+import { useNavigate } from "react-router-dom";
 
 const Cartpage = () => {
   const { user } = useSelector((store) => store.auth);
@@ -14,6 +15,7 @@ const Cartpage = () => {
   const dispatch = useDispatch();
   const toast=useToast()
   const [forcedUpdate, setForcedUpdate] = useState(false);
+  const navigate=useNavigate()
   const handleRemove = (id) => {
     dispatch(removeCart(id, cart, uid));
     toast({
@@ -111,7 +113,7 @@ const Cartpage = () => {
            
           <div className={style.cartChildsecond}>
            {cart?.length===0 ? <Heading>Cart is Empty</Heading>:<div>
-            <button className={style.cartChildsecondbutton}>
+            <button onClick={()=>navigate("/payment")} className={style.cartChildsecondbutton}>
               Go to checkout
             </button>
             <br />
