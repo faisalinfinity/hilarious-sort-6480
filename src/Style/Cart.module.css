@@ -12,7 +12,7 @@
 
 }
 .cartChild{
-    display:flex;
+    display:grid;
     justify-content: center;
     align-items: center;
     
@@ -47,11 +47,83 @@
     background-color:#3182ce;
     color:white;
     font-weight: bold;
-    padding:10px 80px;
+    padding:10px 50px;
     font-size: 18px;
     border-radius: 50px;
 }
 .cartChildsecondbutton:hover{
     background-color:blueviolet;
 
+}
+
+/* media query small screen */
+@media all and (min-width:279px) and (max-width:520px){
+    .cartChildfirst{
+        width:100%;
+        margin: auto;
+        display:grid;
+        grid-template-columns: repeat(1,1fr);
+        gap:10px;
+        font-size: larger;
+        font-weight: bold;
+        margin-top:20px;
+       
+    }
+    .cartChildfirstImage{
+        width:100%;
+    }
+    .cartChildsecond{
+        width: auto;
+        text-align: center;
+        margin:auto;
+        padding:10px;
+        margin-top: 30px;
+       
+    }
+    .cartChildsecondbutton{
+        background-color:#3182ce;
+        color:white;
+        font-weight: bold;
+        padding:10 20px;
+        
+        
+    }
+   
+
+}
+
+/* media query medium screen */
+@media all and (min-width:521px) and (max-width:906px){
+    .cartChildfirst{
+        width:100%;
+        margin: auto;
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        gap:10px;
+        font-size: larger;
+        font-weight: bold;
+        margin-top:20px;
+       
+    }
+    .cartChildfirstImage{
+        width:100%;
+    }
+    .cartChildsecond{
+        width: auto;
+        text-align: center;
+        margin:auto;
+        padding:10px;
+        margin-top: 30px;
+       
+    }
+    .cartChildsecondbutton{
+        background-color:#3182ce;
+        color:white;
+        font-weight: bold;
+        padding:10 20px;
+        
+        
+    }
+    
+    
 }

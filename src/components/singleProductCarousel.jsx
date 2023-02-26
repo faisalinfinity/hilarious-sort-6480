@@ -1,4 +1,4 @@
-
+import style from "../Style/SingleProduct.module.css"
 
 import React, { useRef, useState } from "react";
 // Import Swiper React components
@@ -18,9 +18,9 @@ import { Box } from "@chakra-ui/react";
 
 export default function Carousel() {
   return (
-    <>
+    <div className={style.carouselParent}>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={3}
         spaceBetween={20}
         pagination={{
           clickable: true
@@ -32,7 +32,7 @@ export default function Carousel() {
       > 
       {SingleProductData.map((el)=>(
         <SwiperSlide>
-            <div style={{padding:"20px",textAlign:"left",fontSize:"15px",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
+            <div className={style.carouselDiv} >
               <img style={{height:"200px"}} src={el.image} alt="name" />
               <Box  noOfLines={2}>{el.title}</Box>
               <p>New</p>
@@ -41,6 +41,6 @@ export default function Carousel() {
         </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }
