@@ -22,27 +22,27 @@ const firebaseAuth = getAuth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();
 
-export const loginAction = (payload, navigate,toast) => async (dispatch) => {
+export const loginAction = (payload, navigate, toast) => async (dispatch) => {
   let obj = {
     isLoggedIn: true,
     user: payload,
   };
 
   localStorage.setItem("cache", JSON.stringify(obj));
-  console.log("payload",payload)
-   getUsers(payload[0])
+  console.log("payload", payload);
+  getUsers(payload[0]);
   dispatch({
     type: LOGIN,
     payload: payload,
-  })
+  });
 
   toast({
-    title: 'Login Successfull.',
+    title: "Login Successfull.",
     description: "",
-    status: 'success',
+    status: "success",
     duration: 2000,
     isClosable: true,
-  })
+  });
   navigate("/");
 };
 
@@ -53,7 +53,7 @@ export const logoutAction = () => {
   };
 };
 
-export function signup(name, email, password,toast,navigate) {
+export function signup(name, email, password, toast, navigate) {
   return async (dispatch, getState) => {
     try {
       const { user } = await firebase
@@ -63,113 +63,102 @@ export function signup(name, email, password,toast,navigate) {
         displayName: name,
       });
       // Dispatch a success action
-    
+
       toast({
-        title: 'Sign Up Successfull.',
+        title: "Sign Up Successfull.",
         description: "Login to Continue",
-        status: 'success',
+        status: "success",
         duration: 2000,
         isClosable: true,
-      })
-      navigate("/login")
+      });
+      navigate("/login");
     } catch (error) {
       // Dispatch an error action
       toast({
-        title: 'User Already exist',
+        title: "User Already exist",
         description: "",
-        status: 'error',
+        status: "error",
         duration: 2000,
         isClosable: true,
-      })
+      });
     }
   };
 }
 
-export function manualSignin(navigate, email, password,toast) {
+export function manualSignin(navigate, email, password, toast) {
   return async (dispatch, getState) => {
     try {
       await signInWithEmailAndPassword(firebaseAuth, email, password);
       const user = firebase.auth().currentUser;
-      const uid=user.uid
-      const displayName=user.displayName
+      const uid = user.uid;
+      const displayName = user.displayName;
       // Dispatch a success action
       let obj = {
         isLoggedIn: true,
-        user: [{ email: email, displayName: user.displayName,uid:uid }],
+        user: [{ email: email, displayName: user.displayName, uid: uid }],
       };
       getUsers({
         uid,
         email,
-        displayName
-      })
+        displayName,
+      });
       localStorage.setItem("cache", JSON.stringify(obj));
 
       if (email.includes("@productify.com")) {
-        navigate("/admin")
-      
-      }else{
+        navigate("/admin");
+      } else {
         navigate("/");
       }
-    
+
       dispatch({
         type: LOGIN,
-        payload: [{ email: email, displayName: user.displayName ,uid:uid}],
+        payload: [{ email: email, displayName: user.displayName, uid: uid }],
       });
 
       toast({
-        title: 'Login Successfull.',
+        title: "Login Successfull.",
         description: "",
-        status: 'success',
+        status: "success",
         duration: 2000,
         isClosable: true,
-      })
+      });
     } catch (error) {
       // Dispatch an error action
       toast({
-        title: 'Incorrect Credentials.',
+        title: "Incorrect Credentials.",
         description: "",
-        status: 'error',
+        status: "error",
         duration: 2000,
         isClosable: true,
-      })
+      });
     }
   };
 }
 
-export const getUsers=(user)=>{
- axios.get(`${BASE_URL}/users`)
- .then((res)=>{
-  let flag=false
-  res.data.map((el)=>{
-    if(el.email===user.email){
-      flag=true
+export const getUsers = (user) => {
+  let flag = false;
+  axios.get(`${BASE_URL}/users`).then((res) => {
+    res.data.map((el) => {
+      if (el.email === user.email) {
+        flag = true;
+      }
+      return el;
+    });
+
+    if (!flag) {
+      const UserData = {
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        cart: [],
+        order: [],
+      };
+      axios.post(`${BASE_URL}/users`, UserData).catch((err) => {
+        alert("Error in User post");
+      });
     }
-    return el
-  })
-
-  if(!flag){
-    const UserData={
-      id:user.uid,
-      name:user.displayName,
-      email:user.email,
-      cart:[
-        
-      ],
-      order:[
-
-      ]
-
-     
-    }
-    axios.post(`${BASE_URL}/users`,UserData)
-    .then((res)=>{
-
-    }).catch((err)=>{
-      alert("Error in User post")
-    })
-  }
- })
-}
+  });
+};
 
 // {
 //   date:,

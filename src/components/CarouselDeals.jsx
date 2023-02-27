@@ -211,7 +211,7 @@ export default function CarouselDeals() {
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {data.map((el, index) => (
-          <Card  cursor="pointer" height="380px" ml={10} maxW="sm" _hover={{}}>
+          <Card  key={index} cursor="pointer" height="380px" ml={10} maxW="sm" _hover={{}}>
             <CardBody>
               <Image
                 // ml="20px"
