@@ -4,6 +4,7 @@ import { Sdk } from "../../constants/firebaseConstants";
 import { LOGIN, LOGOUT } from "./authTypes";
 import "firebase/compat/auth";
 import axios from "axios";
+import { BASE_URL } from "../../constants/apiConstants";
 
 firebase.initializeApp({
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -136,13 +137,14 @@ export function manualSignin(navigate, email, password,toast) {
 }
 
 export const getUsers=(user)=>{
- axios.get(`http://localhost:8080/users`)
+ axios.get(`${BASE_URL}/users`)
  .then((res)=>{
   let flag=false
   res.data.map((el)=>{
     if(el.email===user.email){
       flag=true
     }
+    return el
   })
 
   if(!flag){
@@ -159,7 +161,7 @@ export const getUsers=(user)=>{
 
      
     }
-    axios.post(`http://localhost:8080/users`,UserData)
+    axios.post(`${BASE_URL}/users`,UserData)
   }
  })
 }

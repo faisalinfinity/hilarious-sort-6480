@@ -8,6 +8,7 @@ import {
   Text,
   Container,
   Button,
+  useMediaQuery,
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
@@ -41,6 +42,8 @@ export default function Homepage() {
   // buttons as the screen size changes
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '40px' });
+  const [isLargerThan750] = useMediaQuery('(min-width: 750px)')
+
 
   // This list contains all the data for carousels
   // This can be static or loaded from a server
@@ -72,7 +75,7 @@ export default function Homepage() {
 
   return (
     <>
-    <Box
+      {isLargerThan750 && <Box
     margin={"5px"}
       position={'relative'}
       height={'380px'}
@@ -150,7 +153,7 @@ export default function Homepage() {
           </Box>
         ))}
       </Slider>    
-    </Box>
+    </Box>}
       <CarouselDeals />
       <Carousel1 />
       <PopularDestination />

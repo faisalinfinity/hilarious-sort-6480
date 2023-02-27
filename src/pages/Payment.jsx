@@ -48,6 +48,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { getCart, removeCart } from "../redux/cart/cartAction";
 import { addOrder, getOrder } from "../redux/order/orderAction";
+
  
 
 
@@ -55,7 +56,7 @@ import { addOrder, getOrder } from "../redux/order/orderAction";
     const [timer, setTimer] = useState(300);
     const UseRef = useRef(null);
     const navigate=useNavigate()
-  
+    
     const fixTimestr = (time) => {
       return time < 10 ? `0${time}` : time;
     };
@@ -202,8 +203,7 @@ export default function Payment() {
       <Box>
         <AlertTitle>Success!</AlertTitle>
         <AlertDescription>
-         Your Payment has been Successful , We will update your plans in next 24 hrs 
-         Please check Your email for Invoice , Thank You!
+        Order Placed Successfully , Redirecting... to my orders
         </AlertDescription>
       </Box>
       <CloseButton
@@ -215,29 +215,29 @@ export default function Payment() {
       />
     </Alert>:null}
 
-     
-      <Grid
-        templateColumns={{base:"repeat(1,1fr)",lg:"repeat(2,1fr)"}}
+    <Box >
+    <Grid
+      w="100%"
+      m="auto"
+        templateColumns={{base:"repeat(1,1fr)",lg:"50% 50%"}}
         minH={"100vh"}
         align={"center"}
         justify={"center"}
+        justifyContent="center"
+        alignItems={"center"}
         bg={useColorModeValue("gray.50", "gray.800")}
       >
-        <VStack>
-            <br />
-          <HStack>
-        
-          </HStack>
-          <VStack display={"flex"} spacing={"10"}>
-            <Heading>
+        <VStack p="20px">
+          <VStack  display={"flex"} spacing={"10"}>
+            <Heading fontSize={"20px"}>
               Total 
             </Heading>
-            <Center fontWeight={"bold"} fontSize={"15px"}>
+            <Center fontWeight={"bold"} fontSize={"13px"}>
                {item} Items with total cost ₹ {+total+15*80} including delivery charges
               </Center>
             <VStack>
               <Image w="50px" src={cart?.length && cart[0].image} ></Image>
-                  <Text>{cart?.length&&cart[0].title}</Text>
+                  <Text w="60%" flexWrap={"wrap"}>{cart?.length&&cart[0].title}</Text>
                   <Text fontWeight={"bold"}>{cart?.length!==0 && cart.length>1 && "and More Items"}</Text>
             </VStack>
 
@@ -399,6 +399,11 @@ export default function Payment() {
         
         
       </Grid>
+
+    </Box>
+
+     
+     
     </>
   );
 }
