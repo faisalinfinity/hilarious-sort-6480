@@ -162,6 +162,11 @@ export const getUsers=(user)=>{
      
     }
     axios.post(`${BASE_URL}/users`,UserData)
+    .then((res)=>{
+
+    }).catch((err)=>{
+      alert("Error in User post")
+    })
   }
  })
 }
