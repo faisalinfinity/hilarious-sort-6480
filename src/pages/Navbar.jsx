@@ -58,6 +58,7 @@ const NavLink = ({ children }) => (
 );
 
 const Navbar = () => {
+ 
   const { isLoggedIn, user } = useSelector((state) => state.auth);
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -113,9 +114,9 @@ const Navbar = () => {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Link to="/">
-            <Image src={logo} w="80px" ml="20px" margin={"auto"} />
+        <Flex   flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+          <Link  to="/">
+            <Image bg={"white"} borderRadius="10%" src={logo}  w="80px" ml="20px" margin={"auto"} />
           </Link>
 
           <Flex
@@ -165,14 +166,15 @@ const Navbar = () => {
             >
               Search
             </Button>
+           
           </Flex>
         </Flex>
 
-        <Flex   alignItems={"center"}>
-          {/* <Button onClick={toggleColorMode}  margin="3px" width={"20px"} height={"20px"}>
+        <Flex gap="20px"   alignItems={"center"}>
+          <Button onClick={toggleColorMode} >
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                
-              </Button> */}
+              </Button>
 
           {!isLoggedIn ? (
             <Box display={"flex"} w="20%">
