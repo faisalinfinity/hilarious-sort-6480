@@ -153,9 +153,9 @@ export default function CarouselDeals() {
       margin={"auto"}
       mt={20}
     >
-      <Flex>
-        <Text fontWeight={700} fontSize={22} textAlign="left">
-          Daily Deals |
+      <Flex ml="90px" mb="20px">
+        <Text textAlign={"center"} fontWeight={700} fontSize={22} >
+          Daily Deals
         </Text>
         <Link to={"/electronic"}>
           <Text fontWeight={700} fontSize={22} ml={10}>

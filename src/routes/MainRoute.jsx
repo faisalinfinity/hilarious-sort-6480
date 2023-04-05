@@ -14,7 +14,7 @@ import Home from "../pages/Home";
 import Toys from "../pages/Toys";
 import Jewellary from "../pages/Jewellary";
 import Sports from "../pages/Sports";
-import Admin from "../pages/Admin"
+import Admin from "../pages/Admin";
 import MyOrder from "../pages/MyOrder";
 import AdminRoute from "./AdminRoute";
 
@@ -22,7 +22,14 @@ const MainRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />}></Route>
-      <Route path="/admin" element={<AdminRoute><Admin/></AdminRoute>}/>
+      <Route
+        path="/admin"
+        element={
+          <AdminRoute>
+            <Admin />
+          </AdminRoute>
+        }
+      />
       <Route path="/electronic" element={<Electronics />}></Route>
       <Route path="/electronic/:id" element={<SingleProduct />} />
       <Route path="/fashion" element={<Fashion />}></Route>
@@ -56,7 +63,14 @@ const MainRoute = () => {
       ></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="*" element={<h1>404 Page not found</h1>}></Route>
-      <Route path="/order" element={<PrivateRoute><MyOrder/></PrivateRoute>}></Route>
+      <Route
+        path="/order"
+        element={
+          <PrivateRoute>
+            <MyOrder />
+          </PrivateRoute>
+        }
+      ></Route>
     </Routes>
   );
 };

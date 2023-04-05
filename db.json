@@ -1096,6 +1096,27 @@
           "orderId": "2e37jgtJjgbXUeR4lRPIEVkZQJD2Ps"
         }
       ]
+    },
+    {
+      "id": "7CFo0cWbloe7KDFWwr99Z6tkGT53",
+      "name": "Aman Modanwal",
+      "email": "aman@gmail.com",
+      "cart": [],
+      "order": [
+        {
+          "id": 13,
+          "title": "[Mint] Sony Alpha a5000 Digital Mirrorless Camera Body with PZ 16-50mm Lens",
+          "category": "camera",
+          "image": "https://i.ebayimg.com/thumbs/images/g/kwwAAOSwvOxgr12D/s-l500.jpg",
+          "price": 284.99,
+          "rating": 4,
+          "reviews": 78,
+          "quantity": 3,
+          "date": "05032023",
+          "status": "success",
+          "orderId": "7CFo0cWbloe7KDFWwr99Z6tkGT53[c"
+        }
+      ]
     }
   ]
 }

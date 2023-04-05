@@ -29,7 +29,6 @@ export const loginAction = (payload, navigate, toast) => async (dispatch) => {
   };
 
   localStorage.setItem("cache", JSON.stringify(obj));
-  console.log("payload", payload);
   getUsers(payload[0]);
   dispatch({
     type: LOGIN,
@@ -47,7 +46,7 @@ export const loginAction = (payload, navigate, toast) => async (dispatch) => {
 };
 
 export const logoutAction = () => {
-  localStorage.setItem("cache", null);
+  localStorage.setItem("productify-cache", null);
   return {
     type: LOGOUT,
   };
@@ -102,7 +101,7 @@ export function manualSignin(navigate, email, password, toast) {
         email,
         displayName,
       });
-      localStorage.setItem("cache", JSON.stringify(obj));
+      localStorage.setItem("productify-cache", JSON.stringify(obj));
 
       if (email.includes("@productify.com")) {
         navigate("/admin");

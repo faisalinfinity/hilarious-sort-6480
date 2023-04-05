@@ -19,6 +19,7 @@ import CarouselDeals from '../components/CarouselDeals';
 import Carousel1 from '../components/CarouselPoster';
 import PopularDestination from '../components/PopularDestination';
 import BikeCycling from '../components/BikeCycling';
+import { Blue } from '../constants/theme';
 
 // Settings for the slider
 const settings = {
@@ -79,7 +80,9 @@ export default function Homepage() {
     margin={"5px"}
       position={'relative'}
       height={'380px'}
-     
+      w="80%"
+      m="auto"
+      mt={"10px"}
      >
       {/* CSS files for react-slick */}
       <link
@@ -127,10 +130,10 @@ export default function Homepage() {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            objectFit="fill"
+            
             backgroundImage={card.image}>
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="600px" position="relative">
+            <Container size="container.lg" height="1000px" w="400px" position="relative">
               <Stack
                 spacing={6}
                 w={'full'}
@@ -145,9 +148,7 @@ export default function Homepage() {
                 <Text color={'red.800'} fontSize={{ base: 'md', lg: 'lg' }} >
                   {card.text}
                 </Text>
-                <Button  _hover={{bg:"green"}}>
-                  {card.button}
-                </Button>
+               
               </Stack>
             </Container>
           </Box>
